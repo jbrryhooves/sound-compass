@@ -16,6 +16,7 @@
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
+#include "platform/interfaces/IDiag.hpp"
 #include "platform/interfaces/ILed.hpp"
 #include "platform/interfaces/ISPI.hpp"
 //-------------------------------------------------------------------
@@ -31,6 +32,7 @@ namespace board
     class IBoardHardware
     {
     public:
+        platform::IDiag* diag;
         platform::ILed* LED_debugGreen;
         platform::ISPI* spi;
 

@@ -23,6 +23,8 @@
 #include "board/nucleoH743/LED.hpp"
 #include "board/nucleoH743/spi.hpp"
 
+#include "platform/STM32H7/DiagSTM32H7.hpp"
+
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
@@ -40,6 +42,7 @@ namespace board
 
 
     private:
+        platformSTM32::DiagSTM32 _diagSTM32;
         board::nucleoH743::LED _LED_debugGreen;
         board::nucleoH743::SPI _spi;
     };
