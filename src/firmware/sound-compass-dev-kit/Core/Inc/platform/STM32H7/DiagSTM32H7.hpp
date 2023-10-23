@@ -39,8 +39,8 @@ namespace platformSTM32
     class DiagSTM32: public platform::IDiag
     {
     public:
-        static const unsigned int LOG_EXTRAS = 80;
-        static const unsigned int LOG_LENGTH = 120;
+        static const unsigned int LOG_EXTRAS = 180;
+        static const unsigned int LOG_LENGTH = 220;
 
 
         /**
@@ -60,7 +60,11 @@ namespace platformSTM32
         void debug(const char* tag, const char* format, ...);
         void verbose(const char* tag, const char* format, ...);
 
+        void error_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
+        void warn_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
         void info_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
+        void debug_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
+        void verbose_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
 
         void flush(void);
 

@@ -20,13 +20,13 @@
 
 #include "executive/executiveMain.hpp"
 #include "board/interfaces/IBoardHardware.hpp"
+#include "platform/interfaces/IDiag.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
 static const char* TAG = "Exec";
 
-#define DIAG_LINE_INFO(diag, tag, message, ...) diag->info_line(TAG, __BASE_FILE__ , __LINE__,  message,  __VA_ARGS__ );
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
@@ -47,10 +47,12 @@ bool executive::executiveMain::run()
     while (1)
     {
         _hardware->LED_debugGreen->toggleLED();
-        _hardware->diag->info(TAG,  " Toggle at %d\n", __LINE__ );
+        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
+        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
         DIAG_LINE_INFO(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-        printf("printf: %d %d\n", _count++, __LINE__);
-        fflush(stdout);
+        DIAG_LINE_WARN(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+        DIAG_LINE_DEBUG(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 
         osDelay(100);
 
