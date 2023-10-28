@@ -17,12 +17,14 @@
 // Local Includes
 //-------------------------------------------------------------------
 
-//#include "etl/message_packet.h"
+
 
 #include "platform/interfaces/IExecutive.hpp"
 #include "board/interfaces/IBoardHardware.hpp"
 #include "platform/interfaces/IMessageQueue.hpp"
 #include "platform/interfaces/ITimer.hpp"
+
+#include "executive/stateMachine/executiveStateMachine.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -43,17 +45,10 @@ namespace executive
         bool initialise(board::IBoardHardware *hw);
         bool run(void);
 
+
     private:
-        enum class MessageType
-        {
-            DebugHeartBeatMessage, Message2, ButtonPress
-        };
 
-        typedef struct
-        {
-            MessageType type;
-        } Message;
-
+        ExecutiveStateMachine _stateMachine;
         // Injected hardware
         board::IBoardHardware *_hardware;
 
