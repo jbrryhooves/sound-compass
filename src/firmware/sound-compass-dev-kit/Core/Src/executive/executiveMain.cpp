@@ -15,7 +15,6 @@
 // Local Includes
 //-------------------------------------------------------------------
 //#include "etl/queue.h"
-#include "etl/hfsm.h"
 //#include "etl/message_packet.h"
 
 #include "executive/executiveMain.hpp"
@@ -28,6 +27,8 @@
 //-------------------------------------------------------------------
 static const char* TAG = "Exec";
 
+
+
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
@@ -36,9 +37,8 @@ static const char* TAG = "Exec";
 bool executive::executiveMain::initialise(board::IBoardHardware *hardware)
 {
     _hardware = hardware;
-    _stateMachine.SetStates();
 
-    _stateMachine.start();
+    _audioProcessor.initialise(_hardware, _hardware->taskFactory);
 
     return true;
 }
@@ -46,21 +46,23 @@ bool executive::executiveMain::initialise(board::IBoardHardware *hardware)
 bool executive::executiveMain::run()
 {
     uint8_t _count = 0;
+
+    _audioProcessor.start();
+
     while (1)
     {
 
         _hardware->LED_debugGreen->toggleLED();
-        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
-        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+//        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
+//        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
         DIAG_LINE_INFO(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-        DIAG_LINE_WARN(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-        DIAG_LINE_DEBUG(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+//        DIAG_LINE_WARN(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+//        DIAG_LINE_DEBUG(_hardware->diag, TAG,  "Toggle %d\n", _count++);
+//        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 
 
-        _stateMachine.receive(HeartBeatMessage());
 
-        osDelay(100);
+        osDelay(500);
 
     }
 }

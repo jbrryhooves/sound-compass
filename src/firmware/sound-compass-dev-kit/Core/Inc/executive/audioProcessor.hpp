@@ -1,14 +1,14 @@
 /*
- * nucleo-h7432.hpp
+ * audioProcessor.hpp
  *
- *  Created on: Sep 20, 2023
+ *  Created on: Oct 28, 2023
  *      Author: Josh
  */
 
-#ifndef INC_BOARD_NUCLEO_H7432_HPP_
-#define INC_BOARD_NUCLEO_H7432_HPP_
+#ifndef INC_EXECUTIVE_AUDIOPROCESSOR_HPP_
+#define INC_EXECUTIVE_AUDIOPROCESSOR_HPP_
 //-------------------------------------------------------------------
-// Module       : nucleo-h7432.hpp
+// Module       : audioProcessor.hpp
 // Description  : 
 //-------------------------------------------------------------------
 
@@ -16,15 +16,12 @@
 // System Includes
 //-------------------------------------------------------------------
 
+
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
+#include "platform/interfaces/ITask.hpp"
 #include "board/interfaces/IBoardHardware.hpp"
-#include "board/nucleoH743/LED.hpp"
-#include "board/nucleoH743/spi.hpp"
-
-#include "platform/STM32H7/DiagSTM32H7.hpp"
-#include "platform/FreeRTOS/TaskFreeRTOS.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -34,23 +31,33 @@
 // Public
 //-------------------------------------------------------------------
 
-namespace board
+namespace executive
 {
-    class boardNucleoH743: public board::IBoardHardware
+
+    class audioProcessor: public platform::ITask
     {
     public:
-        bool initialise();
 
+        bool initialise(board::IBoardHardware *hardware, platform::ITaskFactory* taskFactory);
+        bool start();
+
+        // ITask
+        void taskMain(void);
+        bool killEnable(bool enable);
 
     private:
-        platformSTM32::DiagSTM32 _diagSTM32;
-        platform::FreeRTOS::TaskFreeRTOSFactory _taskFreeRTOSFactory;
 
-        board::nucleoH743::LED _LED_debugGreen;
-        board::nucleoH743::LED _LED_debugOrange;
-        board::nucleoH743::SPI _spi;
+//        platform::IMessageQueue *_messageQueue;
+//        platform::ITimer *_debugTimer;
+        board::IBoardHardware *_hardware;
+        platform::ITaskFactory* _taskFactory;
+        platform::ITaskFactory::TaskHandle _taskHandle;
+
     };
-}
 
-#endif /* INC_BOARD_NUCLEO_H7432_HPP_ */
+} /* namespace executive */
+
+
+
+#endif /* INC_EXECUTIVE_AUDIOPROCESSOR_HPP_ */
 

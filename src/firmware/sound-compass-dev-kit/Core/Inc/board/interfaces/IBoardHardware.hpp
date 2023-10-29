@@ -19,6 +19,7 @@
 #include "platform/interfaces/IDiag.hpp"
 #include "platform/interfaces/ILed.hpp"
 #include "platform/interfaces/ISPI.hpp"
+#include "platform/interfaces/ITask.hpp"
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
@@ -34,7 +35,10 @@ namespace board
     public:
         platform::IDiag* diag;
         platform::ILed* LED_debugGreen;
+        platform::ILed* LED_debugOrange;
         platform::ISPI* spi;
+        platform::ITaskFactory* taskFactory;
+
 
     };
 }

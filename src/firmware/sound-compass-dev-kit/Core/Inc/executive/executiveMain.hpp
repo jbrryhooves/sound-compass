@@ -17,14 +17,12 @@
 // Local Includes
 //-------------------------------------------------------------------
 
-
-
 #include "platform/interfaces/IExecutive.hpp"
 #include "board/interfaces/IBoardHardware.hpp"
 #include "platform/interfaces/IMessageQueue.hpp"
 #include "platform/interfaces/ITimer.hpp"
 
-#include "executive/stateMachine/executiveStateMachine.hpp"
+#include "executive/audioProcessor.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -48,12 +46,14 @@ namespace executive
 
     private:
 
-        ExecutiveStateMachine _stateMachine;
+
         // Injected hardware
         board::IBoardHardware *_hardware;
 
         platform::IMessageQueue *_messageQueue;
         platform::ITimer *_debugTimer;
+
+        audioProcessor _audioProcessor;
 
     };
 

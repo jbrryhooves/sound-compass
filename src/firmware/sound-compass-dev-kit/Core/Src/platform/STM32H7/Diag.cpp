@@ -23,6 +23,7 @@
 // Definitions
 //-------------------------------------------------------------------
 
+
 #ifdef __GNUC__
 /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
    set to 'Yes') calls __io_putchar() */
@@ -31,6 +32,8 @@
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
 
+
+// log colours copied from https://xdevs.com/guide/color_serial/
 #define LOG_COLOR_E     "\033[1;31m"
 #define LOG_COLOR_W     "\033[1;33m"
 #define LOG_COLOR_I     "\033[1;32m"

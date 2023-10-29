@@ -41,6 +41,22 @@ bool board::boardNucleoH743::initialise()
     }
     LED_debugGreen = &_LED_debugGreen;
 
+    if(!_LED_debugOrange.initialise(LD2_GPIO_Port, LD2_Pin))
+    {
+        // print error
+        return false;
+    }
+    LED_debugOrange= &_LED_debugOrange;
+
+    if(!_taskFreeRTOSFactory.initialise())
+    {
+        // print error
+        return false;
+    }
+    taskFactory = &_taskFreeRTOSFactory;
+
+
+
     diag->info("NucleoHW", "Board init done\n");
 
     return true;
