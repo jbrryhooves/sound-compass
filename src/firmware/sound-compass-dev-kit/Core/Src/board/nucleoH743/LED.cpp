@@ -1,4 +1,3 @@
-
 //-------------------------------------------------------------------
 // Module       : LED.cpp
 // Description  : 
@@ -8,8 +7,6 @@
 // System Includes
 //-------------------------------------------------------------------
 #include <stdint.h>
-
-
 
 //-------------------------------------------------------------------
 // Local Includes
@@ -24,20 +21,20 @@
 // Public
 //-------------------------------------------------------------------
 
-
-bool board::nucleoH743::LED::initialise(GPIO_TypeDef* gpioPort, uint16_t ledPin)
+bool board::nucleoH743::LED::initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin)
 {
-   _gpioPort = gpioPort;
-   _ledPin = ledPin;
+    _gpioPort = gpioPort;
+    _ledPin = ledPin;
 
-   // consider moving init code here, instead of in main.c
+    // consider moving init code here, instead of in main.c
 
-   return true;
+    return true;
 }
 
 void board::nucleoH743::LED::setLED(platform::ILed::LEDState ledState, uint32_t cycles)
 {
-    switch (ledState) {
+    switch (ledState)
+    {
         case platform::ILed::LEDState::OFF:
             ledOn(false);
             break;

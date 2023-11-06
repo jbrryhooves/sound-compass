@@ -16,11 +16,9 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
-
 
 //-------------------------------------------------------------------
 // Definitions
@@ -40,7 +38,7 @@ namespace platform
          *
          * @param name
          */
-        virtual void setName(const char* name) = 0;
+        virtual void setName(const char *name) = 0;
 
         /**
          * @brief Get name of object
@@ -50,8 +48,6 @@ namespace platform
         virtual const char* getName(void) = 0;
     };
 }
-
-
 
 #endif /* INC_PLATFORM_INTERFACES_INAMED_HPP_ */
 

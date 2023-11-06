@@ -1,4 +1,3 @@
-
 //-------------------------------------------------------------------
 // Module       : TimerFreeRTOS.cpp
 // Description  : 
@@ -7,7 +6,6 @@
 //-------------------------------------------------------------------
 // System Includes
 //-------------------------------------------------------------------
-
 
 //-------------------------------------------------------------------
 // Local Includes
@@ -22,15 +20,15 @@
 //-------------------------------------------------------------------
 // C static
 //-------------------------------------------------------------------
-static void _TimerHandler(void* timerArg)
+static void _TimerHandler(void *timerArg)
 {
-    platform::FreeRTOS::TimerFreeRTOS* pThis = (platform::FreeRTOS::TimerFreeRTOS*)timerArg;
+    platform::FreeRTOS::TimerFreeRTOS *pThis = (platform::FreeRTOS::TimerFreeRTOS*) timerArg;
     pThis->timerHandler();
 }
 
 static void _DynamicTimerHandler(TimerHandle_t timer)
 {
-    platform::FreeRTOS::TimerFreeRTOS* pThis = (platform::FreeRTOS::TimerFreeRTOS*)(pvTimerGetTimerID(timer));
+    platform::FreeRTOS::TimerFreeRTOS *pThis = (platform::FreeRTOS::TimerFreeRTOS*) (pvTimerGetTimerID(timer));
     pThis->timerHandler();
 }
 
@@ -57,8 +55,8 @@ bool platform::FreeRTOS::TimerFreeRTOS::stopFromISR(void)
 
 bool platform::FreeRTOS::TimerFreeRTOS::start(unsigned int ms)
 {
-    uint32_t ticks = (TickType_t)(ms / portTICK_PERIOD_MS);
-    return osTimerStart (_handle, ticks) == osOK;
+    uint32_t ticks = (TickType_t) (ms / portTICK_PERIOD_MS);
+    return osTimerStart(_handle, ticks) == osOK;
 }
 
 bool platform::FreeRTOS::TimerFreeRTOS::startFromISR(void)
@@ -81,11 +79,10 @@ bool platform::FreeRTOS::TimerFreeRTOS::setPeriod(unsigned int ms)
     return xTimerChangePeriod(_handle, ms / portTICK_PERIOD_MS, 100);
 }
 
-
 //-------------------------------------------------------------------
 // Publc - INamed
 //-------------------------------------------------------------------
-void platform::FreeRTOS::TimerFreeRTOS::setName(const char* name)
+void platform::FreeRTOS::TimerFreeRTOS::setName(const char *name)
 {
     _name = name;
 }
@@ -98,10 +95,7 @@ const char* platform::FreeRTOS::TimerFreeRTOS::getName(void)
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
-bool platform::FreeRTOS::TimerFreeRTOS::initialise(const char* name,
-                                                 TimerHandle_t handle,
-                                                 platform::ITimer::ITimerListener* listener,
-                                                 void* userData)
+bool platform::FreeRTOS::TimerFreeRTOS::initialise(const char *name, TimerHandle_t handle, platform::ITimer::ITimerListener *listener, void *userData)
 {
     _name = name;
     _handle = handle;
@@ -118,50 +112,44 @@ bool platform::FreeRTOS::TimerFreeRTOSFactory::initialise(void)
     return true;
 }
 
-platform::ITimer* platform::FreeRTOS::TimerFreeRTOSFactory::createTimer(
-    const char* name, unsigned int ms, bool autoRestart, platform::ITimer::ITimerListener* listener, void* userData)
+platform::ITimer* platform::FreeRTOS::TimerFreeRTOSFactory::createTimer(const char *name, unsigned int ms, bool autoRestart, platform::ITimer::ITimerListener *listener,
+        void *userData)
 {
-    TimerFreeRTOS* timer = new TimerFreeRTOS();
+    TimerFreeRTOS *timer = new TimerFreeRTOS();
 
-    TimerHandle_t timerHandle = xTimerCreate(name, (TickType_t)(ms / portTICK_PERIOD_MS), autoRestart, (void*)timer, _DynamicTimerHandler);
+    TimerHandle_t timerHandle = xTimerCreate(name, (TickType_t) (ms / portTICK_PERIOD_MS), autoRestart, (void*) timer, _DynamicTimerHandler);
 
     if (!timer->initialise(name, timerHandle, listener, userData))
     {
-        delete (TimerFreeRTOS*)timer;
+        delete (TimerFreeRTOS*) timer;
         return nullptr;
     }
 
     return timer;
 }
 
-
-
-platform::ITimer* platform::FreeRTOS::TimerFreeRTOSFactory::createTimerStatic(
-    const char* timerName, void *timerControlBlock, unsigned int controlBlockSize,  bool periodic, platform::ITimer::ITimerListener* listener, void* userData)
+platform::ITimer* platform::FreeRTOS::TimerFreeRTOSFactory::createTimerStatic(const char *timerName, void *timerControlBlock, unsigned int controlBlockSize, bool periodic,
+        platform::ITimer::ITimerListener *listener, void *userData)
 {
-    TimerFreeRTOS* timer = new TimerFreeRTOS();
+    TimerFreeRTOS *timer = new TimerFreeRTOS();
 
-    const osTimerAttr_t timerAttributes = {
-      .name = timerName,
-      .cb_mem = timerControlBlock,
-      .cb_size = controlBlockSize,
-    };
+    const osTimerAttr_t timerAttributes =
+    { .name = timerName, .cb_mem = timerControlBlock, .cb_size = controlBlockSize, };
 
-    TimerHandle_t timerHandle = (TimerHandle_t)osTimerNew((osTimerFunc_t)_TimerHandler, periodic ? osTimerPeriodic : osTimerOnce, (void*)timer, &timerAttributes);
+    TimerHandle_t timerHandle = (TimerHandle_t) osTimerNew((osTimerFunc_t) _TimerHandler, periodic ? osTimerPeriodic : osTimerOnce, (void*) timer, &timerAttributes);
 
     if (!timer->initialise(timerName, timerHandle, listener, userData))
     {
-        delete (TimerFreeRTOS*)timer;
+        delete (TimerFreeRTOS*) timer;
         return nullptr;
     }
 
     return timer;
 }
 
-
-bool platform::FreeRTOS::TimerFreeRTOSFactory::destroyTimer(platform::ITimer* timer)
+bool platform::FreeRTOS::TimerFreeRTOSFactory::destroyTimer(platform::ITimer *timer)
 {
-    delete (TimerFreeRTOS*)timer;
+    delete (TimerFreeRTOS*) timer;
     return true;
 }
 

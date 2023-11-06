@@ -28,7 +28,7 @@ namespace platform
     class IExecutive
     {
     public:
-        virtual bool initialise(board::IBoardHardware* hw) = 0;
+        virtual bool initialise(board::IBoardHardware *hw) = 0;
         virtual bool run(void) = 0;
     };
 } // namespace platform

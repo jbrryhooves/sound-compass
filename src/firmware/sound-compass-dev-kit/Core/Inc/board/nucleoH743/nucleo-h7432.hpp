@@ -43,7 +43,6 @@ namespace board
     public:
         bool initialise();
 
-
     private:
         platformSTM32::DiagSTM32 _diagSTM32;
         platform::FreeRTOS::TaskFreeRTOSFactory _taskFreeRTOSFactory;

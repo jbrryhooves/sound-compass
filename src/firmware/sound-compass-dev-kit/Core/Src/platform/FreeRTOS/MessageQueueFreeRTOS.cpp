@@ -1,4 +1,3 @@
-
 //-------------------------------------------------------------------
 // Module       : MessageQueueFreeRTOS.cpp
 // Description  : 
@@ -26,28 +25,28 @@ extern "C"
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
-bool platform::FreeRTOS::MessageQueueFreeRTOS::send(void* message, unsigned int priority, unsigned int timeoutMs)
+bool platform::FreeRTOS::MessageQueueFreeRTOS::send(void *message, unsigned int priority, unsigned int timeoutMs)
 {
     // priority unused
-    return osMessageQueuePut (_messageQueue, message, priority, (TickType_t)(timeoutMs / portTICK_RATE_MS)) == osOK;
+    return osMessageQueuePut(_messageQueue, message, priority, (TickType_t) (timeoutMs / portTICK_RATE_MS)) == osOK;
 }
 
-bool platform::FreeRTOS::MessageQueueFreeRTOS::sendFromISR(void* message, unsigned int priority)
+bool platform::FreeRTOS::MessageQueueFreeRTOS::sendFromISR(void *message, unsigned int priority)
 {
     // priority unused
-    return osMessageQueuePut (_messageQueue, message, priority, 0) == osOK;
+    return osMessageQueuePut(_messageQueue, message, priority, 0) == osOK;
     return false;
 }
 
-bool platform::FreeRTOS::MessageQueueFreeRTOS::receive(void* message, unsigned int* priority, unsigned int timeoutMs)
+bool platform::FreeRTOS::MessageQueueFreeRTOS::receive(void *message, unsigned int *priority, unsigned int timeoutMs)
 {
     // priority unused
-    return osMessageQueueGet (_messageQueue, message, (uint8_t*)priority, (TickType_t)(timeoutMs / portTICK_RATE_MS)) == osOK;
+    return osMessageQueueGet(_messageQueue, message, (uint8_t*) priority, (TickType_t) (timeoutMs / portTICK_RATE_MS)) == osOK;
 }
 
-bool platform::FreeRTOS::MessageQueueFreeRTOS::getNumberOfQueuedItems(unsigned int* count)
+bool platform::FreeRTOS::MessageQueueFreeRTOS::getNumberOfQueuedItems(unsigned int *count)
 {
-    *count = (unsigned int)osMessageQueueGetCount(_messageQueue);
+    *count = (unsigned int) osMessageQueueGetCount(_messageQueue);
     return true;
 }
 
@@ -76,17 +75,13 @@ bool platform::FreeRTOS::MessageQueueFreeRTOS::initialise(unsigned int numberOfI
 }
 
 /// Initialise a statically allocated queue
-bool platform::FreeRTOS::MessageQueueFreeRTOS::initialise(const char* name, void * controlBlock, unsigned int controlBlockSize, void * queueBuffer, unsigned int numberOfItems, unsigned int itemSize)
+bool platform::FreeRTOS::MessageQueueFreeRTOS::initialise(const char *name, void *controlBlock, unsigned int controlBlockSize, void *queueBuffer, unsigned int numberOfItems,
+        unsigned int itemSize)
 {
-    const osMessageQueueAttr_t _queue_attributes = {
-      .name = name,
-      .cb_mem = controlBlock,
-      .cb_size = controlBlockSize,
-      .mq_mem = queueBuffer,
-      .mq_size = numberOfItems * itemSize
-    };
+    const osMessageQueueAttr_t _queue_attributes =
+    { .name = name, .cb_mem = controlBlock, .cb_size = controlBlockSize, .mq_mem = queueBuffer, .mq_size = numberOfItems * itemSize };
 
-    _messageQueue = osMessageQueueNew (numberOfItems, itemSize, &_queue_attributes);
+    _messageQueue = osMessageQueueNew(numberOfItems, itemSize, &_queue_attributes);
     if (_messageQueue == nullptr)
         return false;
     return true;
@@ -100,10 +95,9 @@ bool platform::FreeRTOS::MessageQueueFreeRTOSFactory::initialise(void)
     return true;
 }
 
-
-platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::createMessageQueue(const char* name, unsigned int numberOfItems, unsigned int itemSize)
+platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::createMessageQueue(const char *name, unsigned int numberOfItems, unsigned int itemSize)
 {
-    MessageQueueFreeRTOS* messageQueue = new MessageQueueFreeRTOS();
+    MessageQueueFreeRTOS *messageQueue = new MessageQueueFreeRTOS();
     if (messageQueue == nullptr)
         return nullptr;
 
@@ -115,14 +109,14 @@ platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::create
     return messageQueue;
 }
 
-
-platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::createMessageQueueStatic(const char* name, void * queueBuffer, unsigned int numberOfItems, unsigned int itemSize)
+platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::createMessageQueueStatic(const char *name, void *queueBuffer, unsigned int numberOfItems,
+        unsigned int itemSize)
 {
-    MessageQueueFreeRTOS* messageQueue = new MessageQueueFreeRTOS();
+    MessageQueueFreeRTOS *messageQueue = new MessageQueueFreeRTOS();
     if (messageQueue == nullptr)
         return nullptr;
 
-    StaticQueue_t* _controlBlock = (StaticQueue_t*) calloc(1, sizeof(StaticQueue_t));
+    StaticQueue_t *_controlBlock = (StaticQueue_t*) calloc(1, sizeof(StaticQueue_t));
     if (_controlBlock == nullptr)
     {
         delete messageQueue;
@@ -142,5 +136,4 @@ platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::create
 //-------------------------------------------------------------------
 // Private
 //-------------------------------------------------------------------
-
 

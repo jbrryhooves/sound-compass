@@ -16,7 +16,6 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
@@ -32,7 +31,7 @@
 
 namespace platform
 {
-    class ITimer : public platform::INamed
+    class ITimer: public platform::INamed
     {
     public:
         class ITimerListener
@@ -43,7 +42,7 @@ namespace platform
              *
              * @param userData
              */
-            virtual void onTimer(void* userData) = 0;
+            virtual void onTimer(void *userData) = 0;
         };
 
         /**
@@ -119,8 +118,9 @@ namespace platform
          * @return ITimer* Handle to timer
          */
         virtual ITimer*
-        createTimer(const char* name, unsigned int ms, bool autoRestart, ITimer::ITimerListener* listener, void* userData) = 0;
-        virtual ITimer* createTimerStatic(const char *timerName, void *timerControlBlock, unsigned int controlBlockSize, bool periodic, ITimer::ITimerListener *listener, void *userData) = 0;
+        createTimer(const char *name, unsigned int ms, bool autoRestart, ITimer::ITimerListener *listener, void *userData) = 0;
+        virtual ITimer* createTimerStatic(const char *timerName, void *timerControlBlock, unsigned int controlBlockSize, bool periodic, ITimer::ITimerListener *listener,
+                void *userData) = 0;
 
         /**
          * @brief Destroy timer
@@ -129,11 +129,9 @@ namespace platform
          * @return true
          * @return false
          */
-        virtual bool destroyTimer(ITimer* timer) = 0;
+        virtual bool destroyTimer(ITimer *timer) = 0;
     };
 } // namespace platform
-
-
 
 #endif /* INC_PLATFORM_INTERFACES_ITIMER_HPP_ */
 

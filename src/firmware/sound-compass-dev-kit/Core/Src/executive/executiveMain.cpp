@@ -96,7 +96,6 @@ bool executive::executiveMain::run()
     while (1)
     {
 
-
 //        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
 //        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
         DIAG_LINE_INFO(_hardware->diag, TAG, "Toggle %d\n", _count++);

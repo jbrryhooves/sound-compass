@@ -16,7 +16,6 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
@@ -34,14 +33,12 @@ namespace board
 {
     namespace nucleoH743
     {
-        class SPI : public platform::ISPI
+        class SPI: public platform::ISPI
         {
             void sendBytes();
         };
     }
 }
-
-
 
 #endif /* INC_BOARD_NUCLEOH743_SPI_HPP_ */
 

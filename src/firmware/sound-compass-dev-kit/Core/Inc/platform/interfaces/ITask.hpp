@@ -16,11 +16,9 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
-
 
 //-------------------------------------------------------------------
 // Definitions
@@ -63,9 +61,9 @@ namespace platform
          *
          * @param parameters
          */
-        static void taskHook(void* parameters)
+        static void taskHook(void *parameters)
         {
-            ITask* pThis = (ITask*)parameters;
+            ITask *pThis = (ITask*) parameters;
             pThis->taskMain();
         }
     };
@@ -73,7 +71,7 @@ namespace platform
     class ITaskFactory
     {
     public:
-        typedef void* TaskHandle;
+        typedef void *TaskHandle;
 
         /**
          * @brief Create a Task
@@ -85,10 +83,10 @@ namespace platform
          * @param task
          * @return TaskHandle
          */
-        virtual TaskHandle createTask(const char* taskName, unsigned int stackSize, int priority, unsigned int core, ITask* task) = 0;
+        virtual TaskHandle createTask(const char *taskName, unsigned int stackSize, int priority, unsigned int core, ITask *task) = 0;
 
-
-        virtual TaskHandle createTaskStatic(const char *taskName, void *taskControlBlock, unsigned int controlBlockSize, void *stackMemory, unsigned int stackSize, int priority, ITask *task) = 0;
+        virtual TaskHandle createTaskStatic(const char *taskName, void *taskControlBlock, unsigned int controlBlockSize, void *stackMemory, unsigned int stackSize, int priority,
+                ITask *task) = 0;
 
         /**
          * @brief Kill running task
@@ -100,9 +98,6 @@ namespace platform
         virtual bool killTask(TaskHandle taskHandle) = 0;
     };
 } // namespace platform
-
-
-
 
 #endif /* INC_PLATFORM_INTERFACES_ITASK_HPP_ */
 

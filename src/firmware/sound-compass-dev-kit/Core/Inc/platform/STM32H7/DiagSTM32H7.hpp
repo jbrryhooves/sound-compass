@@ -16,7 +16,6 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
@@ -34,14 +33,13 @@
 namespace platformSTM32
 {
     /*!
-        \brief Controller hardware interface
-    */
+     \brief Controller hardware interface
+     */
     class DiagSTM32: public platform::IDiag
     {
     public:
         static const unsigned int LOG_EXTRAS = 180;
         static const unsigned int LOG_LENGTH = 220;
-
 
         /**
          * @brief Initialise the diagnostics
@@ -49,16 +47,16 @@ namespace platformSTM32
          * @return true success
          * @return false
          */
-        bool initialise(UART_HandleTypeDef* _uartHandle);
+        bool initialise(UART_HandleTypeDef *_uartHandle);
 
         // IDiag
-        void setLevel(const char* tag, IDiag::Level level);
-        void atLevel(IDiag::Level level, const char* tag, const char* format, ...);
-        void error(const char* tag, const char* format, ...);
-        void warn(const char* tag, const char* format, ...);
-        void info(const char* tag, const char* format, ...);
-        void debug(const char* tag, const char* format, ...);
-        void verbose(const char* tag, const char* format, ...);
+        void setLevel(const char *tag, IDiag::Level level);
+        void atLevel(IDiag::Level level, const char *tag, const char *format, ...);
+        void error(const char *tag, const char *format, ...);
+        void warn(const char *tag, const char *format, ...);
+        void info(const char *tag, const char *format, ...);
+        void debug(const char *tag, const char *format, ...);
+        void verbose(const char *tag, const char *format, ...);
 
         void error_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
         void warn_line(const char *tag, const char *file, uint16_t line, const char *format, ...);
@@ -68,15 +66,12 @@ namespace platformSTM32
 
         void flush(void);
 
-
     private:
 
-        UART_HandleTypeDef* _uartHandle;
+        UART_HandleTypeDef *_uartHandle;
         IDiag::Level _logLevel = IDiag::Level::DEBUG_log;
     };
 }
-
-
 
 #endif /* INC_PLATFORM_STM32H7_DIAGSTM32H7_HPP_ */
 

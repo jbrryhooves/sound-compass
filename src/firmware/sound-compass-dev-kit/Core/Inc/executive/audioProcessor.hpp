@@ -16,7 +16,6 @@
 // System Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
@@ -38,12 +37,13 @@ namespace executive
     {
     public:
 
-        class IAudioProcessorListener{
+        class IAudioProcessorListener
+        {
         public:
             virtual void onAudioFrameProcessed(void) = 0;
         };
 
-        bool initialise(board::IBoardHardware *hardware, IAudioProcessorListener* audioProcessedListener, platform::ITaskFactory* taskFactory);
+        bool initialise(board::IBoardHardware *hardware, IAudioProcessorListener *audioProcessedListener, platform::ITaskFactory *taskFactory);
         bool start();
 
         // ITask
@@ -52,18 +52,15 @@ namespace executive
 
     private:
 
-
 //        platform::ITimer *_debugTimer;
         board::IBoardHardware *_hardware;
-        platform::ITaskFactory* _taskFactory;
+        platform::ITaskFactory *_taskFactory;
         platform::ITaskFactory::TaskHandle _taskHandle;
-        IAudioProcessorListener* _audioProcessedListener;
+        IAudioProcessorListener *_audioProcessedListener;
 
     };
 
 } /* namespace executive */
-
-
 
 #endif /* INC_EXECUTIVE_AUDIOPROCESSOR_HPP_ */
 

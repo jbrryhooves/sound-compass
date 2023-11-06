@@ -21,7 +21,6 @@
 // Local Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
@@ -49,7 +48,7 @@ namespace platform
          * @return true
          * @return false
          */
-        virtual bool send(void* message, unsigned int priority = 0, unsigned int timeoutMs = 0) = 0;
+        virtual bool send(void *message, unsigned int priority = 0, unsigned int timeoutMs = 0) = 0;
 
         /**
          * @brief Send message from ISR
@@ -59,7 +58,7 @@ namespace platform
          * @return true
          * @return false error
          */
-        virtual bool sendFromISR(void* message, unsigned int priority = 0) = 0;
+        virtual bool sendFromISR(void *message, unsigned int priority = 0) = 0;
 
         /**
          * @brief Receive message
@@ -71,7 +70,7 @@ namespace platform
          * @return false timeout
          */
         virtual bool
-        receive(void* message, unsigned int* priority = nullptr, unsigned int timeoutMs = DEFAULT_MESSAGE_QUEUE_TIMEOUT_MS) = 0;
+        receive(void *message, unsigned int *priority = nullptr, unsigned int timeoutMs = DEFAULT_MESSAGE_QUEUE_TIMEOUT_MS) = 0;
 
         /**
          * @brief Get the Number Of Queued Items
@@ -80,7 +79,7 @@ namespace platform
          * @return true
          * @return false
          */
-        virtual bool getNumberOfQueuedItems(unsigned int* count) = 0;
+        virtual bool getNumberOfQueuedItems(unsigned int *count) = 0;
     };
 
     class IMessageQueueFactory
@@ -94,13 +93,11 @@ namespace platform
          * @param itemSize
          * @return IMessageQueue*
          */
-        virtual IMessageQueue* createMessageQueue(const char* name, unsigned int numberOfItems, unsigned int itemSize) = 0;
-        virtual IMessageQueue* createMessageQueueStatic(const char* name, void * queueBuffer, unsigned int numberOfItems, unsigned int itemSize) = 0;
+        virtual IMessageQueue* createMessageQueue(const char *name, unsigned int numberOfItems, unsigned int itemSize) = 0;
+        virtual IMessageQueue* createMessageQueueStatic(const char *name, void *queueBuffer, unsigned int numberOfItems, unsigned int itemSize) = 0;
     };
 
 }
-
-
 
 #endif /* INC_PLATFORM_INTERFACES_IMESSAGEQUEUE_HPP_ */
 

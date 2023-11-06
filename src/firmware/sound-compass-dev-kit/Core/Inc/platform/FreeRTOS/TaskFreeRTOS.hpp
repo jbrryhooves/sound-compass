@@ -36,26 +36,25 @@ extern "C"
 
 namespace platform::FreeRTOS
 {
-    class TaskFreeRTOS : public platform::ITask
+    class TaskFreeRTOS: public platform::ITask
     {
     public:
         virtual void taskMain(void) = 0;
     };
 
-    class TaskFreeRTOSFactory : public platform::ITaskFactory
+    class TaskFreeRTOSFactory: public platform::ITaskFactory
     {
     public:
         bool initialise(void);
 
         // ITaskFactory
-        TaskHandle createTask(const char* taskName, unsigned int stackSize, int priority, unsigned int core, ITask* task);
-        TaskHandle createTaskStatic(const char *taskName, void *taskControlBlock, unsigned int controlBlockSize, void *stackMemory, unsigned int stackSize, int priority, ITask *task);
+        TaskHandle createTask(const char *taskName, unsigned int stackSize, int priority, unsigned int core, ITask *task);
+        TaskHandle createTaskStatic(const char *taskName, void *taskControlBlock, unsigned int controlBlockSize, void *stackMemory, unsigned int stackSize, int priority,
+                ITask *task);
 
         bool killTask(TaskHandle taskHandle);
     };
 }
-
-
 
 #endif /* INC_PLATFORM_FREERTOS_TASKFREERTOS_HPP_ */
 

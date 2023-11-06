@@ -22,7 +22,8 @@
 //  Types
 //=========
 
-typedef enum FatalSystemError {
+typedef enum FatalSystemError
+{
     fseUnknown = 0,
 
     fseAssert = 1,    //An assert has failed

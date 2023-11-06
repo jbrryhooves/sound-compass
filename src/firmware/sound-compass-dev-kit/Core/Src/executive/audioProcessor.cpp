@@ -1,4 +1,3 @@
-
 //-------------------------------------------------------------------
 // Module       : audioProcessor.cpp
 // Description  : 
@@ -24,32 +23,24 @@ extern "C"
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
-static const char* TAG = "audioProc";
-
+static const char *TAG = "audioProc";
 
 osThreadId_t audioProcessorTaskHandle;
-uint32_t audioProcessorTaskBuffer[ 1024 ];
+uint32_t audioProcessorTaskBuffer[1024];
 StaticTask_t audioProcessorTaskControlBlock;
-const osThreadAttr_t audioProcessorTask_attributes = {
-  .name = "audioProcessorTask",
-  .cb_mem = &audioProcessorTaskControlBlock,
-  .cb_size = sizeof(audioProcessorTaskControlBlock),
-  .stack_mem = &audioProcessorTaskBuffer[0],
-  .stack_size = sizeof(audioProcessorTaskBuffer),
-  .priority = (osPriority_t) osPriorityAboveNormal,
-};
+const osThreadAttr_t audioProcessorTask_attributes =
+{ .name = "audioProcessorTask", .cb_mem = &audioProcessorTaskControlBlock, .cb_size = sizeof(audioProcessorTaskControlBlock), .stack_mem = &audioProcessorTaskBuffer[0],
+        .stack_size = sizeof(audioProcessorTaskBuffer), .priority = (osPriority_t) osPriorityAboveNormal, };
 
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Private
 //-------------------------------------------------------------------
 
-
-bool executive::audioProcessor::initialise(board::IBoardHardware *hardware, IAudioProcessorListener* audioProcessedListener, platform::ITaskFactory* taskFactory)
+bool executive::audioProcessor::initialise(board::IBoardHardware *hardware, IAudioProcessorListener *audioProcessedListener, platform::ITaskFactory *taskFactory)
 {
     _hardware = hardware;
     _audioProcessedListener = audioProcessedListener;
@@ -61,14 +52,8 @@ bool executive::audioProcessor::initialise(board::IBoardHardware *hardware, IAud
 bool executive::audioProcessor::start()
 {
     _hardware->diag->info(TAG, "Starting..\n");
-    _taskHandle = _taskFactory->createTaskStatic(
-            "audioProcessorTask",
-            &audioProcessorTaskControlBlock,
-            sizeof(audioProcessorTaskControlBlock),
-            &audioProcessorTaskBuffer[0],
-            sizeof(audioProcessorTaskBuffer),
-            osPriorityAboveNormal,
-            this // ITask
+    _taskHandle = _taskFactory->createTaskStatic("audioProcessorTask", &audioProcessorTaskControlBlock, sizeof(audioProcessorTaskControlBlock), &audioProcessorTaskBuffer[0],
+            sizeof(audioProcessorTaskBuffer), osPriorityAboveNormal, this // ITask
             );
 
     if (_taskHandle == nullptr)
@@ -82,9 +67,9 @@ bool executive::audioProcessor::start()
 // ITask
 void executive::audioProcessor::taskMain(void)
 {
-    while(1){
+    while (1)
+    {
 //        printf("audio processor\n");
-
 
         _audioProcessedListener->onAudioFrameProcessed();
 

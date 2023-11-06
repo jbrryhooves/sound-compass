@@ -35,14 +35,13 @@ namespace board
     class IBoardHardware
     {
     public:
-        platform::IDiag* diag;
-        platform::ILed* LED_debugGreen;
-        platform::ILed* LED_debugOrange;
-        platform::ISPI* spi;
-        platform::ITaskFactory* taskFactory;
-        platform::ITimerFactory* timerFactory;
-        platform::IMessageQueueFactory* messageQueueFactory;
-
+        platform::IDiag *diag;
+        platform::ILed *LED_debugGreen;
+        platform::ILed *LED_debugOrange;
+        platform::ISPI *spi;
+        platform::ITaskFactory *taskFactory;
+        platform::ITimerFactory *timerFactory;
+        platform::IMessageQueueFactory *messageQueueFactory;
 
     };
 }

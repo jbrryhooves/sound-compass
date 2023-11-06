@@ -36,7 +36,7 @@ namespace board
 {
     namespace nucleoH743
     {
-        class LED : public platform::ILed
+        class LED: public platform::ILed
         {
         public:
             /**
@@ -46,8 +46,7 @@ namespace board
              * @return true Success
              * @return false
              */
-            bool initialise(GPIO_TypeDef* gpioPort, uint16_t ledPin);
-
+            bool initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin);
 
             // ILed
             void setLED(platform::ILed::LEDState ledState, uint32_t cycles);
@@ -55,14 +54,13 @@ namespace board
 
         private:
 
-            GPIO_TypeDef* _gpioPort;
+            GPIO_TypeDef *_gpioPort;
             uint16_t _ledPin;
             bool ledOn(bool on);
 
         };
     }
 }
-
 
 #endif /* INC_BOARD_NUCLEOH743_LED_HPP_ */
 

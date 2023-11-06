@@ -30,6 +30,4 @@
 //  Interface
 //=============
 
-
-
 #endif /* ASSERT_H_ */

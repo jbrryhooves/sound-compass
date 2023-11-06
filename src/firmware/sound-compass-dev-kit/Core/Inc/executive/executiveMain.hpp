@@ -29,8 +29,6 @@
 // Definitions
 //-------------------------------------------------------------------
 
-
-
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
@@ -47,7 +45,7 @@ namespace executive
         bool run(void);
 
         // ITimerListener
-        void onTimer(void* userData);
+        void onTimer(void *userData);
 
         // IAudioProcessorListener
         void onAudioFrameProcessed(void);
@@ -92,7 +90,6 @@ namespace executive
         TimerData _debugTimerData;
         platform::ITimer *_stateTimer;
         TimerData _stateTimerData;
-
 
         audioProcessor _audioProcessor;
 

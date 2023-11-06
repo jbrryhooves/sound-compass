@@ -26,7 +26,6 @@
 //-------------------------------------------------------------------
 #include <app/StartupApp.hpp>
 
-
 static startup::StartupApp _startupApp;
 extern "C" void executiveStart_c(void)
 {
@@ -46,13 +45,14 @@ void startup::StartupApp::mainLoop(void)
     // choose what hardware we're running on
     board::boardNucleoH743 _nucleoBoard;
 
-    if(!_nucleoBoard.initialise())
+    if (!_nucleoBoard.initialise())
     {
-        while (1);
+        while (1)
+            ;
     }
 
     // Initialise and run application
-    board::IBoardHardware* _hw = &_nucleoBoard;
+    board::IBoardHardware *_hw = &_nucleoBoard;
     if (!_executive.initialise(_hw))
     {
         while (1)
