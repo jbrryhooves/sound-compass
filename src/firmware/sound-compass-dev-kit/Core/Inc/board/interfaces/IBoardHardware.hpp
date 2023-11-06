@@ -20,6 +20,8 @@
 #include "platform/interfaces/ILed.hpp"
 #include "platform/interfaces/ISPI.hpp"
 #include "platform/interfaces/ITask.hpp"
+#include "platform/interfaces/ITimer.hpp"
+#include "platform/interfaces/IMessageQueue.hpp"
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
@@ -38,6 +40,8 @@ namespace board
         platform::ILed* LED_debugOrange;
         platform::ISPI* spi;
         platform::ITaskFactory* taskFactory;
+        platform::ITimerFactory* timerFactory;
+        platform::IMessageQueueFactory* messageQueueFactory;
 
 
     };

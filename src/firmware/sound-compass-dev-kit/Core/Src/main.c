@@ -27,6 +27,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticQueue_t osStaticMessageQDef_t;
+typedef StaticTimer_t osStaticTimerDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -60,6 +62,25 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = sizeof(defaultTaskBuffer),
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for executiveMessageQueue */
+osMessageQueueId_t executiveMessageQueueHandle;
+uint8_t executiveMessageQueueBuffer[ 16 * sizeof( uint16_t ) ];
+osStaticMessageQDef_t myQueue01ControlBlock;
+const osMessageQueueAttr_t executiveMessageQueue_attributes = {
+  .name = "executiveMessageQueue",
+  .cb_mem = &myQueue01ControlBlock,
+  .cb_size = sizeof(myQueue01ControlBlock),
+  .mq_mem = &executiveMessageQueueBuffer,
+  .mq_size = sizeof(executiveMessageQueueBuffer)
+};
+/* Definitions for myTimer01 */
+osTimerId_t myTimer01Handle;
+osStaticTimerDef_t myTimer01ControlBlock;
+const osTimerAttr_t myTimer01_attributes = {
+  .name = "myTimer01",
+  .cb_mem = &myTimer01ControlBlock,
+  .cb_size = sizeof(myTimer01ControlBlock),
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -71,6 +92,7 @@ static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
+void Callback01(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -127,9 +149,17 @@ int main(void)
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
+  /* Create the timer(s) */
+  /* creation of myTimer01 */
+  myTimer01Handle = osTimerNew(Callback01, osTimerPeriodic, NULL, &myTimer01_attributes);
+
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* creation of executiveMessageQueue */
+  executiveMessageQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &executiveMessageQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -456,6 +486,14 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
+}
+
+/* Callback01 function */
+void Callback01(void *argument)
+{
+  /* USER CODE BEGIN Callback01 */
+
+  /* USER CODE END Callback01 */
 }
 
 /**

@@ -68,7 +68,7 @@ namespace platform
          * @return true success
          * @return false
          */
-        virtual bool start(void) = 0;
+        virtual bool start(unsigned int ms) = 0;
 
         /**
          * @brief Start the timer from ISR
@@ -102,6 +102,7 @@ namespace platform
          * @return false
          */
         virtual bool setPeriod(unsigned int ms) = 0;
+
     };
 
     class ITimerFactory
@@ -119,6 +120,7 @@ namespace platform
          */
         virtual ITimer*
         createTimer(const char* name, unsigned int ms, bool autoRestart, ITimer::ITimerListener* listener, void* userData) = 0;
+        virtual ITimer* createTimerStatic(const char *timerName, void *timerControlBlock, unsigned int controlBlockSize, bool periodic, ITimer::ITimerListener *listener, void *userData) = 0;
 
         /**
          * @brief Destroy timer

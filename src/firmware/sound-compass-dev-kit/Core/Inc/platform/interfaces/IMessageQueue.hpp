@@ -35,6 +35,7 @@ namespace platform
 {
     class IMessageQueue
     {
+    public:
         virtual ~IMessageQueue()
         {
         }
@@ -94,6 +95,7 @@ namespace platform
          * @return IMessageQueue*
          */
         virtual IMessageQueue* createMessageQueue(const char* name, unsigned int numberOfItems, unsigned int itemSize) = 0;
+        virtual IMessageQueue* createMessageQueueStatic(const char* name, void * queueBuffer, unsigned int numberOfItems, unsigned int itemSize) = 0;
     };
 
 }

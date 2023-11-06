@@ -49,10 +49,12 @@ const osThreadAttr_t audioProcessorTask_attributes = {
 //-------------------------------------------------------------------
 
 
-bool executive::audioProcessor::initialise(board::IBoardHardware *hardware, platform::ITaskFactory* taskFactory)
+bool executive::audioProcessor::initialise(board::IBoardHardware *hardware, IAudioProcessorListener* audioProcessedListener, platform::ITaskFactory* taskFactory)
 {
-    _hardware  = hardware;
+    _hardware = hardware;
+    _audioProcessedListener = audioProcessedListener;
     _taskFactory = taskFactory;
+
     return true;
 }
 
@@ -83,7 +85,9 @@ void executive::audioProcessor::taskMain(void)
     while(1){
 //        printf("audio processor\n");
 
-        _hardware->LED_debugOrange->toggleLED();
+
+        _audioProcessedListener->onAudioFrameProcessed();
+
         osDelay(70);
 
     }

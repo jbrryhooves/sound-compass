@@ -38,7 +38,12 @@ namespace executive
     {
     public:
 
-        bool initialise(board::IBoardHardware *hardware, platform::ITaskFactory* taskFactory);
+        class IAudioProcessorListener{
+        public:
+            virtual void onAudioFrameProcessed(void) = 0;
+        };
+
+        bool initialise(board::IBoardHardware *hardware, IAudioProcessorListener* audioProcessedListener, platform::ITaskFactory* taskFactory);
         bool start();
 
         // ITask
@@ -47,11 +52,12 @@ namespace executive
 
     private:
 
-//        platform::IMessageQueue *_messageQueue;
+
 //        platform::ITimer *_debugTimer;
         board::IBoardHardware *_hardware;
         platform::ITaskFactory* _taskFactory;
         platform::ITaskFactory::TaskHandle _taskHandle;
+        IAudioProcessorListener* _audioProcessedListener;
 
     };
 

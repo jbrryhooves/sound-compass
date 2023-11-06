@@ -25,6 +25,8 @@
 
 #include "platform/STM32H7/DiagSTM32H7.hpp"
 #include "platform/FreeRTOS/TaskFreeRTOS.hpp"
+#include "platform/FreeRTOS/MessageQueueFreeRTOS.hpp"
+#include "platform/FreeRTOS/TimerFreeRTOS.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -45,6 +47,8 @@ namespace board
     private:
         platformSTM32::DiagSTM32 _diagSTM32;
         platform::FreeRTOS::TaskFreeRTOSFactory _taskFreeRTOSFactory;
+        platform::FreeRTOS::TimerFreeRTOSFactory _timerFreeRTOSFactory;
+        platform::FreeRTOS::MessageQueueFreeRTOSFactory _messageQueueFreeRTOSFactory;
 
         board::nucleoH743::LED _LED_debugGreen;
         board::nucleoH743::LED _LED_debugOrange;

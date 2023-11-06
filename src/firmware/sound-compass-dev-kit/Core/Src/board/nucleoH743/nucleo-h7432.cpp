@@ -55,6 +55,20 @@ bool board::boardNucleoH743::initialise()
     }
     taskFactory = &_taskFreeRTOSFactory;
 
+    if(!_messageQueueFreeRTOSFactory.initialise())
+    {
+        // print error
+        return false;
+    }
+    messageQueueFactory = &_messageQueueFreeRTOSFactory;
+
+    if(!_timerFreeRTOSFactory.initialise())
+    {
+        // print error
+        return false;
+    }
+    timerFactory = &_timerFreeRTOSFactory;
+
 
 
     diag->info("NucleoHW", "Board init done\n");

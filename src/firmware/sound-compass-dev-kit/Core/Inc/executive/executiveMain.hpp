@@ -11,6 +11,7 @@
 //-------------------------------------------------------------------
 // System Includes
 //-------------------------------------------------------------------
+
 #include <stdbool.h>
 
 //-------------------------------------------------------------------
@@ -28,6 +29,8 @@
 // Definitions
 //-------------------------------------------------------------------
 
+
+
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
@@ -35,7 +38,7 @@
 namespace executive
 {
 
-    class executiveMain: public platform::IExecutive
+    class executiveMain: public platform::IExecutive, public executive::audioProcessor::IAudioProcessorListener, public platform::ITimer::ITimerListener
     {
     public:
 
@@ -43,15 +46,53 @@ namespace executive
         bool initialise(board::IBoardHardware *hw);
         bool run(void);
 
+        // ITimerListener
+        void onTimer(void* userData);
+
+        // IAudioProcessorListener
+        void onAudioFrameProcessed(void);
 
     private:
-
-
         // Injected hardware
         board::IBoardHardware *_hardware;
 
+        // Message queue
+        static const unsigned int MESSAGE_QUEUE_SIZE = 10;
+        const unsigned int MESSAGE_PRIORITY_QUIT = 11;
+        const unsigned int MESSAGE_PRIORITY_NORMAL = 0;
+        typedef enum
+        {
+            QUIT, STATE_TRANSIT, STATE_TIMER,
+
+            AUDIO_FRAME_PROCESSED,
+        } MessageType;
+
+        typedef struct
+        {
+            MessageType type;
+            union
+            {
+                char dtmfCode;
+            } data;
+        } Message;
+        Message _messageQueueBuffer[MESSAGE_QUEUE_SIZE];
+
         platform::IMessageQueue *_messageQueue;
+
+        // Timers
+        enum class TimerID
+        {
+            DEBUG_LED,
+        };
+        typedef struct
+        {
+            TimerID timerID;
+        } TimerData;
         platform::ITimer *_debugTimer;
+        TimerData _debugTimerData;
+        platform::ITimer *_stateTimer;
+        TimerData _stateTimerData;
+
 
         audioProcessor _audioProcessor;
 
