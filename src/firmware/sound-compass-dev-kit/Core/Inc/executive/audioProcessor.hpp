@@ -37,10 +37,17 @@ namespace executive
     {
     public:
 
+        typedef struct _ProcessingMetrics
+        {
+            uint32_t fullProcessingTime_ms;
+            uint32_t filterCount;
+        } ProcessingMetrics_t;
+
         class IAudioProcessorListener
         {
         public:
             virtual void onAudioFrameProcessed(void) = 0;
+            virtual void onAudioFrameMetrics(const ProcessingMetrics_t *metrics) = 0;
         };
 
         bool initialise(board::IBoardHardware *hardware, IAudioProcessorListener *audioProcessedListener, platform::ITaskFactory *taskFactory);

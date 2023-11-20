@@ -161,6 +161,11 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM_D1
+  
+ .my_data :
+{
+    KEEP(*(.my_data))
+} >DTCMRAM
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

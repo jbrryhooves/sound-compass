@@ -53,6 +53,11 @@ bool executive::executiveMain::initialise(board::IBoardHardware *hardware)
 
     _debugTimerData.timerID = TimerID::DEBUG_LED;
     _debugTimer = _hardware->timerFactory->createTimerStatic("debug", &_debugTimerControlBlock, sizeof(_debugTimerControlBlock), true, this, &_debugTimerData);
+    if (_debugTimer == nullptr)
+    {
+        _hardware->diag->error(TAG, "Could not create debug timer");
+        return false;
+    }
 
     _audioProcessor.initialise(_hardware, this, _hardware->taskFactory);
 
@@ -62,7 +67,20 @@ bool executive::executiveMain::initialise(board::IBoardHardware *hardware)
 void executive::executiveMain::onAudioFrameProcessed(void)
 {
 //    DIAG_LINE_VERBOSE(_hardware->diag, TAG, "[audio frame processed]", "");
-    _hardware->LED_debugOrange->toggleLED();
+
+    Message m;
+    m.type = MessageType::AUDIO_FRAME_PROCESSED;
+    _messageQueue->send(&m, MESSAGE_PRIORITY_NORMAL);
+
+}
+
+void executive::executiveMain::onAudioFrameMetrics(const executive::audioProcessor::ProcessingMetrics_t *metrics)
+{
+    Message m;
+    m.type = MessageType::AUDIO_FRAME_METRICS;
+    m.data.metrics = *metrics;
+    _messageQueue->send(&m, MESSAGE_PRIORITY_NORMAL);
+
 }
 
 //-------------------------------------------------------------------
@@ -78,9 +96,9 @@ void executive::executiveMain::onTimer(void *userData)
     {
         case TimerID::DEBUG_LED:
 //            DIAG_LINE_VERBOSE(_hardware->diag, TAG, "[DEBUG_LED]\n", "");
-            _hardware->LED_debugGreen->toggleLED();
-            m.type = MessageType::STATE_TIMER;
-//            _messageQueue->send(&m, MESSAGE_PRIORITY_NORMAL);
+
+            m.type = MessageType::DEBUG_LED;
+            _messageQueue->send(&m, MESSAGE_PRIORITY_NORMAL);
             break;
 
     }
@@ -89,21 +107,40 @@ void executive::executiveMain::onTimer(void *userData)
 bool executive::executiveMain::run()
 {
     uint8_t _count = 0;
+    Message _message;
 
-    _debugTimer->start(2000);
+    _hardware->diag->info(TAG, "Running...\n");
+
+    _debugTimer->start(500);
     _audioProcessor.start();
 
     while (1)
     {
-
+        if (_messageQueue->receive(&_message, nullptr, 1000))
+        {
+            switch (_message.type)
+            {
+                case MessageType::DEBUG_LED:
+                    _hardware->LED_debugGreen->toggleLED();
 //        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
 //        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-        DIAG_LINE_INFO(_hardware->diag, TAG, "Toggle %d\n", _count++);
+//                    DIAG_LINE_INFO(_hardware->diag, TAG, "Toggle %d\n", _count++);
 //        DIAG_LINE_WARN(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 //        DIAG_LINE_DEBUG(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 //        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-
-        osDelay(500);
+                    break;
+                case MessageType::AUDIO_FRAME_PROCESSED:
+                    _hardware->LED_debugOrange->toggleLED();
+                    break;
+                case MessageType::AUDIO_FRAME_METRICS:
+                    _hardware->diag->info(TAG, "Frame metrics: \n filter count: %d\n full time:%d\n", _message.data.metrics.filterCount,
+                            _message.data.metrics.fullProcessingTime_ms);
+                    break;
+                default:
+                    _hardware->diag->error(TAG, "Unhandled message type: %d\n", _message.type);
+                    break;
+            }
+        }
 
     }
 }

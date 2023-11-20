@@ -126,7 +126,10 @@ platform::IMessageQueue* platform::FreeRTOS::MessageQueueFreeRTOSFactory::create
     if (!messageQueue->initialise(name, _controlBlock, sizeof(StaticQueue_t), queueBuffer, numberOfItems, itemSize))
     {
         delete messageQueue;
-        delete _controlBlock;
+        if (_controlBlock != nullptr)
+        {
+            delete _controlBlock;
+        }
 
         return nullptr;
     }

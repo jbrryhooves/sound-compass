@@ -49,6 +49,7 @@ namespace executive
 
         // IAudioProcessorListener
         void onAudioFrameProcessed(void);
+        void onAudioFrameMetrics(const executive::audioProcessor::ProcessingMetrics_t *metrics);
 
     private:
         // Injected hardware
@@ -61,8 +62,9 @@ namespace executive
         typedef enum
         {
             QUIT, STATE_TRANSIT, STATE_TIMER,
-
+            DEBUG_LED,
             AUDIO_FRAME_PROCESSED,
+            AUDIO_FRAME_METRICS
         } MessageType;
 
         typedef struct
@@ -70,7 +72,7 @@ namespace executive
             MessageType type;
             union
             {
-                char dtmfCode;
+                executive::audioProcessor::ProcessingMetrics_t metrics;
             } data;
         } Message;
         Message _messageQueueBuffer[MESSAGE_QUEUE_SIZE];
