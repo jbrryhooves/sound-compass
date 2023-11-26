@@ -14,16 +14,20 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
         ILogger<SignalGenerator> _logger;
 
         const double SAMPLE_RATE = 48000;
-        const int NUM_MICS = 16;
+        const int NUM_MICS = 15;
 
         BlockingCollection<double>[] _signalQueues = new BlockingCollection<double>[NUM_MICS];
-        double[]  _micDelays = new double[NUM_MICS];
-        
+        double[]  _micDelays = {4.65833019e-04,  3.09529203e-04, -7.98564162e-05, -4.09108525e-04,
+       -4.30293571e-04, -1.27458781e-04,  2.71355071e-04,  8.73436911e-04,
+        6.49980897e-04,  4.57748888e-05, -5.85245428e-04, -8.73436911e-04,
+       -6.49980897e-04, -4.57748888e-05,  5.85245428e-04 };
+
 
         public SignalGenerator(ILogger<SignalGenerator> logger, IServiceProvider serviceProvider)
         {
             _logger = logger;
-            _spiDriver = new SPI_FT232H(4);
+            //_spiDriver = new SPI_FT232H(4);
+            _spiDriver = new SPI_Dummy();
             _SPIMutex = new Mutex(false, "Hone.Autoloader.SPIMutex");
 
             Task.Run(async () => await StartSignalgenerators());
@@ -38,29 +42,32 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
             for (int i = 0; i < NUM_MICS; i++)//
             {
                 _signalQueues[i] = new BlockingCollection<double>(1000);
-                _micDelays[i] = (double)(i+ 1) / 1000 ;
+                //_micDelays[i] = (double)(i+ 1) / 1000 ;
 
                 int micIndex = i;
                 Task.Run(() =>
                 {
                     Console.WriteLine($"starting {micIndex}");
-                    GenerateSignals(micIndex, 1234.0, _micDelays[micIndex], _generatorCTS);
+                    double delay_s = _micDelays[micIndex] - _micDelays.Min();
+                    GenerateSignals(micIndex, 1234.0, delay_s, _generatorCTS);
 
                 });
+                await Task.Delay(100);
 
             }
+            await Task.Delay(2000);
             var _hardwareStatusPollingTask = Task.Run(() => GeneratorLoop(_generatorCTS));
         }
 
         async Task GenerateSignals(int micIndex, double freq, double delay_s, CancellationTokenSource cts)
         {
-            int delaySamples = (int)(delay_s * SAMPLE_RATE);
+            int delaySamples = Math.Max((int)(delay_s * SAMPLE_RATE), 1);
             BlockingCollection<double> _delayQueue = new BlockingCollection<double>(delaySamples);
             for (int i = 0; i < delaySamples; i++)
             {
                 _delayQueue.Add(0);
             }
-            Console.WriteLine($"mic {micIndex} started with {delay_s} delay.");
+            Console.WriteLine($"mic {micIndex} sample generator started with {delay_s} delay.");
 
             try
             {
@@ -100,7 +107,7 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
             Stopwatch sw = new Stopwatch();
 
 
-            const int TX_BUFFER_LENGTH_ms = 10;
+            const int TX_BUFFER_LENGTH_ms = 20;
             // The number of bytes per channel
             const int CHANNEL_TX_BUFFER_SIZE_samples = TX_BUFFER_LENGTH_ms * (int)SAMPLE_RATE / 1000 ;
             const int CHANNEL_TX_BUFFER_SIZE_bytes = TX_BUFFER_LENGTH_ms * (int)SAMPLE_RATE / 1000 * 3;
@@ -108,8 +115,10 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
 
             var txBytes = new byte[TX_BUFFER_SIZE];
             Array.Fill(txBytes, (byte)0xcc);
-            
 
+            double[][] allMicSamples = new double[NUM_MICS][];
+
+            await Task.Delay(2000);
             sw.Start();
             int count = 0;
             while (!cts.IsCancellationRequested)
@@ -118,22 +127,28 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
                 Console.WriteLine($"Starting loop...");
                 while (true)
                 {
-                    if (sw.ElapsedTicks >= 99800)   // 100000 ticks = 10ms
+                    if (sw.ElapsedTicks >= 200000)   // 100000 ticks = 10ms
                     {
+                        try
+                        {
+
+                        
                         sw.Restart();
-                        TransmitSamples(ref txBytes, TX_BUFFER_SIZE);
+                        //TransmitSamples(ref txBytes, TX_BUFFER_SIZE);
 
                         //Parallel.For(0, NUM_MICS, (mic, state) =>
                         for (int mic = 0; mic < NUM_MICS; mic++)
                         {
+                            allMicSamples[mic] = new double[CHANNEL_TX_BUFFER_SIZE_samples];
                             double[] channelSamples = new double[CHANNEL_TX_BUFFER_SIZE_samples];
 
                             for (int i = 0; i < CHANNEL_TX_BUFFER_SIZE_samples; i++)//CHANNEL_TX_BUFFER_SIZE_samples
                             {
                                 double sample_d = 0.8;
                                 if (!_signalQueues[mic].TryTake(out sample_d, 1000))
-                                    Console.WriteLine("");
+                                    Console.WriteLine($"sample take failed for mic {mic}");
                                 channelSamples[i] = sample_d;
+                                allMicSamples[mic][i] = sample_d;
 
                                 UInt64 sample_i = (UInt64)(sample_d * 0xFFFFFF);
                                 txBytes[mic * CHANNEL_TX_BUFFER_SIZE_bytes + i * 3 + 0] = (byte)((sample_i >> 0) & 0xFF);
@@ -143,6 +158,12 @@ namespace jbrry.SoundCompass.Tools.MicSignalGenerator
 
                         }
                         //);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            throw;
+                        }
 
 
                         count++;

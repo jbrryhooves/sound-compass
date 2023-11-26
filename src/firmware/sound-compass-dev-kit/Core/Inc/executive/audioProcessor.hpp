@@ -37,11 +37,25 @@ namespace executive
     {
     public:
 
+        // Number of IEC 61260-1-2014 1/3 octave filter bands covering band 14 (25Hz centre freq) to band 43 (20kHz centre freq)
+        const static uint8_t FILTER_BANDS = 30;
+
         typedef struct _ProcessingMetrics
         {
             uint32_t fullProcessingTime_ms;
-            uint32_t filterCount;
+            uint32_t timestamp;
+            // The steered angle of the radial filter set
+            float steeringAngle;
+            uint8_t filterCount;
+            // the filter results for this steered angle
+            float radialFilterSet[FILTER_BANDS];
+            // the filter results for the centre mic
+            float centreFilterSet[FILTER_BANDS];
+
         } ProcessingMetrics_t;
+
+
+
 
         class IAudioProcessorListener
         {

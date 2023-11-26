@@ -133,7 +133,7 @@ bool executive::executiveMain::run()
                     _hardware->LED_debugOrange->toggleLED();
                     break;
                 case MessageType::AUDIO_FRAME_METRICS:
-                    _hardware->diag->info(TAG, "Frame metrics: \n filter count: %d\n full time:%d\n", _message.data.metrics.filterCount,
+                    _hardware->diag->info(TAG, "Frame metrics: \n filter count: %lu\n full time:%lu\n", _message.data.metrics.filterCount,
                             _message.data.metrics.fullProcessingTime_ms);
                     break;
                 default:

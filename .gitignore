@@ -3,3 +3,5 @@ src/research/signal-generator/MicSignalGenerator/SignalGenerator/bin
 src/research/signal-generator/MicSignalGenerator/SignalGenerator/obj
 src/research/signal-generator/MicSignalGenerator/MicSignalGenerator/obj
 src/firmware/sound-compass-dev-kit/Debug
+src/firmware/sound-compass-dev-kit/Release
+calc/~$*.xlsx

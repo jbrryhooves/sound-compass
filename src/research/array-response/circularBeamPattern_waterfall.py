@@ -19,16 +19,16 @@ ARRAY_RADIUS_inner = 0.16    # meters
 
 
 # Define the array geometry
-microphone_positions_outer = np.array([
-    [ARRAY_RADIUS * np.cos(2 * np.pi * i_outer / NUM_MICS_outer), ARRAY_RADIUS * np.sin(2 * np.pi * i_outer / NUM_MICS_outer)]
-    for i_outer in range(NUM_MICS_outer)
-])
 microphone_positions_inner =  np.array([
     [ARRAY_RADIUS_inner * np.cos(2 * np.pi * i / NUM_MICS_inner), ARRAY_RADIUS_inner * np.sin(2 * np.pi * i / NUM_MICS_inner)]
     for i in range(NUM_MICS_inner)
 ])
+microphone_positions_outer = np.array([
+    [ARRAY_RADIUS * np.cos(2 * np.pi * i_outer / NUM_MICS_outer), ARRAY_RADIUS * np.sin(2 * np.pi * i_outer / NUM_MICS_outer)]
+    for i_outer in range(NUM_MICS_outer)
+])
 
-microphone_positions = np.concatenate((microphone_positions_outer, microphone_positions_inner))
+microphone_positions = np.concatenate((microphone_positions_inner,microphone_positions_outer, ))
 
 
 def generate_beam_pattern(freq: float, thetaCount:int):
@@ -90,6 +90,12 @@ def calculate_array_factor(steering_angle_deg: float, frequency_hz: float):
     steering_delays_s = np.dot(microphone_positions, np.array([np.cos(steering_angle_radians), np.sin(steering_angle_radians)])) / c
     steering_delays_wavelenths = steering_delays_s  / (1/frequency_hz)
     # print(f"steering_delays: {steering_delays_s}") 
+
+    sampleDelays = steering_delays_s*sample_rate
+    # print(f"Max delay: {max(steering_delays_s)*1000}ms, {max(steering_delays_s)*sample_rate}samples ")
+    # print(f"Steering delays: {np.round(sampleDelays)}samples ")
+    # print(f"Steering delay errors: {sampleDelays - np.round(sampleDelays)}samples ")
+    # print(f"Steering delay errors %: {(sampleDelays - np.round(sampleDelays))*100/max(sampleDelays)}samples ")
 
     af = np.exp(-1j * np.pi * steering_delays_wavelenths) # array factor
 
