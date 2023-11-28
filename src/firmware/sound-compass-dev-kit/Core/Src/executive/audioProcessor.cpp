@@ -267,6 +267,7 @@ void SumMicSignals()
 
             sampleSum += (float32_t) micSignals[m][SteeringDelays_samples[m] - minDelay + i] - (1 << 23); // shift the signal to be centred around 0
         }
+//        arm_add_f32(pSrcA, pSrcB, pDst, blockSize)
         pSrc[i] = sampleSum / fullScaleConversion;
         centreMic[i] = ((float32_t) mic1[i] - (1 << 23)) / (1 << 24);
     }
@@ -314,7 +315,6 @@ void executive::audioProcessor::taskMain(void)
     uint32_t start, stop, diff;
     while (1)
     {
-//        printf("audio processor\n");
         ProcessingMetrics_t _metrics = { .filterCount = filterCount };
 
         _audioProcessedListener->onAudioFrameProcessed();
@@ -324,6 +324,7 @@ void executive::audioProcessor::taskMain(void)
             CalculateSteeringDelays(steeringAngle);
 //            printf("angle = %f\n", steeringAngle);
             SumMicSignals();
+
             for (int i = 0; i < filterCount; i++)
             {
                 arm_biquad_cascade_df2T_f32(iir_instances[i], pSrc, pDst, _summedBlockSize);
@@ -338,7 +339,6 @@ void executive::audioProcessor::taskMain(void)
 
         stop = HAL_GetTick();
         
-
         diff = stop - start;
 
         _metrics.fullProcessingTime_ms = diff;
@@ -346,7 +346,7 @@ void executive::audioProcessor::taskMain(void)
         _metrics.filterCount = filterCount;
 
         _audioProcessedListener->onAudioFrameMetrics(&_metrics);
-        osDelay(10);
+        osDelay(500);
 
         count++;
         if (count % 1 == 0)
