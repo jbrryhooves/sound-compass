@@ -1,10 +1,11 @@
 #pragma once
 
-#include <audioProcessor/audioProcessor.hpp>
+#include <interfaces/IProcessedAudioResultListener.hpp>
+#include <audioProcessor/beamProcessor.hpp>
 
 
 namespace audioProcessor {
-class App
+class App : public IProcessedAudioResultListener
 {
   public:
     App(){}
@@ -16,8 +17,11 @@ class App
     /// </summary>
     void run();
 
+    // IProcessedAudioResultListener
+    void OnProcessedAudioResult(beamProcessor::ProcessResult result);
+
   private:
-    audioProcessor _processor;
+    beamProcessor _processor;
 };
 
 }

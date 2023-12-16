@@ -1,4 +1,4 @@
-add_executable(intro main.cpp "audioProcessor.cpp" )
+add_executable(intro main.cpp "beamProcessor.cpp" "app.cpp" )
 
 target_link_libraries(
   intro
@@ -12,17 +12,16 @@ target_link_system_libraries(
           fmt::fmt
           spdlog::spdlog
           kfr
+          #threadpool
           
-
-          #lefticus::tools
-          #ftxui::screen
-          #ftxui::dom
-          #ftxui::component
 )
 
 target_include_directories(intro PRIVATE 
 
 "${CMAKE_BINARY_DIR}/configured_files/include"
 "${PROJECT_SOURCE_DIR}/include"
+#"${thread_pool_SOURCE_DIR}/include"
+"${PROJECT_SOURCE_DIR}/libs/thread-pool/include"
+
 
 )
