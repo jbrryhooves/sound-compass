@@ -34,13 +34,25 @@ namespace platform
     {
     public:
 
+        class ISPIListener
+        {
+        public:
+            virtual void onBytesReceived(uint8_t *buff, uint32_t len) = 0;
+            virtual void onDMATxBuffEmpy(void) = 0;
+            virtual void onDMARxTxHalfComplete(void) = 0;
+            virtual void onDMARxTxComplete(void) = 0;
+        };
+
         /**
-         * @brief Set LED state
+         * @brief
          *
-         * @param ledState
-         * @param cycles Number of cycles (0=infinite)
+         * @param
+         * @param
          */
-        virtual void sendBytes() = 0;
+        virtual bool transmitReceiveDMA(const uint8_t *pTxData, uint8_t *pRxData, uint16_t size) = 0;
+        virtual void registerListener(ISPIListener *listener) = 0;
+
+
 
     };
 

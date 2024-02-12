@@ -40,6 +40,13 @@ _estack = ORIGIN(RAM_D1) + LENGTH(RAM_D1);    /* end of RAM */
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */
 
+
+_MicRxDataSize = 0x7800; /* required amount for mic SPI DMA mic data. 
+    0x7800 = data for 10ms of data for 16 mics at 48kHz sample rate
+    16 (mics) x 4 (bytes/mic/sample) * 48000 * 0.01
+    
+*/
+
 /* Specify the memory areas */
 MEMORY
 {
@@ -174,6 +181,17 @@ SECTIONS
     . = ABSOLUTE(0x30040200);
     *(.Rx_PoolSection)  
   } >RAM_D2
+
+  
+  .mic_interface_sec :
+  {
+    /* . = ABSOLUTE(0x38000000); */
+    *(.RxMicDataSection) 
+    
+    /* . = ABSOLUTE(0x38000000 + _MicRxDataSize);*/
+    /* *(.TxMicDataSection) */
+      
+  } >RAM_D3
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

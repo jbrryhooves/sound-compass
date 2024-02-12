@@ -5,8 +5,8 @@
  *      Author: Josh
  */
 
-#ifndef INC_PLATFORM_STM32H7_DIAGSTM32H7_HPP_
-#define INC_PLATFORM_STM32H7_DIAGSTM32H7_HPP_
+#ifndef INC_PLATFORM_STM32_HAL_DIAGSTM32H7_HPP_
+#define INC_PLATFORM_STM32_HAL_DIAGSTM32H7_HPP_
 //-------------------------------------------------------------------
 // Module       : DiagSTM32H7.hpp
 // Description  : 
@@ -30,7 +30,7 @@
 // Public
 //-------------------------------------------------------------------
 
-namespace platformSTM32
+namespace platform::stm32hal
 {
     /*!
      \brief Controller hardware interface
@@ -73,5 +73,5 @@ namespace platformSTM32
     };
 }
 
-#endif /* INC_PLATFORM_STM32H7_DIAGSTM32H7_HPP_ */
+#endif /* INC_PLATFORM_STM32_HAL_DIAGSTM32H7_HPP_ */
 

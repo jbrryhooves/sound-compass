@@ -38,7 +38,7 @@ namespace board
         platform::IDiag *diag;
         platform::ILed *LED_debugGreen;
         platform::ILed *LED_debugOrange;
-        platform::ISPI *spi;
+        platform::ISPI *SPI;
         platform::ITaskFactory *taskFactory;
         platform::ITimerFactory *timerFactory;
         platform::IMessageQueueFactory *messageQueueFactory;

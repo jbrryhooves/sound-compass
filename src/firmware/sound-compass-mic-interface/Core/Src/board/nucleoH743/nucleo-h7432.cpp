@@ -20,6 +20,9 @@
 // declared in main.c
 // TODO: change CubeMX to not generate init code, and put it in here instead.
 extern UART_HandleTypeDef huart3;
+extern SPI_HandleTypeDef hspi1;
+extern DMA_HandleTypeDef hdma_spi1_rx;
+extern DMA_HandleTypeDef hdma_spi1_tx;
 
 //-------------------------------------------------------------------
 // Public
@@ -46,6 +49,16 @@ bool board::boardNucleoH743::initialise()
         return false;
     }
     LED_debugOrange = &_LED_debugOrange;
+
+    if (!_SPI.initialise(&hspi1, &hdma_spi1_rx, &hdma_spi1_tx))
+    {
+        // print error
+        return false;
+    }
+    SPI = &_SPI;
+
+
+
 
     if (!_taskFreeRTOSFactory.initialise())
     {

@@ -1,14 +1,14 @@
 /*
- * spi.hpp
+ * constants.hpp
  *
- *  Created on: Sep 21, 2023
+ *  Created on: Feb 12, 2024
  *      Author: Josh
  */
 
-#ifndef INC_BOARD_NUCLEOH743_SPI_HPP_
-#define INC_BOARD_NUCLEOH743_SPI_HPP_
+#ifndef INC_EXECUTIVE_CONSTANTS_HPP_
+#define INC_EXECUTIVE_CONSTANTS_HPP_
 //-------------------------------------------------------------------
-// Module       : spi.hpp
+// Module       : constants.hpp
 // Description  : 
 //-------------------------------------------------------------------
 
@@ -16,29 +16,26 @@
 // System Includes
 //-------------------------------------------------------------------
 
+
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
-#include "platform/interfaces/ISPI.hpp"
+
 
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
+#define NUMBER_OF_MICS          16
+#define SAMPLE_RATE_Hz          48000
+#define BUFFER_LENGTH_ms        10
 
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
 
-namespace board
-{
-    namespace nucleoH743
-    {
-        class SPI: public platform::ISPI
-        {
-            void sendBytes();
-        };
-    }
-}
 
-#endif /* INC_BOARD_NUCLEOH743_SPI_HPP_ */
+
+
+
+#endif /* INC_EXECUTIVE_CONSTANTS_HPP_ */
 

@@ -46,10 +46,6 @@ const osThreadAttr_t tcpServerTask_attributes = { .name = "tcpServerTask", .cb_m
 //-------------------------------------------------------------------
 
 
-static void tcp_receive_thread_method(void *arg);
-static void tcp_transmit_thread_method(void *arg);
-
-
 // @formatter:off
 // @formatter:on
 // =============================================================
@@ -60,7 +56,6 @@ bool executive::tcpServer::initialise(board::IBoardHardware *hardware, ITCPServe
     _hardware = hardware;
     _tcpServerListener = tcpServerListener;
     _taskFactory = taskFactory;
-
 
     _hardware->diag->info(TAG, "TCP Server init\n");
     return true;
@@ -82,10 +77,24 @@ bool executive::tcpServer::start()
     return true;
 }
 
+executive::tcpServer::TCPError executive::tcpServer::sendBytes(uint8_t *data, size_t length, int8_t *internalError)
+{
+    if (_newClientConnection != NULL)
+    {
+        if (err_t ret = netconn_write(_newClientConnection, data, length, NETCONN_COPY); ret != 0)
+        {
+            *internalError = (int8_t) ret;
+            return executive::tcpServer::TCPError::LwIPFailure;
+        }
+    }
+    return executive::tcpServer::TCPError::Ok;
+}
+
+
 // ITask
 void executive::tcpServer::taskMain(void)
 {
-    static struct netconn *conn, *newClientConnection;
+    static struct netconn *conn;
     static struct netbuf *buf;
     static ip_addr_t *clientIPAddress;
     static unsigned short clientPort;
@@ -111,17 +120,17 @@ void executive::tcpServer::taskMain(void)
             while (1)
             {
                 /* Grab new connection. */
-                accept_err = netconn_accept(conn, &newClientConnection);
+                accept_err = netconn_accept(conn, &_newClientConnection);
 
                 /* Process the new connection. */
                 if (accept_err == ERR_OK)
                 {
                     int len = sprintf(smsg, "welcome \n");
 
-                    netconn_write(newClientConnection, smsg, len, NETCONN_COPY);  // send the message back to the client
+                    netconn_write(_newClientConnection, smsg, len, NETCONN_COPY);  // send the message back to the client
 
                     /* receive the data from the client */
-                    while (netconn_recv(newClientConnection, &buf) == ERR_OK)
+                    while (netconn_recv(_newClientConnection, &buf) == ERR_OK)
                     {
                         /* Extrct the address and port in case they are required */
                         clientIPAddress = netbuf_fromaddr(buf);  // get the address of the client
@@ -137,7 +146,7 @@ void executive::tcpServer::taskMain(void)
                             // Or modify the message received, so that we can send it back to the client
                             int len = sprintf(smsg, "\"%s\" was sent by the Server\n", msg);
 
-                            netconn_write(newClientConnection, smsg, len, NETCONN_COPY);  // send the message back to the client
+                            netconn_write(_newClientConnection, smsg, len, NETCONN_COPY);  // send the message back to the client
                             memset(msg, '\0', 100);  // clear the buffer
                         } while (netbuf_next(buf) > 0);
 
@@ -145,9 +154,9 @@ void executive::tcpServer::taskMain(void)
                     }
 
                     /* Close connection and discard connection identifier. */
-                    netconn_close(newClientConnection);
-                    netconn_delete(newClientConnection);
-                    newClientConnection = NULL;
+                    netconn_close(_newClientConnection);
+                    netconn_delete(_newClientConnection);
+                    _newClientConnection = NULL;
                 }
             }
         }

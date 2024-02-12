@@ -5,8 +5,8 @@
  *      Author: Josh
  */
 
-#ifndef INC_BOARD_NUCLEOH743_LED_HPP_
-#define INC_BOARD_NUCLEOH743_LED_HPP_
+#ifndef INC_PLATFORM_STM32_HAL_LED_HPP_
+#define INC_PLATFORM_STM32_HAL_LED_HPP_
 //-------------------------------------------------------------------
 // Module       : Led.hpp
 // Description  : 
@@ -32,34 +32,33 @@
 // Public
 //-------------------------------------------------------------------
 
-namespace board
+namespace platform::stm32hal
 {
-    namespace nucleoH743
+
+    class LED: public platform::ILed
     {
-        class LED: public platform::ILed
-        {
-        public:
-            /**
-             * @brief Initialise LED
-             *
-             * @param ledPin GPIO for LED
-             * @return true Success
-             * @return false
-             */
-            bool initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin);
+    public:
+        /**
+         * @brief Initialise LED
+         *
+         * @param ledPin GPIO for LED
+         * @return true Success
+         * @return false
+         */
+        bool initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin);
 
-            // ILed
-            void setLED(platform::ILed::LEDState ledState, uint32_t cycles);
-            void toggleLED();
+        // ILed
+        void setLED(platform::ILed::LEDState ledState, uint32_t cycles);
+        void toggleLED();
 
-        private:
+    private:
 
-            GPIO_TypeDef *_gpioPort;
-            uint16_t _ledPin;
-            bool ledOn(bool on);
+        GPIO_TypeDef *_gpioPort;
+        uint16_t _ledPin;
+        bool ledOn(bool on);
 
-        };
-    }
+    };
+
 }
 
 #endif /* INC_BOARD_NUCLEOH743_LED_HPP_ */

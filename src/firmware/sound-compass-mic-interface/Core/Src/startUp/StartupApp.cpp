@@ -40,10 +40,10 @@ void startup::StartupApp::mainLoop(void)
 {
 
     // choose which application to run
-    executive::executiveMain _executive;
+    static executive::executiveMain _executive;
 
     // choose what hardware we're running on
-    board::boardNucleoH743 _nucleoBoard;
+    static board::boardNucleoH743 _nucleoBoard;
 
     if (!_nucleoBoard.initialise())
     {

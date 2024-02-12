@@ -19,11 +19,10 @@
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
+#include <platform/STM32_HAL/DiagSTM32H7.hpp>
+#include <platform/STM32_HAL/SPI.hpp>
 #include "board/interfaces/IBoardHardware.hpp"
-#include "board/nucleoH743/LED.hpp"
-#include "board/nucleoH743/spi.hpp"
-
-#include "platform/STM32H7/DiagSTM32H7.hpp"
+#include "platform/STM32_HAL/LED.hpp"
 #include "platform/FreeRTOS/TaskFreeRTOS.hpp"
 #include "platform/FreeRTOS/MessageQueueFreeRTOS.hpp"
 #include "platform/FreeRTOS/TimerFreeRTOS.hpp"
@@ -44,14 +43,14 @@ namespace board
         bool initialise();
 
     private:
-        platformSTM32::DiagSTM32 _diagSTM32;
+        platform::stm32hal::DiagSTM32 _diagSTM32;
         platform::FreeRTOS::TaskFreeRTOSFactory _taskFreeRTOSFactory;
         platform::FreeRTOS::TimerFreeRTOSFactory _timerFreeRTOSFactory;
         platform::FreeRTOS::MessageQueueFreeRTOSFactory _messageQueueFreeRTOSFactory;
 
-        board::nucleoH743::LED _LED_debugGreen;
-        board::nucleoH743::LED _LED_debugOrange;
-        board::nucleoH743::SPI _spi;
+        platform::stm32hal::LED _LED_debugGreen;
+        platform::stm32hal::LED _LED_debugOrange;
+        platform::stm32hal::SPI _SPI;
     };
 }
 

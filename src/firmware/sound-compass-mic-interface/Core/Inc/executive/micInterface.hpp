@@ -5,10 +5,10 @@
  *      Author: Josh
  */
 
-#ifndef INC_EXECUTIVE_TCPSERVER_HPP_
-#define INC_EXECUTIVE_TCPSERVER_HPP_
+#ifndef INC_EXECUTIVE_MIC_INTERFACE_HPP_
+#define INC_EXECUTIVE_MIC_INTERFACE_HPP_
 //-------------------------------------------------------------------
-// Module       : tcpServer.hpp
+// Module       : micInterface.hpp
 // Description  : 
 //-------------------------------------------------------------------
 
@@ -20,7 +20,11 @@
 // Local Includes
 //-------------------------------------------------------------------
 #include "platform/interfaces/ITask.hpp"
+#include "platform/interfaces/IMessageQueue.hpp"
 #include "board/interfaces/IBoardHardware.hpp"
+#include "platform/interfaces/ISPI.hpp"
+
+#include "executive/messages.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -33,53 +37,47 @@
 namespace executive
 {
 
-    class tcpServer: public platform::ITask
+    class micInterface: public platform::ISPI::ISPIListener
     {
     public:
 
-        typedef struct _txByteArrayMessage
-        {
-            uint32_t arrayLength;
-            uint8_t *array;
-
-        } txByteArrayMessage;
-
-        enum class TCPError
+        enum class MicInterfaceError
         {
             Ok,
-            NoClientConnected,
-            Timeout,
-            InitFailure,
-            LwIPFailure
+
         };
 
-        class ITCPServerListener
+        class IMicInterfaceListener
         {
         public:
-            virtual void onControlCommandReceived(void) = 0;
-            virtual void onServerError(TCPError error) = 0;
+            virtual void onError(MicInterfaceError error) = 0;
         };
 
-        bool initialise(board::IBoardHardware *hardware, ITCPServerListener *tcpServerListener, platform::ITaskFactory *taskFactory);
+        bool initialise(board::IBoardHardware *hardware, IMicInterfaceListener *micInterfaceListener, platform::IMessageQueue *rawMicDataQueue);
         bool start();
 
-        TCPError sendBytes(uint8_t *data, size_t length, int8_t *internalError);
+        // ISPIListener
+        void onBytesReceived(uint8_t *buff, uint32_t len);
+        void onDMATxBuffEmpy(void);
+        void onDMARxTxHalfComplete(void);
+        void onDMARxTxComplete(void);
 
-        // ITask
-        void taskMain(void);
-        bool killEnable(bool enable);
+
+        static const uint8_t MIC_BUFFER_MESSAGE_QUEUE_SIZE = 2;
 
     private:
 
 //        platform::ITimer *_debugTimer;
         board::IBoardHardware *_hardware;
-        platform::ITaskFactory *_taskFactory;
-        platform::ITaskFactory::TaskHandle _taskHandle;
-        ITCPServerListener *_tcpServerListener;
 
-        platform::IMessageQueue *_rawMicDataQueue;
+        IMicInterfaceListener *_micInterfaceListener;
+        platform::IMessageQueue *_messageQueue;
 
-        struct netconn *_newClientConnection;
+        platform::ISPI *_spiPort;
+
+        // store the actual raw data here
+        messages::MicArrayRawDataMessage _micDataBuffer[MIC_BUFFER_MESSAGE_QUEUE_SIZE];
+        uint8_t _currentBufferIndex = 0;
 
     };
 

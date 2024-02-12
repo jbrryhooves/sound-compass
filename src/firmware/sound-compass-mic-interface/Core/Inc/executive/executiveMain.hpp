@@ -23,7 +23,10 @@
 #include "platform/interfaces/IMessageQueue.hpp"
 #include "platform/interfaces/ITimer.hpp"
 
+
 #include "executive/tcpServer.hpp"
+#include "executive/micInterface.hpp"
+#include "executive/messages.hpp"
 
 
 //-------------------------------------------------------------------
@@ -37,9 +40,13 @@
 namespace executive
 {
 
-    class executiveMain: public platform::IExecutive, public executive::tcpServer::ITCPServerListener, public platform::ITimer::ITimerListener
+    class executiveMain: public platform::IExecutive,
+            public executive::tcpServer::ITCPServerListener,
+            public platform::ITimer::ITimerListener,
+            public executive::micInterface::IMicInterfaceListener
     {
     public:
+
 
         // IExecutive
         bool initialise(board::IBoardHardware *hw);
@@ -52,32 +59,23 @@ namespace executive
         void onControlCommandReceived(void);
         void onServerError(executive::tcpServer::TCPError error);
 
+        // IMicInterfaceListener
+        void onError(executive::micInterface::MicInterfaceError error);
+
     private:
         // Injected hardware
         board::IBoardHardware *_hardware;
 
         // Message queue
-        static const unsigned int MESSAGE_QUEUE_SIZE = 10;
+        static const unsigned int MESSAGE_QUEUE_SIZE = 4;
         const unsigned int MESSAGE_PRIORITY_QUIT = 11;
         const unsigned int MESSAGE_PRIORITY_NORMAL = 0;
-        typedef enum
-        {
-            QUIT, STATE_TRANSIT, STATE_TIMER,
-            DEBUG_LED,
-            AUDIO_FRAME_PROCESSED,
-            AUDIO_FRAME_METRICS
-        } MessageType;
 
-        typedef struct
-        {
-            MessageType type;
-//            union
-//            {
-//                executive::audioProcessor::ProcessingMetrics_t metrics;
-//            } data;
-        } Message;
-        Message _messageQueueBuffer[MESSAGE_QUEUE_SIZE];
+        // the message queue will hold pointers to the raw data to prevent unnecessary copying
+//        MicArrayRawDataMessage *_micDataQueueBuffer[executive::micInterface::MIC_BUFFER_MESSAGE_QUEUE_SIZE];
+        platform::IMessageQueue *_rawMicDataMessageQueue;
 
+        executive::messages::Message _messageQueueBuffer[MESSAGE_QUEUE_SIZE];
         platform::IMessageQueue *_messageQueue;
 
         // Timers
@@ -95,6 +93,7 @@ namespace executive
         TimerData _stateTimerData;
 
         executive::tcpServer _tcpServer;
+        executive::micInterface _micInterface;
 
     };
 

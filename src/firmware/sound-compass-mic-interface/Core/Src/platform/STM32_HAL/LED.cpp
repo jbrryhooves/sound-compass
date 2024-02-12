@@ -11,7 +11,7 @@
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
-#include "board/nucleoH743/LED.hpp"
+#include "platform/STM32_HAL/LED.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -21,7 +21,7 @@
 // Public
 //-------------------------------------------------------------------
 
-bool board::nucleoH743::LED::initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin)
+bool platform::stm32hal::LED::initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin)
 {
     _gpioPort = gpioPort;
     _ledPin = ledPin;
@@ -31,7 +31,7 @@ bool board::nucleoH743::LED::initialise(GPIO_TypeDef *gpioPort, uint16_t ledPin)
     return true;
 }
 
-void board::nucleoH743::LED::setLED(platform::ILed::LEDState ledState, uint32_t cycles)
+void platform::stm32hal::LED::setLED(platform::ILed::LEDState ledState, uint32_t cycles)
 {
     switch (ledState)
     {
@@ -47,7 +47,7 @@ void board::nucleoH743::LED::setLED(platform::ILed::LEDState ledState, uint32_t 
     }
 }
 
-void board::nucleoH743::LED::toggleLED()
+void platform::stm32hal::LED::toggleLED()
 {
     HAL_GPIO_TogglePin(_gpioPort, _ledPin);
 }
@@ -56,7 +56,7 @@ void board::nucleoH743::LED::toggleLED()
 // Private
 //-------------------------------------------------------------------
 
-bool board::nucleoH743::LED::ledOn(bool on)
+bool platform::stm32hal::LED::ledOn(bool on)
 {
     HAL_GPIO_WritePin(_gpioPort, _ledPin, on ? GPIO_PIN_SET : GPIO_PIN_RESET);
     return true;

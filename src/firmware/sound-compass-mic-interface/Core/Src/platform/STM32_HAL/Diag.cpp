@@ -6,6 +6,7 @@
 //-------------------------------------------------------------------
 // System Includes
 //-------------------------------------------------------------------
+#include <platform/STM32_HAL/DiagSTM32H7.hpp>
 #include <stdarg.h>
 #include <stdio.h>
 #include <sys/time.h>
@@ -16,7 +17,6 @@
 // Local Includes
 //-------------------------------------------------------------------
 #include "main.h"
-#include "platform/STM32H7/DiagSTM32H7.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -44,7 +44,7 @@ static UART_HandleTypeDef *_printf_uartHandle;
 // Public
 //-------------------------------------------------------------------
 
-bool platformSTM32::DiagSTM32::initialise(UART_HandleTypeDef *uartHandle)
+bool platform::stm32hal::DiagSTM32::initialise(UART_HandleTypeDef *uartHandle)
 {
     _uartHandle = uartHandle;
     _printf_uartHandle = uartHandle;
@@ -56,10 +56,10 @@ bool platformSTM32::DiagSTM32::initialise(UART_HandleTypeDef *uartHandle)
 
 }
 
-// IDiag
+
 static void logPrint(platform::IDiag::Level level, const char *tag, const char *prefix, const char *format, const char *fileName, const uint16_t fileLine, va_list args)
 {
-    static char logBuffer[platformSTM32::DiagSTM32::LOG_LENGTH + platformSTM32::DiagSTM32::LOG_EXTRAS + 1];
+    static char logBuffer[platform::stm32hal::DiagSTM32::LOG_LENGTH + platform::stm32hal::DiagSTM32::LOG_EXTRAS + 1];
     int res = 0;
     unsigned int n = 0;
 
@@ -68,11 +68,11 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
     uint32_t _min = _ticks / (1000 * 60) % 60;
     uint32_t _hr = _ticks / (1000 * 3600);
 
-    res = snprintf(logBuffer, platformSTM32::DiagSTM32::LOG_EXTRAS, "%s (%02lu:%02lu:%02lu.%03lu ) %s: ", prefix, _hr, _min, _seconds, _ticks % 1000, tag);
+    res = snprintf(logBuffer, platform::stm32hal::DiagSTM32::LOG_EXTRAS, "%s (%02lu:%02lu:%02lu.%03lu ) %s: ", prefix, _hr, _min, _seconds, _ticks % 1000, tag);
 
     if (res <= 0)
     {
-        logBuffer[platformSTM32::DiagSTM32::LOG_EXTRAS] = 0;
+        logBuffer[platform::stm32hal::DiagSTM32::LOG_EXTRAS] = 0;
 
     }
     else
@@ -82,11 +82,11 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
 
     if (fileLine > 0)
     {
-        res = snprintf(&logBuffer[n], platformSTM32::DiagSTM32::LOG_EXTRAS - n, "%s:%d: ", fileName, fileLine);
+        res = snprintf(&logBuffer[n], platform::stm32hal::DiagSTM32::LOG_EXTRAS - n, "%s:%d: ", fileName, fileLine);
 
         if (res <= 0)
         {
-            logBuffer[platformSTM32::DiagSTM32::LOG_EXTRAS - 1] = 0;
+            logBuffer[platform::stm32hal::DiagSTM32::LOG_EXTRAS - 1] = 0;
         }
         else
         {
@@ -94,10 +94,10 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
         }
     }
 
-    res = vsnprintf(&logBuffer[n], platformSTM32::DiagSTM32::LOG_LENGTH, format, args);
+    res = vsnprintf(&logBuffer[n], platform::stm32hal::DiagSTM32::LOG_LENGTH, format, args);
     if (res <= 0)
     {
-        logBuffer[n + platformSTM32::DiagSTM32::LOG_LENGTH - 1] = 0;
+        logBuffer[n + platform::stm32hal::DiagSTM32::LOG_LENGTH - 1] = 0;
 
     }
     else
@@ -105,11 +105,11 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
         n += res;
     }
 
-    res = snprintf(&logBuffer[n], platformSTM32::DiagSTM32::LOG_EXTRAS - n, "%s",
+    res = snprintf(&logBuffer[n], platform::stm32hal::DiagSTM32::LOG_EXTRAS - n, "%s",
     LOG_RESET_COLOR);
     if (res <= 0)
     {
-        logBuffer[platformSTM32::DiagSTM32::LOG_EXTRAS - 1] = 0;
+        logBuffer[platform::stm32hal::DiagSTM32::LOG_EXTRAS - 1] = 0;
 
     }
     else
@@ -117,7 +117,7 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
         n += res;
     }
 
-    logBuffer[platformSTM32::DiagSTM32::LOG_LENGTH + platformSTM32::DiagSTM32::LOG_EXTRAS] = 0;
+    logBuffer[platform::stm32hal::DiagSTM32::LOG_LENGTH + platform::stm32hal::DiagSTM32::LOG_EXTRAS] = 0;
 
 //    sprintf("%d %s %s %c \n", level, tag,(const char*)logBuffer, LOG_RESET_COLOR);
     HAL_StatusTypeDef err = HAL_UART_Transmit(_printf_uartHandle, (const uint8_t*) logBuffer, n, 0xFFFF);
@@ -128,14 +128,14 @@ static void logPrint(platform::IDiag::Level level, const char *tag, const char *
 //-------------------------------------------------------------------
 // Public - IDiag
 //-------------------------------------------------------------------
-void platformSTM32::DiagSTM32::setLevel(const char *tag, IDiag::Level level)
+void platform::stm32hal::DiagSTM32::setLevel(const char *tag, IDiag::Level level)
 {
     _logLevel = level;
 
     // TODO: create a etl::map<tag, logLevel> and populate that.
 }
 
-void platformSTM32::DiagSTM32::atLevel(IDiag::Level level, const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::atLevel(IDiag::Level level, const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -162,7 +162,7 @@ void platformSTM32::DiagSTM32::atLevel(IDiag::Level level, const char *tag, cons
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::error(const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::error(const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -172,7 +172,7 @@ void platformSTM32::DiagSTM32::error(const char *tag, const char *format, ...)
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::warn(const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::warn(const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -182,7 +182,7 @@ void platformSTM32::DiagSTM32::warn(const char *tag, const char *format, ...)
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::info(const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::info(const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -192,7 +192,7 @@ void platformSTM32::DiagSTM32::info(const char *tag, const char *format, ...)
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::debug(const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::debug(const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -202,7 +202,7 @@ void platformSTM32::DiagSTM32::debug(const char *tag, const char *format, ...)
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::verbose(const char *tag, const char *format, ...)
+void platform::stm32hal::DiagSTM32::verbose(const char *tag, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -212,7 +212,7 @@ void platformSTM32::DiagSTM32::verbose(const char *tag, const char *format, ...)
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::error_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
+void platform::stm32hal::DiagSTM32::error_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -221,7 +221,7 @@ void platformSTM32::DiagSTM32::error_line(const char *tag, const char *file, uin
 
     va_end(args);
 }
-void platformSTM32::DiagSTM32::warn_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
+void platform::stm32hal::DiagSTM32::warn_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -230,7 +230,7 @@ void platformSTM32::DiagSTM32::warn_line(const char *tag, const char *file, uint
 
     va_end(args);
 }
-void platformSTM32::DiagSTM32::info_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
+void platform::stm32hal::DiagSTM32::info_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -239,7 +239,7 @@ void platformSTM32::DiagSTM32::info_line(const char *tag, const char *file, uint
 
     va_end(args);
 }
-void platformSTM32::DiagSTM32::debug_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
+void platform::stm32hal::DiagSTM32::debug_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -248,7 +248,7 @@ void platformSTM32::DiagSTM32::debug_line(const char *tag, const char *file, uin
 
     va_end(args);
 }
-void platformSTM32::DiagSTM32::verbose_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
+void platform::stm32hal::DiagSTM32::verbose_line(const char *tag, const char *file, uint16_t line, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -258,7 +258,7 @@ void platformSTM32::DiagSTM32::verbose_line(const char *tag, const char *file, u
     va_end(args);
 }
 
-void platformSTM32::DiagSTM32::flush(void)
+void platform::stm32hal::DiagSTM32::flush(void)
 {
 }
 
