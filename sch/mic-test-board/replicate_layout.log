@@ -1,0 +1,69 @@
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 392:Plugin executed on: 'win32'
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 393:Plugin executed with python version: '3.9.14 (main, Feb 13 2023, 04:48:26) [MSC v.1934 64 bit (AMD64)]'
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 394:KiCad build version: 7.0.1
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 395:Plugin version: 2.1.3
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 396:Frame repr: <wx._core.Frame object at 0x0000022828B7AEE0>
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 420:Preparing replicator with MK6 as a reference
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 117:getting a list of all footprints on board
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 468:source anchor footprint is 'MK6'
+Located on: ['Mic6']
+With filenames: ['IC-52000 Mic.kicad_sch']
+With sheet_id:['Mic6']
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 475:Corresponding footprints are 
+[('MK6', ['Mic6']), ('MK9', ['Mic9']), ('MK10', ['Mic10']), ('MK4', ['Mic4']), ('MK8', ['Mic8']), ('MK13', ['Mic13']), ('MK3', ['Mic3']), ('MK16', ['Mic16']), ('MK7', ['Mic7']), ('MK11', ['Mic11']), ('MK5', ['Mic5']), ('MK12', ['Mic12']), ('MK1', ['Mic1']), ('MK14', ['Mic14']), ('MK2', ['Mic2']), ('MK15', ['Mic15'])]
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 487:Showing dialog
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Mic6']
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 493:Toolbar position: wx.Point(4839, 117)
+02-26 21:15:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 498:Dialog position: wx.Point(4400, 117)
+02-26 21:15:56 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:15:56 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Mic6']
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Mic6']
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:15:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:15:58 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Mic6']
+02-26 21:15:58 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+02-26 21:15:58 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:15:58 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:15:58 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Mic6']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Mic6', file:'IC-52000 Mic.kicad_sch'
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 240:Replicating layout
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 240:Starting replication of sheets: [['Mic1'], ['Mic10'], ['Mic11'], ['Mic12'], ['Mic13'], ['Mic14'], ['Mic15'], ['Mic16'], ['Mic2'], ['Mic3'], ['Mic4'], ['Mic5'], ['Mic7'], ['Mic8'], ['Mic9']]
+on level: ['Mic6']
+with tracks=False, zone=False, text=False, text=False, intersecting=False, remove=False, locked footprints=False, group_only=False
+02-26 21:16:03 root 332:updating GUI message: 'Preparing for replication'
+02-26 21:16:03 root 337:updating GUI with: 0
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 310:Getting the list of source footprints
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 320:Getting the list of all the remaining footprints
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 327:Getting source tracks
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 331:Getting source zones
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 335:Getting source text items
+02-26 21:16:03 root 337:updating GUI with: 66
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 339:Getting source drawing items
+02-26 21:16:03 root 332:updating GUI message: 'Replicating footprints'
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 806:Replicating footprints
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic1']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic10']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic11']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic12']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic13']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic14']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic15']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic16']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic2']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic3']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic4']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic5']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic7']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic8']
+02-26 21:16:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Mic9']
+02-26 21:16:05 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 256:Replication complete
