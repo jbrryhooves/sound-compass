@@ -195,6 +195,13 @@
       ],
       "zones_allow_external_fillets": false
     },
+    "ipc2581": {
+      "dist": "",
+      "distpn": "",
+      "internal_id": "",
+      "mfg": "",
+      "mpn": ""
+    },
     "layer_presets": [],
     "viewports": []
   },
@@ -462,10 +469,7 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "/Mic1/SCK": "50ohm",
-      "/Mic1/SD": "50ohm"
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -473,14 +477,75 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
+      "plot": "",
+      "pos_files": "",
       "specctra_dsn": "",
       "step": "",
+      "svg": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
   },
   "schematic": {
     "annotate_start_num": 0,
+    "bom_fmt_presets": [],
+    "bom_fmt_settings": {
+      "field_delimiter": ",",
+      "keep_line_breaks": false,
+      "keep_tabs": false,
+      "name": "CSV",
+      "ref_delimiter": ",",
+      "ref_range_delimiter": "",
+      "string_delimiter": "\""
+    },
+    "bom_presets": [],
+    "bom_settings": {
+      "exclude_dnp": false,
+      "fields_ordered": [
+        {
+          "group_by": false,
+          "label": "Reference",
+          "name": "Reference",
+          "show": true
+        },
+        {
+          "group_by": true,
+          "label": "Value",
+          "name": "Value",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Datasheet",
+          "name": "Datasheet",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Footprint",
+          "name": "Footprint",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Qty",
+          "name": "${QUANTITY}",
+          "show": true
+        },
+        {
+          "group_by": true,
+          "label": "DNP",
+          "name": "${DNP}",
+          "show": true
+        }
+      ],
+      "filter_string": "",
+      "group_symbols": true,
+      "name": "Grouped By Value",
+      "sort_asc": true,
+      "sort_field": "Reference"
+    },
+    "connection_grid_size": 50.0,
     "drawing": {
       "dashed_lines_dash_length_ratio": 12.0,
       "dashed_lines_gap_length_ratio": 3.0,
@@ -494,6 +559,11 @@
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
       "label_size_ratio": 0.375,
+      "operating_point_overlay_i_precision": 3,
+      "operating_point_overlay_i_range": "~A",
+      "operating_point_overlay_v_precision": 3,
+      "operating_point_overlay_v_range": "~V",
+      "overbar_offset_ratio": 1.23,
       "pin_symbol_size": 25.0,
       "text_offset_ratio": 0.15
     },
@@ -509,6 +579,7 @@
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
     "spice_save_all_currents": false,
+    "spice_save_all_dissipations": false,
     "spice_save_all_voltages": false,
     "subpart_first_id": 65,
     "subpart_id_separator": 0
@@ -516,71 +587,127 @@
   "sheets": [
     [
       "51c8d8e6-56a1-4b17-b155-d2586571b4e9",
-      ""
+      "Root"
     ],
     [
-      "7ef92e84-9683-4ff9-81c9-78dcb4c440d2",
+      "7f1e321a-42db-47b4-a1b9-09c1fb806d1c",
       "Mic1"
     ],
     [
-      "2365620d-7255-4c0e-9b94-6278f358e815",
+      "d8b67b77-392f-43b8-a362-b325a24ccda2",
+      "ADC AD7769"
+    ],
+    [
+      "4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10",
+      "Preamp1"
+    ],
+    [
+      "ddb272bb-fce1-4b2f-b2b4-7029779ab9cd",
+      "ADC AD7768"
+    ],
+    [
+      "488afb9d-f633-414b-baeb-731dcd40642f",
+      "ADC Common parts"
+    ],
+    [
+      "c04fb37a-ca3a-42b7-85e6-a865e932d1e6",
+      "Preamp2"
+    ],
+    [
+      "48ff83ba-2da4-43f8-b4b5-2b764b7ca27b",
+      "uController"
+    ],
+    [
+      "eaa0e770-0eea-44b2-9d22-2e5ca8e637e5",
+      "Preamp3"
+    ],
+    [
+      "b2521b29-c34b-45eb-94c3-a508572002a3",
+      "AnalogFrontEnd"
+    ],
+    [
+      "20156219-8142-4308-96aa-fb0fff4de776",
+      "Preamp4"
+    ],
+    [
+      "43b99c92-088d-4bde-840b-cdc6705db1ec",
+      "Preamp5"
+    ],
+    [
+      "2fe6ece6-6bc9-4d7d-810e-403c6b9e5ad7",
+      "Preamp6"
+    ],
+    [
+      "28a65e1b-9dab-435c-96b1-44b3f9bcbf37",
+      "Preamp7"
+    ],
+    [
+      "cf7210d3-e9ca-45ea-b89e-49b6b01a6ee1",
+      "Preamp8"
+    ],
+    [
+      "a22085c9-d5c7-4a24-8fc7-9deeb63c00f0",
       "Mic2"
     ],
     [
-      "d642338c-bc97-4102-822a-4d6afe53c9b3",
+      "1a5ecb21-ab7b-4d48-9a78-e1b52af45f19",
       "Mic3"
     ],
     [
-      "aa50191e-bda3-40a4-be7e-ad77b0d338f2",
+      "9895acd3-7d2a-42d0-b9f2-49d3af0f0b8c",
       "Mic4"
     ],
     [
-      "41dbf3fc-ddfb-43c8-b983-6d08f0e4587a",
+      "279a9907-c667-4bf3-b216-212e76f47864",
+      "Power"
+    ],
+    [
+      "9003ff34-e612-4437-95a2-a83f591ac1df",
       "Mic5"
     ],
     [
-      "3984e0aa-a56c-439e-8ef0-bb913b34a418",
-      "Mic7"
-    ],
-    [
-      "5609f3aa-c0b9-41e4-9997-ce3d1d69bac1",
-      "Mic8"
-    ],
-    [
-      "56bf8a6c-3291-46e5-9ac9-67ea15f1339a",
+      "e8e5cf8c-f6ec-49db-90b0-3912e9727c05",
       "Mic6"
     ],
     [
-      "ca1be769-5e84-4882-9201-c850f58198c7",
+      "82a90f0e-bb38-4fff-9e47-d84df1cc720f",
+      "Mic7"
+    ],
+    [
+      "46529ec7-825a-4c02-96e6-a6a2ece67df9",
+      "Mic8"
+    ],
+    [
+      "e1f9c110-1164-4542-ada4-71b1a4efbf76",
       "Mic9"
     ],
     [
-      "c556eb59-7eca-4489-8feb-40335119b86b",
-      "Mic13"
-    ],
-    [
-      "0f006fbb-4a19-44c9-961e-d3789b716919",
-      "Mic15"
-    ],
-    [
-      "dad904ff-19b0-4d4c-9227-2398259013fc",
-      "Mic12"
-    ],
-    [
-      "db20417f-eb16-4e67-81bf-28ee7d58b016",
-      "Mic14"
-    ],
-    [
-      "812feeba-4a3d-478b-a3e0-9501e470f20f",
+      "04ac431f-14f5-4045-8e20-b9692eeb11f8",
       "Mic10"
     ],
     [
-      "50026ae3-c8d2-46be-9ad7-ff59607a3ff3",
-      "Mic16"
+      "504dc892-b73a-46eb-a920-95135af069f4",
+      "Mic11"
     ],
     [
-      "4a3e464e-fdeb-4750-9882-b1b85f8cd0b2",
-      "Mic11"
+      "4a55ecc9-8375-4f72-9adf-75b8719c743a",
+      "Mic12"
+    ],
+    [
+      "6029c9a8-7057-46db-952e-51279300d87f",
+      "Mic13"
+    ],
+    [
+      "dc9b5573-06c9-4515-a601-46a9184cf8d7",
+      "Mic14"
+    ],
+    [
+      "9cbeee7d-11e3-4958-848c-03c5b5b51dd4",
+      "Mic15"
+    ],
+    [
+      "b0d382c9-1553-482e-abe0-17a6cc62d636",
+      "Mic16"
     ]
   ],
   "text_variables": {}

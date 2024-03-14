@@ -1,0 +1,244 @@
+(footprint "Oscillator_SMD_Kyocera_KC3225Z32-4Pin_3.2x2.5mm"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/204/KC3225Z_Series_Spec_Prelim.pdf")
+	(tags "2.5mm 2mm SMD")
+	(property "Reference" "REF**"
+		(at -0.27 -3.71 0)
+		(layer "F.SilkS")
+		(uuid "c4810c48-2d21-4c5e-b5d8-4bd5f1197c4a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Oscillator_SMD_Kyocera_KC3225Z32-4Pin_3.2x2.5mm"
+		(at 0 2.5 0)
+		(layer "F.Fab")
+		(uuid "08941cc6-0788-4140-a8dc-2957526221d9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at -0.02 -0.02 90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7ff22f61-b98f-421e-b696-b1a9f7ea97f6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" "https://au.mouser.com/datasheet/2/40/clock_z_x_e-3044365.pdf"
+		(at 0.45 4.88 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "37adbbad-9701-46aa-a399-a1ac6def215b")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at -0.02 -0.02 90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "edf4900e-41e4-4c41-a3e6-0a1e23f32fdf")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.98 1.59)
+		(end -1.98 -1.02)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "93d83200-14e9-419e-9e1c-057ed54d3909")
+	)
+	(fp_line
+		(start -1.15 1.59)
+		(end -1.98 1.59)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9ed49475-990c-4c52-b52f-cf62989ce88c")
+	)
+	(fp_line
+		(start 1.94 -1.16)
+		(end 1.94 1.12)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "dbea041d-2b28-4e3c-9e7d-e7720d516473")
+	)
+	(fp_circle
+		(center -1.65 1.94)
+		(end -1.57 2.07)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "89fd31ad-468c-4d5b-9d25-2b39d897cbcb")
+	)
+	(fp_line
+		(start -1.98 -1.59)
+		(end 1.94 -1.59)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "75a96349-dfa3-4e41-aa88-9dcf15114489")
+	)
+	(fp_line
+		(start -1.98 1.6)
+		(end -1.98 -1.59)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d12e8e71-66e1-4bd5-9e75-7cd10fceaefb")
+	)
+	(fp_line
+		(start 1.94 -1.59)
+		(end 1.94 1.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e266513a-fe8a-430c-a752-258bcc12b4b6")
+	)
+	(fp_line
+		(start 1.94 1.6)
+		(end -1.98 1.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9baf450d-f0e8-4a35-a58f-ad6ca572f050")
+	)
+	(fp_line
+		(start -1.6 -1.25)
+		(end 1.6 -1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e0b55374-4d60-49d2-a334-4fcabe6af26d")
+	)
+	(fp_line
+		(start -1.6 1.25)
+		(end -1.6 -1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "64e1441c-7a44-4138-92ce-15abf695bdc7")
+	)
+	(fp_line
+		(start -1.27 0.48)
+		(end -0.77 0.98)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "38b064ad-fed7-4115-b8bd-c8833e46afed")
+	)
+	(fp_line
+		(start 1.6 -1.25)
+		(end 1.6 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "b719f9b3-0d0f-40ea-a882-fb99fef4b06a")
+	)
+	(fp_line
+		(start 1.6 1.25)
+		(end -1.6 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e1e714de-c966-4002-84c6-3d084ed958ad")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.1 -2.62 0)
+		(layer "F.Fab")
+		(uuid "c5e2a94d-a3c8-44f8-886a-ae04426c25e9")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.1 0.875 90)
+		(size 0.95 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "0edc7467-bd3e-4108-9454-50aa8249edb5")
+	)
+	(pad "2" smd rect
+		(at 1.1 0.875 90)
+		(size 0.95 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "8e353427-1a1d-4fbc-9186-cc04301e3ddf")
+	)
+	(pad "3" smd rect
+		(at 1.1 -0.875 90)
+		(size 0.95 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "47f84297-fc84-431b-9dbc-43a4d07dee95")
+	)
+	(pad "4" smd rect
+		(at -1.1 -0.875 90)
+		(size 0.95 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "718bb204-57f7-4537-829a-f8fdcd26a0f4")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Oscillator.3dshapes/Oscillator_SMD_Kyocera_KC2520Z-4Pin_2.5x2.0mm.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
