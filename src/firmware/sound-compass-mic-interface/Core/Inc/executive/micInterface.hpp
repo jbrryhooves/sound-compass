@@ -56,9 +56,10 @@ namespace executive
         bool initialise(board::IBoardHardware *hardware, IMicInterfaceListener *micInterfaceListener, platform::IMessageQueue *rawMicDataQueue);
         bool start();
 
+        bool popMicDataMessage(messages::MicArrayRawDataMessage **message);
+
         // ISPIListener
         void onBytesReceived(uint8_t *buff, uint32_t len);
-        void onDMATxBuffEmpy(void);
         void onDMARxTxHalfComplete(void);
         void onDMARxTxComplete(void);
 
@@ -71,13 +72,15 @@ namespace executive
         board::IBoardHardware *_hardware;
 
         IMicInterfaceListener *_micInterfaceListener;
-        platform::IMessageQueue *_messageQueue;
+        platform::IMessageQueue *_execMessageQueue;
 
         platform::ISPI *_spiPort;
 
+        uint32_t _bufferSequenceNumber;
         // store the actual raw data here
-        messages::MicArrayRawDataMessage _micDataBuffer[MIC_BUFFER_MESSAGE_QUEUE_SIZE];
+        messages::MicArrayRawDataMessage _micDataQueueBuffer[MIC_BUFFER_MESSAGE_QUEUE_SIZE];
         uint8_t _currentBufferIndex = 0;
+        platform::IMessageQueue *_rawMicDataMessageQueue;
 
     };
 

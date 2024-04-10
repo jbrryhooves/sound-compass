@@ -38,7 +38,6 @@ namespace platform
         {
         public:
             virtual void onBytesReceived(uint8_t *buff, uint32_t len) = 0;
-            virtual void onDMATxBuffEmpy(void) = 0;
             virtual void onDMARxTxHalfComplete(void) = 0;
             virtual void onDMARxTxComplete(void) = 0;
         };

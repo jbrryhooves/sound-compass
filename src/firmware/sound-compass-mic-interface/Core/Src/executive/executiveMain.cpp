@@ -51,16 +51,6 @@ bool executive::executiveMain::initialise(board::IBoardHardware *hardware)
         return false;
     }
 
-//    _rawMicDataMessageQueue = _hardware->messageQueueFactory->createMessageQueueStatic("micDataMsgQueue", _micDataQueueBuffer,
-//            executive::micInterface::MIC_BUFFER_MESSAGE_QUEUE_SIZE,
-//            sizeof(MicArrayRawDataMessage*));
-
-//    if (_rawMicDataMessageQueue == nullptr)
-//    {
-//        _hardware->diag->error(TAG, "Could not create mic data message queue");
-//        return false;
-//    }
-
     _debugTimerData.timerID = TimerID::DEBUG_LED;
     _debugTimer = _hardware->timerFactory->createTimerStatic("debug", &_debugTimerControlBlock, sizeof(_debugTimerControlBlock), true, this, &_debugTimerData);
     if (_debugTimer == nullptr)
@@ -124,7 +114,7 @@ void executive::executiveMain::onTimer(void *userData)
         case TimerID::DEBUG_LED:
 //            DIAG_LINE_VERBOSE(_hardware->diag, TAG, "[DEBUG_LED]\n", "");
 
-            m.type = messages::MessageType::DEBUG_LED;
+            m.type = messages::InternalMessageType::DEBUG_LED;
             _messageQueue->send(&m);
 
             break;
@@ -139,9 +129,11 @@ bool executive::executiveMain::run()
 
     _hardware->diag->info(TAG, "Running...\n");
 
-    _debugTimer->start(500);
+    uint32_t _secondsUpTime = 0;
+    _debugTimer->start(1000);
     _tcpServer.start();
     _micInterface.start();
+    uint32_t _micBufferErrorCount = 0;
 
     while (1)
     {
@@ -149,7 +141,7 @@ bool executive::executiveMain::run()
         {
             switch (_message.type)
             {
-                case messages::MessageType::DEBUG_LED:
+                case messages::InternalMessageType::DEBUG_LED:
                     _hardware->LED_debugGreen->toggleLED();
 //        _hardware->diag->info(TAG,  "Toggle at %d\n", __LINE__ );
 //        DIAG_LINE_ERROR(_hardware->diag, TAG,  "Toggle %d\n", _count++);
@@ -157,23 +149,35 @@ bool executive::executiveMain::run()
 //        DIAG_LINE_WARN(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 //        DIAG_LINE_DEBUG(_hardware->diag, TAG,  "Toggle %d\n", _count++);
 //        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
-                    break;
-                case messages::MessageType::AUDIO_FRAME_PROCESSED:
-                    _hardware->LED_debugOrange->toggleLED();
-                    break;
-                case messages::MessageType::AUDIO_FRAME_METRICS:
+                    _secondsUpTime++;
+                    _hardware->diag->info(TAG, "UpTime: %u s, Mic Error count: %d, \n", _secondsUpTime, _micBufferErrorCount);
 
                     break;
-                case messages::MessageType::AUDIO_FRAME_RAW:
+                case messages::InternalMessageType::RUNTIME_METRICS:
+
+                    break;
+                case messages::InternalMessageType::AUDIO_FRAME_RAW:
                     _hardware->LED_debugOrange->toggleLED();
-                    int8_t internalError;
-                    if (executive::tcpServer::TCPError _err = _tcpServer.sendBytes((uint8_t*) (_message.data.micRawData->micData), sizeof(_message.data.micRawData->micData),
-                            &internalError); _err
-                            != executive::tcpServer::TCPError::Ok)
+
+                    messages::MicArrayRawDataMessage *_rawMicDataMessage;
+                    if (!_micInterface.popMicDataMessage(&_rawMicDataMessage))
                     {
-                        _hardware->diag->error(TAG, "Failed to send TCP audio frame: %d (LwIP Err: %d)\n", _err, internalError);
-
+                        _hardware->diag->error(TAG, "Failed to pop audio frame\n");
                     }
+                    else
+                    {
+                        int8_t internalError;
+                        if (executive::tcpServer::TCPError _err = _tcpServer.sendBytes((uint8_t*) (_rawMicDataMessage),
+                                sizeof(messages::MicArrayRawDataMessage), &internalError); _err != executive::tcpServer::TCPError::Ok)
+                        {
+                            _hardware->diag->error(TAG, "Failed to send TCP audio frame: %d (LwIP Err: %d)\n", _err, internalError);
+                        }
+                    }
+
+                    break;
+                case messages::InternalMessageType::AUDIO_FRAME_RAW_BUFFER_OVERRUN:
+                    _hardware->LED_debugRed->toggleLED();
+                    _micBufferErrorCount++;
 
                     break;
                 default:

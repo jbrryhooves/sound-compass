@@ -50,6 +50,13 @@ bool board::boardNucleoH743::initialise()
     }
     LED_debugOrange = &_LED_debugOrange;
 
+    if (!_LED_debugRed.initialise(LD3_GPIO_Port, LD3_Pin))
+    {
+        // print error
+        return false;
+    }
+    LED_debugRed = &_LED_debugRed;
+
     if (!_SPI.initialise(&hspi1, &hdma_spi1_rx, &hdma_spi1_tx))
     {
         // print error

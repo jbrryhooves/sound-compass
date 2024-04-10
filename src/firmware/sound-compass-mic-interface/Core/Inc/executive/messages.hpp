@@ -39,31 +39,64 @@ namespace executive
 
         static constexpr uint16_t BUFFER_LENGTH_SAMPLES = (uint16_t) (SAMPLE_RATE_Hz * (BUFFER_LENGTH_ms / 1000.0));
 
-        enum class MessageType
+        enum class ExternalMessageType : uint8_t
+        {
+            AUDIO_FRAME_RAW,
+            RUNTIME_METRICS
+        };
+
+        // The header at the beginning of every message sent or received from this application
+        // Packed because it is sent over the wire.
+        typedef struct __attribute__((__packed__)) _ExternalMessageHeader
+        {
+            const uint64_t messageHeaderDelimeter = 0xBEABEABEABEABEAB;
+            uint32_t messageLength;
+            ExternalMessageType type;
+
+        } ExternalMessageHeader;
+
+        // Holds raw mic data.
+        // Message that is sent externally
+        // Packed because it is sent over the wire
+        typedef struct __attribute__((__packed__))
+        {
+            ExternalMessageHeader header;
+            uint64_t timeStamp;
+            uint32_t sequenceNumber;
+            uint32_t micData[BUFFER_LENGTH_SAMPLES][NUMBER_OF_MICS];
+
+        } MicArrayRawDataMessage;
+
+        // Holds runtime stats. Packed because it is sent over the wire
+        typedef struct __attribute__((__packed__))
+        {
+            ExternalMessageHeader header;
+            uint64_t timeStamp;
+            uint32_t upTime_s;
+            uint32_t droppedRawBuffersSinceLastMessage;
+            uint32_t droppedRawBuffersTotal;
+
+        } RunTimeMetricsMessage;
+
+        enum class InternalMessageType : uint8_t
         {
             QUIT,
             STATE_TRANSIT,
             STATE_TIMER,
             DEBUG_LED,
             AUDIO_FRAME_RAW,
-            AUDIO_FRAME_PROCESSED,
-            AUDIO_FRAME_METRICS
+            AUDIO_FRAME_RAW_BUFFER_OVERRUN,
+            RUNTIME_METRICS
         };
 
-        // A struct to hold raw mic data
+        // The base message type for internal messages between tasks
         typedef struct
         {
-            uint64_t timeStamp;
-            uint32_t micData[BUFFER_LENGTH_SAMPLES][NUMBER_OF_MICS];
-
-        } MicArrayRawDataMessage;
-
-        typedef struct
-        {
-            MessageType type;
+            InternalMessageType type;
             union
             {
                 MicArrayRawDataMessage *micRawData;
+                RunTimeMetricsMessage *runtimeMetricsData;
             } data;
         } Message;
 

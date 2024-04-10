@@ -67,13 +67,10 @@ namespace executive
         board::IBoardHardware *_hardware;
 
         // Message queue
-        static const unsigned int MESSAGE_QUEUE_SIZE = 4;
+        static const unsigned int MESSAGE_QUEUE_SIZE = 10;
         const unsigned int MESSAGE_PRIORITY_QUIT = 11;
         const unsigned int MESSAGE_PRIORITY_NORMAL = 0;
 
-        // the message queue will hold pointers to the raw data to prevent unnecessary copying
-//        MicArrayRawDataMessage *_micDataQueueBuffer[executive::micInterface::MIC_BUFFER_MESSAGE_QUEUE_SIZE];
-        platform::IMessageQueue *_rawMicDataMessageQueue;
 
         executive::messages::Message _messageQueueBuffer[MESSAGE_QUEUE_SIZE];
         platform::IMessageQueue *_messageQueue;

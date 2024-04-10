@@ -50,6 +50,7 @@ namespace board
 
         platform::stm32hal::LED _LED_debugGreen;
         platform::stm32hal::LED _LED_debugOrange;
+        platform::stm32hal::LED _LED_debugRed;
         platform::stm32hal::SPI _SPI;
     };
 }
