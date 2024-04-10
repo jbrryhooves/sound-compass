@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "51259047-fd75-497d-b1be-38100f28a8bd")
+	(paper "A3")
+	(title_block
+		(title "Sound Compass POC: Mic Boards")
+		(date "2024-04-01")
+		(rev "Rev A")
+		(company "Josh Berry")
+		(comment 1 "JBRRY")
+	)
+	(lib_symbols)
+)

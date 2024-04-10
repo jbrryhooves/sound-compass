@@ -4,6 +4,13 @@
 	(generator_version "8.0")
 	(uuid "5455b573-64ff-4823-92d7-ead3de943a07")
 	(paper "A3")
+	(title_block
+		(title "Sound Compass POC")
+		(date "2024-03-23")
+		(rev "A")
+		(company "Josh Berry")
+		(comment 1 "JBRRY")
+	)
 	(lib_symbols
 		(symbol "Connector:TestPoint"
 			(pin_numbers hide)
@@ -1296,6 +1303,12 @@
 		(uuid "40f7d2c3-2364-4929-acb4-df252d6dcc04")
 	)
 	(junction
+		(at 255.27 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "467d8297-87d5-44b3-ba4a-0272da814f99")
+	)
+	(junction
 		(at 163.83 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1373,7 +1386,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 68.58) (xy 302.26 68.58)
+			(xy 209.55 68.58) (xy 255.27 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1683,6 +1696,16 @@
 	)
 	(wire
 		(pts
+			(xy 255.27 68.58) (xy 302.26 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7bbf8fbc-e5ca-4e11-af9e-bd73c793f109")
+	)
+	(wire
+		(pts
 			(xy 180.34 250.19) (xy 186.69 250.19)
 		)
 		(stroke
@@ -1810,6 +1833,16 @@
 			(type default)
 		)
 		(uuid "b3378c3d-2cd9-4b68-957e-31318025d349")
+	)
+	(wire
+		(pts
+			(xy 255.27 64.77) (xy 255.27 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3de9256-7e1d-40fc-8d45-80860789190c")
 	)
 	(wire
 		(pts
@@ -1965,6 +1998,17 @@
 		)
 		(uuid 95a778bc-1ce1-4435-812b-6e8741122f67)
 	)
+	(text "Clock fanout"
+		(exclude_from_sim no)
+		(at 231.902 160.528 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "114b9619-5af7-4944-aee6-fddf14311084")
+	)
 	(text "4.5-5.5V Input"
 		(exclude_from_sim no)
 		(at 155.194 66.548 0)
@@ -2029,7 +2073,7 @@
 		)
 		(uuid "800c53b4-89a8-40f8-b666-f2ba28f7b642")
 	)
-	(text "4.096V Reference"
+	(text "3.3V Reference"
 		(exclude_from_sim no)
 		(at 147.574 56.388 0)
 		(effects
@@ -2397,7 +2441,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 167.64 245.11 0)
 			(effects
 				(font
@@ -2632,7 +2676,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 199.39 76.2 0)
 			(effects
 				(font
@@ -2757,7 +2801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 281.94 182.88 0)
 			(effects
 				(font
@@ -2825,7 +2869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 271.78 182.88 0)
 			(effects
 				(font
@@ -2892,7 +2936,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 219.71 180.34 0)
 			(effects
 				(font
@@ -2960,7 +3004,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 187.96 190.5 0)
 			(effects
 				(font
@@ -3003,6 +3047,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 255.27 64.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "91452775-d74b-4d10-849c-f621b320940e")
+		(property "Reference" "TP37"
+			(at 257.81 61.4679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 257.81 62.7379 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 260.35 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 260.35 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 255.27 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ad6a05d4-035c-4fa4-95ab-cb47c1201949")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/488afb9d-f633-414b-baeb-731dcd40642f"
+					(reference "TP37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 209.55 77.47 0)
 		(unit 1)
@@ -3030,7 +3142,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 209.55 77.47 0)
 			(effects
 				(font
@@ -3154,7 +3266,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 208.28 190.5 0)
 			(effects
 				(font
@@ -3367,7 +3479,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 259.08 189.23 0)
 			(effects
 				(font
@@ -3427,7 +3539,7 @@
 				)
 			)
 		)
-		(property "Value" "MAX6070BAUT41+T"
+		(property "Value" "MAX6070BAUT33+T"
 			(at 181.61 62.23 0)
 			(effects
 				(font
@@ -3484,7 +3596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "MAX6070BAUT41+T"
+		(property "Part Number" "MAX6070BAUT33+T"
 			(at 181.61 64.77 0)
 			(effects
 				(font
@@ -3493,7 +3605,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Analog Devices Inc./Maxim Integrated"
 			(at 181.61 76.2 0)
 			(effects
 				(font
@@ -3502,7 +3614,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 181.61 76.2 0)
 			(effects
 				(font
@@ -3511,7 +3623,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "MAX6070BAUT33+TCT-ND"
 			(at 181.61 76.2 0)
 			(effects
 				(font
@@ -3695,7 +3807,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 165.1 87.63 0)
 			(effects
 				(font
@@ -3819,7 +3931,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 152.4 87.63 0)
 			(effects
 				(font
@@ -3943,7 +4055,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 180.34 245.11 0)
 			(effects
 				(font
@@ -4242,7 +4354,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 259.08 186.69 0)
 			(effects
 				(font

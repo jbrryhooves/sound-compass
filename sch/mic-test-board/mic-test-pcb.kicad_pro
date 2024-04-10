@@ -3,14 +3,17 @@
     "3dviewports": [],
     "design_settings": {
       "defaults": {
-        "board_outline_line_width": 0.09999999999999999,
-        "copper_line_width": 0.19999999999999998,
+        "apply_defaults_to_fp_fields": false,
+        "apply_defaults_to_fp_shapes": false,
+        "apply_defaults_to_fp_text": false,
+        "board_outline_line_width": 0.1,
+        "copper_line_width": 0.2,
         "copper_text_italic": false,
         "copper_text_size_h": 1.5,
         "copper_text_size_v": 1.5,
         "copper_text_thickness": 0.3,
         "copper_text_upright": false,
-        "courtyard_line_width": 0.049999999999999996,
+        "courtyard_line_width": 0.05,
         "dimension_precision": 4,
         "dimension_units": 3,
         "dimensions": {
@@ -21,7 +24,7 @@
           "text_position": 0,
           "units_format": 1
         },
-        "fab_line_width": 0.09999999999999999,
+        "fab_line_width": 0.1,
         "fab_text_italic": false,
         "fab_text_size_h": 1.0,
         "fab_text_size_v": 1.0,
@@ -55,13 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "solder_mask_bridge|155518000|95238000|5a5d525a-a523-48e4-895a-49c8d45af9ef|1105e3b2-8f06-430c-af85-3a408be2325a",
-        "solder_mask_bridge|156268000|94038000|5a5d525a-a523-48e4-895a-49c8d45af9ef|1105e3b2-8f06-430c-af85-3a408be2325a",
-        "solder_mask_bridge|157042000|104636000|108ecf53-6341-47f6-8340-c41b5455f83b|aba701bc-86ea-4eae-a5b4-a43fe88ff4a7",
-        "solder_mask_bridge|157418000|94488000|45cd30f3-8d15-45f1-9d48-6b3ab026d2d9|893484d7-2d5c-4173-a8fb-d092c1fb535a",
-        "solder_mask_bridge|160020000|103664000|7aa9251e-f9f7-4685-a04b-045f15c244bd|e0329629-96b0-4057-9058-683a7c1bdeab"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -78,6 +75,7 @@
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
         "footprint": "error",
+        "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
         "hole_near_hole": "error",
@@ -122,15 +120,15 @@
         "min_copper_edge_clearance": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
-        "min_microvia_diameter": 0.19999999999999998,
-        "min_microvia_drill": 0.09999999999999999,
+        "min_microvia_diameter": 0.2,
+        "min_microvia_drill": 0.1,
         "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.635,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.0,
-        "min_via_annular_width": 0.09999999999999999,
+        "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
@@ -139,9 +137,6 @@
       },
       "teardrop_options": [
         {
-          "td_allow_use_two_tracks": true,
-          "td_curve_segcount": 5,
-          "td_on_pad_in_zone": false,
           "td_onpadsmd": true,
           "td_onroundshapesonly": false,
           "td_ontrackend": false,
@@ -150,29 +145,35 @@
       ],
       "teardrop_parameters": [
         {
+          "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
           "td_target_name": "td_round_shape",
           "td_width_to_size_filter_ratio": 0.9
         },
         {
+          "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
           "td_target_name": "td_rect_shape",
           "td_width_to_size_filter_ratio": 0.9
         },
         {
+          "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
           "td_target_name": "td_track_end",
           "td_width_to_size_filter_ratio": 0.9
         }
@@ -187,6 +188,32 @@
         0.508,
         0.635
       ],
+      "tuning_pattern_settings": {
+        "diff_pair_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 1.0
+        },
+        "diff_pair_skew_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 0.6
+        },
+        "single_track_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 0.6
+        }
+      },
       "via_dimensions": [
         {
           "diameter": 0.0,
@@ -410,10 +437,10 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
-      "power_pin_not_driven": "error",
+      "pin_to_pin": "ignore",
+      "power_pin_not_driven": "ignore",
       "similar_labels": "warning",
-      "simulation_model_issue": "error",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -421,8 +448,12 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_footprint_libs": [
+      "mic-test-board"
+    ],
+    "pinned_symbol_libs": [
+      "mic-test-pcb"
+    ]
   },
   "meta": {
     "filename": "mic-test-pcb.kicad_pro",
@@ -509,7 +540,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -521,7 +552,7 @@
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Footprint",
           "name": "Footprint",
           "show": true
@@ -533,15 +564,99 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "DNP",
           "name": "${DNP}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Fit",
+          "name": "Fit",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER",
+          "name": "MANUFACTURER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MAXIMUM_PACKAGE_HEIGHT",
+          "name": "MAXIMUM_PACKAGE_HEIGHT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MF",
+          "name": "MF",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MP",
+          "name": "MP",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Package",
+          "name": "Package",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Part Number",
+          "name": "Part Number",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "STANDARD",
+          "name": "STANDARD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Supplier",
+          "name": "Supplier",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Supplier Number",
+          "name": "Supplier Number",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Voltage",
+          "name": "Voltage",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "Grouped By Value",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -573,7 +688,7 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "${KIPRJMOD}\\..\\A3.kicad_wks",
     "plot_directory": "",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
@@ -590,124 +705,92 @@
       "Root"
     ],
     [
-      "7f1e321a-42db-47b4-a1b9-09c1fb806d1c",
-      "Mic1"
+      "12e3755a-b7b9-4534-8242-b7a0dcbe0e3e",
+      "anti-alias3"
     ],
     [
       "d8b67b77-392f-43b8-a362-b325a24ccda2",
-      "ADC AD7769"
+      "ADC2 AD7769"
     ],
     [
       "4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10",
-      "Preamp1"
+      "anti-alias1"
     ],
     [
       "ddb272bb-fce1-4b2f-b2b4-7029779ab9cd",
-      "ADC AD7768"
+      "ADC1 AD7768"
     ],
     [
       "488afb9d-f633-414b-baeb-731dcd40642f",
       "ADC Common parts"
     ],
     [
-      "c04fb37a-ca3a-42b7-85e6-a865e932d1e6",
-      "Preamp2"
+      "ec0174c8-d41b-44f5-90eb-3bdc1c7d1977",
+      "anti-alias4"
     ],
     [
       "48ff83ba-2da4-43f8-b4b5-2b764b7ca27b",
       "uController"
     ],
     [
-      "eaa0e770-0eea-44b2-9d22-2e5ca8e637e5",
-      "Preamp3"
+      "b99f19c3-4bd1-4a79-86bb-0b009ccc8195",
+      "anti-alias5"
     ],
     [
       "b2521b29-c34b-45eb-94c3-a508572002a3",
       "AnalogFrontEnd"
     ],
     [
-      "20156219-8142-4308-96aa-fb0fff4de776",
-      "Preamp4"
+      "7cc79691-44af-4d8d-849e-fbd23425b718",
+      "anti-alias2"
     ],
     [
-      "43b99c92-088d-4bde-840b-cdc6705db1ec",
-      "Preamp5"
+      "fb0f71a8-5ef9-4ef4-8386-342fe40ff47a",
+      "anti-alias6"
     ],
     [
-      "2fe6ece6-6bc9-4d7d-810e-403c6b9e5ad7",
-      "Preamp6"
+      "75c6d46d-a808-465f-8bee-2e21091420ab",
+      "anti-alias7"
     ],
     [
-      "28a65e1b-9dab-435c-96b1-44b3f9bcbf37",
-      "Preamp7"
+      "20e21030-2dc7-4583-816d-7b4a8bd13f09",
+      "anti-alias8"
     ],
     [
-      "cf7210d3-e9ca-45ea-b89e-49b6b01a6ee1",
-      "Preamp8"
+      "b4edbbe0-ed7a-44d1-9568-483a89e0054d",
+      "anti-alias9"
     ],
     [
-      "a22085c9-d5c7-4a24-8fc7-9deeb63c00f0",
-      "Mic2"
+      "0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2",
+      "anti-alias10"
     ],
     [
-      "1a5ecb21-ab7b-4d48-9a78-e1b52af45f19",
-      "Mic3"
+      "5b27b0f7-2187-4cdf-81d6-34fe3f0766b1",
+      "anti-alias11"
     ],
     [
-      "9895acd3-7d2a-42d0-b9f2-49d3af0f0b8c",
-      "Mic4"
+      "e794d28d-66a4-4276-9c0e-c5478ed378cc",
+      "anti-alias12"
+    ],
+    [
+      "a04fc95b-c8dc-40d1-bf17-01a46cba4053",
+      "anti-alias13"
     ],
     [
       "279a9907-c667-4bf3-b216-212e76f47864",
       "Power"
     ],
     [
-      "9003ff34-e612-4437-95a2-a83f591ac1df",
-      "Mic5"
+      "7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175",
+      "anti-alias14"
     ],
     [
-      "e8e5cf8c-f6ec-49db-90b0-3912e9727c05",
-      "Mic6"
+      "daa21da1-e1cf-4569-98ec-176fd6f4a6c8",
+      "anti-alias15"
     ],
     [
-      "82a90f0e-bb38-4fff-9e47-d84df1cc720f",
-      "Mic7"
-    ],
-    [
-      "46529ec7-825a-4c02-96e6-a6a2ece67df9",
-      "Mic8"
-    ],
-    [
-      "e1f9c110-1164-4542-ada4-71b1a4efbf76",
-      "Mic9"
-    ],
-    [
-      "04ac431f-14f5-4045-8e20-b9692eeb11f8",
-      "Mic10"
-    ],
-    [
-      "504dc892-b73a-46eb-a920-95135af069f4",
-      "Mic11"
-    ],
-    [
-      "4a55ecc9-8375-4f72-9adf-75b8719c743a",
-      "Mic12"
-    ],
-    [
-      "6029c9a8-7057-46db-952e-51279300d87f",
-      "Mic13"
-    ],
-    [
-      "dc9b5573-06c9-4515-a601-46a9184cf8d7",
-      "Mic14"
-    ],
-    [
-      "9cbeee7d-11e3-4958-848c-03c5b5b51dd4",
-      "Mic15"
-    ],
-    [
-      "b0d382c9-1553-482e-abe0-17a6cc62d636",
-      "Mic16"
+      "93c005dd-6a75-42af-8420-7ec87c2ddf2a",
+      "anti-alias16"
     ]
   ],
   "text_variables": {}

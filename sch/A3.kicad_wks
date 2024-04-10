@@ -1,0 +1,152 @@
+(kicad_wks
+	(version 20231118)
+	(generator "pl_editor")
+	(generator_version "8.0")
+	(setup
+		(textsize 1.5 1.5)
+		(linewidth 0.15)
+		(textlinewidth 0.15)
+		(left_margin 10)
+		(right_margin 10)
+		(top_margin 10)
+		(bottom_margin 10)
+	)
+	(rect
+		(name "")
+		(start 96.543 23.8422)
+		(end 2 2.0002)
+		(comment "rect around the title block")
+	)
+	(rect
+		(name "")
+		(start 0 0 ltcorner)
+		(end 0 0)
+		(repeat 2)
+		(incrx 2)
+		(incry 2)
+	)
+	(line
+		(name "")
+		(start 50 2 ltcorner)
+		(end 50 0 ltcorner)
+		(repeat 30)
+		(incrx 50)
+	)
+	(tbtext "1"
+		(name "")
+		(pos 25 1 ltcorner)
+		(font
+			(size 1.3 1.3)
+		)
+		(repeat 100)
+		(incrx 50)
+	)
+	(line
+		(name "")
+		(start 50 2 lbcorner)
+		(end 50 0 lbcorner)
+		(repeat 30)
+		(incrx 50)
+	)
+	(tbtext "1"
+		(name "")
+		(pos 25 1 lbcorner)
+		(font
+			(size 1.3 1.3)
+		)
+		(repeat 100)
+		(incrx 50)
+	)
+	(line
+		(name "")
+		(start 0 50 ltcorner)
+		(end 2 50 ltcorner)
+		(repeat 30)
+		(incry 50)
+	)
+	(tbtext "A"
+		(name "")
+		(pos 1 25 ltcorner)
+		(font
+			(size 1.3 1.3)
+		)
+		(justify center)
+		(repeat 100)
+		(incry 50)
+	)
+	(line
+		(name "")
+		(start 0 50 rtcorner)
+		(end 2 50 rtcorner)
+		(repeat 30)
+		(incry 50)
+	)
+	(tbtext "A"
+		(name "")
+		(pos 1 25 rtcorner)
+		(font
+			(size 1.3 1.3)
+		)
+		(justify center)
+		(repeat 100)
+		(incry 50)
+	)
+	(tbtext "Date: ${ISSUE_DATE}"
+		(name "")
+		(pos 73.157 3.7252)
+	)
+	(line
+		(name "")
+		(start 96.553 5.5702)
+		(end 1.989 5.5842)
+	)
+	(tbtext "Rev: ${REVISION}"
+		(name "")
+		(pos 96.517 3.7252)
+		(font bold)
+	)
+	(tbtext "Sheet: ${#}/${##}"
+		(name "")
+		(pos 24.153 3.8452)
+		(comment "Sheet id")
+	)
+	(tbtext "Title:	${TITLE}"
+		(name "")
+		(pos 96.3 21.5722)
+		(font
+			(size 2 2) bold)
+	)
+	(tbtext "File: ${FILENAME}"
+		(name "")
+		(pos 96.3 7.188)
+	)
+	(line
+		(name "")
+		(start 96.543 9.2052)
+		(end 1.989 9.2052)
+	)
+	(tbtext "Sheet:	   ${SHEETPATH}"
+		(name "")
+		(pos 96.198 18.0992)
+	)
+	(tbtext "Drawn by:	${COMPANY}"
+		(name "")
+		(pos 96.3 11.2022)
+		(comment "Company name")
+	)
+	(tbtext "Client:		${COMMENT1}"
+		(name "")
+		(pos 96.3 14.2022)
+		(comment "Comment 0")
+	)
+	(line
+		(name "")
+		(start 74.205 5.5842)
+		(end 74.205 2.0142)
+	)
+	(line
+		(name "")
+		(start 25.041 5.5842)
+		(end 25.041 2.0142)
+	)
+)
