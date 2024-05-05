@@ -12,6 +12,108 @@
 		(comment 1 "JBRRY")
 	)
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.762) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x05"
 			(pin_names
 				(offset 1.016) hide)
@@ -719,10 +821,34 @@
 		(uuid "0f2d4d3f-7f78-4137-b7b8-dc04ed590214")
 	)
 	(junction
+		(at 116.84 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "322d1b04-3826-4e0b-aa26-41f4f15eb3e9")
+	)
+	(junction
+		(at 106.68 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "43709d63-d0fc-4925-a7ad-22b9540fd288")
+	)
+	(junction
+		(at 109.22 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "60b0466e-3837-4dd7-96ed-871481396fb8")
+	)
+	(junction
 		(at 224.79 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6e71c89f-8725-44af-a066-80b62220350c")
+	)
+	(junction
+		(at 111.76 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "78825656-2f73-4b22-bdc0-284ef660e5bd")
 	)
 	(junction
 		(at 222.25 139.7)
@@ -731,13 +857,19 @@
 		(uuid "83205149-d69d-4186-905b-e0c5e9c3623e")
 	)
 	(junction
+		(at 114.3 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9f81df27-6a18-4379-a2b8-6a59fdede15e")
+	)
+	(junction
 		(at 224.79 139.7)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aefbbd89-029e-4d5a-9dec-76bfa31a5f9f")
 	)
 	(junction
-		(at 114.3 157.48)
+		(at 132.08 157.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ddaa0d45-ae6a-4cd6-8ddc-3858b1418f3b")
@@ -764,7 +896,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 139.7) (xy 121.92 140.97)
+			(xy 135.89 139.7) (xy 135.89 140.97)
 		)
 		(stroke
 			(width 0)
@@ -784,7 +916,27 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 144.78) (xy 121.92 143.51)
+			(xy 109.22 140.97) (xy 135.89 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "032e8cb4-885b-44bb-a436-57c4dc16b9d1")
+	)
+	(wire
+		(pts
+			(xy 111.76 143.51) (xy 135.89 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08cc83da-0989-4699-9cf5-6f3d875824d2")
+	)
+	(wire
+		(pts
+			(xy 135.89 144.78) (xy 135.89 143.51)
 		)
 		(stroke
 			(width 0)
@@ -794,7 +946,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 146.05) (xy 114.3 157.48)
+			(xy 132.08 146.05) (xy 132.08 157.48)
 		)
 		(stroke
 			(width 0)
@@ -804,7 +956,17 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 138.43) (xy 113.03 138.43)
+			(xy 106.68 138.43) (xy 134.62 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30da4aa9-b7f2-4d56-881b-fe740a675b32")
+	)
+	(wire
+		(pts
+			(xy 105.41 138.43) (xy 106.68 138.43)
 		)
 		(stroke
 			(width 0)
@@ -814,7 +976,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 148.59) (xy 107.95 148.59)
+			(xy 105.41 148.59) (xy 116.84 148.59)
 		)
 		(stroke
 			(width 0)
@@ -834,7 +996,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 144.78) (xy 121.92 144.78)
+			(xy 207.01 144.78) (xy 135.89 144.78)
 		)
 		(stroke
 			(width 0)
@@ -844,7 +1006,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 138.43) (xy 113.03 137.16)
+			(xy 134.62 138.43) (xy 134.62 134.62)
 		)
 		(stroke
 			(width 0)
@@ -874,6 +1036,26 @@
 	)
 	(wire
 		(pts
+			(xy 111.76 127) (xy 111.76 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63e82ab3-cf3e-4a80-84ac-f1f93d9b68b5")
+	)
+	(wire
+		(pts
+			(xy 109.22 127) (xy 109.22 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "659171bc-f0e2-48bf-8c64-910a4dcc251d")
+	)
+	(wire
+		(pts
 			(xy 222.25 129.54) (xy 222.25 132.08)
 		)
 		(stroke
@@ -884,7 +1066,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 143.51) (xy 121.92 143.51)
+			(xy 105.41 143.51) (xy 111.76 143.51)
 		)
 		(stroke
 			(width 0)
@@ -894,7 +1076,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 148.59) (xy 107.95 151.13)
+			(xy 128.27 148.59) (xy 128.27 151.13)
 		)
 		(stroke
 			(width 0)
@@ -904,7 +1086,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 157.48) (xy 114.3 157.48)
+			(xy 128.27 157.48) (xy 132.08 157.48)
 		)
 		(stroke
 			(width 0)
@@ -914,7 +1096,17 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 139.7) (xy 121.92 139.7)
+			(xy 116.84 127) (xy 116.84 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9051e0ba-5e6d-40bc-8196-1c5f7e42c417")
+	)
+	(wire
+		(pts
+			(xy 207.01 139.7) (xy 135.89 139.7)
 		)
 		(stroke
 			(width 0)
@@ -924,7 +1116,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 140.97) (xy 121.92 140.97)
+			(xy 105.41 140.97) (xy 109.22 140.97)
 		)
 		(stroke
 			(width 0)
@@ -954,6 +1146,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 148.59) (xy 128.27 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca2102f8-a082-40e5-b92a-cc36518e49a4")
+	)
+	(wire
+		(pts
 			(xy 222.25 153.67) (xy 222.25 152.4)
 		)
 		(stroke
@@ -964,7 +1166,17 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 156.21) (xy 107.95 157.48)
+			(xy 114.3 146.05) (xy 132.08 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1366d2d-3c33-4c59-af31-c126a82890d5")
+	)
+	(wire
+		(pts
+			(xy 128.27 156.21) (xy 128.27 157.48)
 		)
 		(stroke
 			(width 0)
@@ -974,7 +1186,17 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 157.48) (xy 114.3 160.02)
+			(xy 114.3 127) (xy 114.3 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d31dfde6-789f-44ec-8114-5d3e3279bd2d")
+	)
+	(wire
+		(pts
+			(xy 132.08 157.48) (xy 132.08 160.02)
 		)
 		(stroke
 			(width 0)
@@ -1011,6 +1233,16 @@
 			(type default)
 		)
 		(uuid "fb668c9b-4d7f-4fbe-be9a-c467220f3455")
+	)
+	(wire
+		(pts
+			(xy 106.68 127) (xy 106.68 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc978d51-f896-48dd-80c7-113205786a0e")
 	)
 	(rectangle
 		(start 196.85 120.65)
@@ -1321,7 +1553,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "KEMET"
 			(at 222.25 149.86 0)
 			(effects
 				(font
@@ -1330,7 +1562,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "C0603C103M4RAC7867"
 			(at 222.25 149.86 0)
 			(effects
 				(font
@@ -1348,7 +1580,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "399-C0603C103M4RAC7867CT-ND"
 			(at 222.25 149.86 0)
 			(effects
 				(font
@@ -1358,6 +1590,15 @@
 			)
 		)
 		(property "Fit" ""
+			(at 222.25 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "16V"
 			(at 222.25 149.86 0)
 			(effects
 				(font
@@ -1495,6 +1736,42 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Vishay Dale"
+			(at 209.55 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "CRCW060333R0FKEAC"
+			(at 209.55 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "541-3988-1-ND"
+			(at 209.55 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
+			(at 209.55 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d2db9291-2b05-46f5-bebb-ac8036663d5e")
 		)
@@ -1622,6 +1899,42 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Vishay Dale"
+			(at 209.55 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "CRCW060333R0FKEAC"
+			(at 209.55 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "541-3988-1-ND"
+			(at 209.55 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
+			(at 209.55 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8594ba44-b1d6-4b99-8b4d-4c641c66920a")
 		)
@@ -1699,7 +2012,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 114.3 160.02 0)
+		(at 132.08 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1708,7 +2021,7 @@
 		(fields_autoplaced yes)
 		(uuid "75ae2294-412d-4e0a-a8a9-a7d9bc371dc1")
 		(property "Reference" "#PWR0183"
-			(at 114.3 166.37 0)
+			(at 132.08 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1717,7 +2030,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 114.3 165.1 0)
+			(at 132.08 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1725,7 +2038,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 160.02 0)
+			(at 132.08 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1734,7 +2047,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 160.02 0)
+			(at 132.08 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1743,7 +2056,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 114.3 160.02 0)
+			(at 132.08 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1818,6 +2131,178 @@
 				)
 				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
 					(reference "#PWR0187")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 116.84 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "77ca7839-e7bb-468b-a18e-45baf94c0e52")
+		(property "Reference" "TP102"
+			(at 116.84 122.174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Hole_1.5mm"
+			(at 119.38 124.9679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" ""
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "910ed4eb-0623-4364-a9e9-6768e16f36c2")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/12e3755a-b7b9-4534-8242-b7a0dcbe0e3e"
+					(reference "TP102")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
+					(reference "TP103")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
+					(reference "TP104")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b99f19c3-4bd1-4a79-86bb-0b009ccc8195"
+					(reference "TP105")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
+					(reference "TP106")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/fb0f71a8-5ef9-4ef4-8386-342fe40ff47a"
+					(reference "TP107")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/75c6d46d-a808-465f-8bee-2e21091420ab"
+					(reference "TP108")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/20e21030-2dc7-4583-816d-7b4a8bd13f09"
+					(reference "TP109")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b4edbbe0-ed7a-44d1-9568-483a89e0054d"
+					(reference "TP110")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2"
+					(reference "TP111")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/5b27b0f7-2187-4cdf-81d6-34fe3f0766b1"
+					(reference "TP112")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/e794d28d-66a4-4276-9c0e-c5478ed378cc"
+					(reference "TP113")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/a04fc95b-c8dc-40d1-bf17-01a46cba4053"
+					(reference "TP114")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175"
+					(reference "TP115")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/daa21da1-e1cf-4569-98ec-176fd6f4a6c8"
+					(reference "TP116")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/93c005dd-6a75-42af-8420-7ec87c2ddf2a"
+					(reference "TP117")
 					(unit 1)
 				)
 			)
@@ -1952,7 +2437,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3VA")
-		(at 113.03 137.16 0)
+		(at 134.62 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1961,7 +2446,7 @@
 		(fields_autoplaced yes)
 		(uuid "94d7f3df-df68-4206-a598-62c72a369986")
 		(property "Reference" "#PWR0184"
-			(at 113.03 140.97 0)
+			(at 134.62 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1970,7 +2455,7 @@
 			)
 		)
 		(property "Value" "+3.3VA"
-			(at 113.03 132.08 0)
+			(at 134.62 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1978,7 +2463,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 113.03 137.16 0)
+			(at 134.62 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1987,7 +2472,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 137.16 0)
+			(at 134.62 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1996,7 +2481,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
-			(at 113.03 137.16 0)
+			(at 134.62 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2203,6 +2688,694 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 109.22 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "99465dcd-7fa9-4ada-9736-35e8bb42741b")
+		(property "Reference" "TP39"
+			(at 109.22 122.174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Hole_1.5mm"
+			(at 111.76 124.9679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" ""
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 109.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e62f2f9-322f-4481-b056-f06c35674555")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/12e3755a-b7b9-4534-8242-b7a0dcbe0e3e"
+					(reference "TP39")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
+					(reference "TP41")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
+					(reference "TP43")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b99f19c3-4bd1-4a79-86bb-0b009ccc8195"
+					(reference "TP45")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
+					(reference "TP47")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/fb0f71a8-5ef9-4ef4-8386-342fe40ff47a"
+					(reference "TP49")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/75c6d46d-a808-465f-8bee-2e21091420ab"
+					(reference "TP51")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/20e21030-2dc7-4583-816d-7b4a8bd13f09"
+					(reference "TP53")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b4edbbe0-ed7a-44d1-9568-483a89e0054d"
+					(reference "TP55")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2"
+					(reference "TP57")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/5b27b0f7-2187-4cdf-81d6-34fe3f0766b1"
+					(reference "TP59")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/e794d28d-66a4-4276-9c0e-c5478ed378cc"
+					(reference "TP61")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/a04fc95b-c8dc-40d1-bf17-01a46cba4053"
+					(reference "TP63")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175"
+					(reference "TP65")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/daa21da1-e1cf-4569-98ec-176fd6f4a6c8"
+					(reference "TP67")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/93c005dd-6a75-42af-8420-7ec87c2ddf2a"
+					(reference "TP69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 106.68 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "b523c799-335d-4dab-b867-7aaca39fc75f")
+		(property "Reference" "TP38"
+			(at 106.68 122.174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Hole_1.5mm"
+			(at 109.22 124.9679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" ""
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 106.68 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33e31ec5-8452-49b6-9112-d6a3b7d04099")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/12e3755a-b7b9-4534-8242-b7a0dcbe0e3e"
+					(reference "TP38")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
+					(reference "TP40")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
+					(reference "TP42")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b99f19c3-4bd1-4a79-86bb-0b009ccc8195"
+					(reference "TP44")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
+					(reference "TP46")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/fb0f71a8-5ef9-4ef4-8386-342fe40ff47a"
+					(reference "TP48")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/75c6d46d-a808-465f-8bee-2e21091420ab"
+					(reference "TP50")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/20e21030-2dc7-4583-816d-7b4a8bd13f09"
+					(reference "TP52")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b4edbbe0-ed7a-44d1-9568-483a89e0054d"
+					(reference "TP54")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2"
+					(reference "TP56")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/5b27b0f7-2187-4cdf-81d6-34fe3f0766b1"
+					(reference "TP58")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/e794d28d-66a4-4276-9c0e-c5478ed378cc"
+					(reference "TP60")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/a04fc95b-c8dc-40d1-bf17-01a46cba4053"
+					(reference "TP62")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175"
+					(reference "TP64")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/daa21da1-e1cf-4569-98ec-176fd6f4a6c8"
+					(reference "TP66")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/93c005dd-6a75-42af-8420-7ec87c2ddf2a"
+					(reference "TP68")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 111.76 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "b9ff95c1-9f42-4958-821f-7d59356af16e")
+		(property "Reference" "TP70"
+			(at 111.76 122.174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Hole_1.5mm"
+			(at 114.3 124.9679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 116.84 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" ""
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 111.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43712bbe-2c32-4dd1-95a4-5ec520e13f9f")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/12e3755a-b7b9-4534-8242-b7a0dcbe0e3e"
+					(reference "TP70")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
+					(reference "TP71")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
+					(reference "TP72")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b99f19c3-4bd1-4a79-86bb-0b009ccc8195"
+					(reference "TP73")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
+					(reference "TP74")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/fb0f71a8-5ef9-4ef4-8386-342fe40ff47a"
+					(reference "TP75")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/75c6d46d-a808-465f-8bee-2e21091420ab"
+					(reference "TP76")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/20e21030-2dc7-4583-816d-7b4a8bd13f09"
+					(reference "TP77")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b4edbbe0-ed7a-44d1-9568-483a89e0054d"
+					(reference "TP78")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2"
+					(reference "TP79")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/5b27b0f7-2187-4cdf-81d6-34fe3f0766b1"
+					(reference "TP80")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/e794d28d-66a4-4276-9c0e-c5478ed378cc"
+					(reference "TP81")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/a04fc95b-c8dc-40d1-bf17-01a46cba4053"
+					(reference "TP82")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175"
+					(reference "TP83")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/daa21da1-e1cf-4569-98ec-176fd6f4a6c8"
+					(reference "TP84")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/93c005dd-6a75-42af-8420-7ec87c2ddf2a"
+					(reference "TP85")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 114.3 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "c5b74c26-b50d-44e5-9fc3-c79bc4444b17")
+		(property "Reference" "TP86"
+			(at 114.3 122.174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Hole_1.5mm"
+			(at 116.84 124.9679 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 119.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 119.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" ""
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 114.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "88bbdec7-d5aa-4e04-9ee8-1308216089e1")
+		)
+		(instances
+			(project "mic-test-pcb"
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/12e3755a-b7b9-4534-8242-b7a0dcbe0e3e"
+					(reference "TP86")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
+					(reference "TP87")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
+					(reference "TP88")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b99f19c3-4bd1-4a79-86bb-0b009ccc8195"
+					(reference "TP89")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7cc79691-44af-4d8d-849e-fbd23425b718"
+					(reference "TP90")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/fb0f71a8-5ef9-4ef4-8386-342fe40ff47a"
+					(reference "TP91")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/75c6d46d-a808-465f-8bee-2e21091420ab"
+					(reference "TP92")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/20e21030-2dc7-4583-816d-7b4a8bd13f09"
+					(reference "TP93")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/b4edbbe0-ed7a-44d1-9568-483a89e0054d"
+					(reference "TP94")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/0228abb0-d70b-48c4-81cc-ad4d9f5ea4f2"
+					(reference "TP95")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/5b27b0f7-2187-4cdf-81d6-34fe3f0766b1"
+					(reference "TP96")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/e794d28d-66a4-4276-9c0e-c5478ed378cc"
+					(reference "TP97")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/a04fc95b-c8dc-40d1-bf17-01a46cba4053"
+					(reference "TP98")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/7b8e10b2-fc7c-40a3-a2aa-fbb4ad2ca175"
+					(reference "TP99")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/daa21da1-e1cf-4569-98ec-176fd6f4a6c8"
+					(reference "TP100")
+					(unit 1)
+				)
+				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/93c005dd-6a75-42af-8420-7ec87c2ddf2a"
+					(reference "TP101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 222.25 134.62 0)
 		(mirror y)
@@ -2258,7 +3431,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "KEMET"
 			(at 222.25 134.62 0)
 			(effects
 				(font
@@ -2267,7 +3440,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "C0603C103M4RAC7867"
 			(at 222.25 134.62 0)
 			(effects
 				(font
@@ -2285,7 +3458,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "399-C0603C103M4RAC7867CT-ND"
 			(at 222.25 134.62 0)
 			(effects
 				(font
@@ -2295,6 +3468,15 @@
 			)
 		)
 		(property "Fit" ""
+			(at 222.25 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "16V"
 			(at 222.25 134.62 0)
 			(effects
 				(font
@@ -2506,7 +3688,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 107.95 153.67 180)
+		(at 128.27 153.67 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2515,7 +3697,7 @@
 		(fields_autoplaced yes)
 		(uuid "de262825-f204-452e-943e-e30474c856a0")
 		(property "Reference" "R238"
-			(at 105.41 152.3999 0)
+			(at 125.73 152.3999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2524,7 +3706,7 @@
 			)
 		)
 		(property "Value" "0R"
-			(at 105.41 154.9399 0)
+			(at 125.73 154.9399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2533,7 +3715,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 107.95 153.67 0)
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2542,7 +3724,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 107.95 153.67 0)
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2551,7 +3733,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 107.95 153.67 0)
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2559,8 +3741,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 107.95 153.67 0)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2568,8 +3750,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 107.95 153.67 0)
+		(property "Part Number" "RMCF0603ZT0R00"
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2577,8 +3759,8 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
-			(at 107.95 153.67 0)
+		(property "Supplier" "Digi-Key"
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2586,8 +3768,8 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
-			(at 107.95 153.67 0)
+		(property "Supplier Number" "RMCF0603ZT0R00CT-ND"
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2596,7 +3778,7 @@
 			)
 		)
 		(property "Fit" ""
-			(at 107.95 153.67 0)
+			(at 128.27 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2801,7 +3983,7 @@
 					(unit 1)
 				)
 				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/4171cf86-d5b2-4ab0-b66a-1f1cb84e3c10"
-					(reference "P?")
+					(reference "P1")
 					(unit 1)
 				)
 				(path "/51c8d8e6-56a1-4b17-b155-d2586571b4e9/b2521b29-c34b-45eb-94c3-a508572002a3/ec0174c8-d41b-44f5-90eb-3bdc1c7d1977"
@@ -2901,7 +4083,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 224.79 142.24 0)
 			(effects
 				(font
@@ -2919,7 +4101,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "KEMET"
 			(at 224.79 142.24 0)
 			(effects
 				(font
@@ -2928,7 +4110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "C0603C103M4RAC7867"
 			(at 224.79 142.24 0)
 			(effects
 				(font
@@ -2946,7 +4128,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "399-C0603C103M4RAC7867CT-ND"
 			(at 224.79 142.24 0)
 			(effects
 				(font
@@ -2956,6 +4138,15 @@
 			)
 		)
 		(property "Fit" ""
+			(at 224.79 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "16V"
 			(at 224.79 142.24 0)
 			(effects
 				(font

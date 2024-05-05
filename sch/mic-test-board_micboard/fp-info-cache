@@ -1,4 +1,4 @@
-23143818974272919
+23142098360414386
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -94770,8 +94770,8 @@ IC_SN74AUC08RGYRG4
 
 
 0
-15
-15
+19
+19
 mic-test-board
 MIC_ICS-40730
 
@@ -94786,13 +94786,6 @@ MIC_ICS-52000
 0
 10
 10
-mic-test-board
-Molex_PicoBlade_53047-0510_1x05_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-0510, 5 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
-connector Molex PicoBlade side entry
-0
-5
-5
 mic-test-board
 Oscillator_SMD_Kyocera_KC3225Z32-4Pin_3.2x2.5mm
 https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/204/KC3225Z_Series_Spec_Prelim.pdf
@@ -94812,5 +94805,5 @@ ST_Morpho_Connector_144_STLink_SMD_Headers_BottomMount
 ST Morpho Connector 144 With STLink
 ST Morpho Connector 144 STLink
 0
-144
-144
+148
+148

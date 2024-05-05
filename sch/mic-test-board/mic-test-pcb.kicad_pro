@@ -43,9 +43,9 @@
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
-        "silk_text_size_h": 1.0,
-        "silk_text_size_v": 1.0,
-        "silk_text_thickness": 0.15,
+        "silk_text_size_h": 0.7,
+        "silk_text_size_v": 0.7,
+        "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
           "min_clearance": 0.5
@@ -85,10 +85,10 @@
         "items_not_allowed": "error",
         "length_out_of_range": "error",
         "lib_footprint_issues": "warning",
-        "lib_footprint_mismatch": "warning",
+        "lib_footprint_mismatch": "ignore",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
-        "missing_courtyard": "ignore",
+        "missing_courtyard": "warning",
         "missing_footprint": "warning",
         "net_conflict": "warning",
         "npth_inside_courtyard": "ignore",
@@ -97,7 +97,7 @@
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
@@ -180,13 +180,15 @@
       ],
       "track_widths": [
         0.0,
-        0.0,
         0.1524,
         0.2032,
         0.254,
         0.381,
         0.508,
-        0.635
+        0.635,
+        0.762,
+        1.016,
+        1.27
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -531,7 +533,7 @@
     },
     "bom_presets": [],
     "bom_settings": {
-      "exclude_dnp": false,
+      "exclude_dnp": true,
       "fields_ordered": [
         {
           "group_by": false,
@@ -540,7 +542,7 @@
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -636,13 +638,13 @@
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Supplier Number",
           "name": "Supplier Number",
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Voltage",
           "name": "Voltage",
           "show": true
@@ -658,7 +660,7 @@
       "group_symbols": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Supplier Number"
     },
     "connection_grid_size": 50.0,
     "drawing": {

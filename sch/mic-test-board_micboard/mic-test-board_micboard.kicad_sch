@@ -1528,6 +1528,12 @@
 		(uuid "7c4a5293-b341-4a3c-9164-dda0a14ab4b9")
 	)
 	(junction
+		(at 220.98 234.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7de142db-75ab-4f72-804c-e89afc8727e8")
+	)
+	(junction
 		(at 337.82 147.32)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1574,12 +1580,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b0def2be-3018-4fb8-890c-6d8a00cb5352")
-	)
-	(junction
-		(at 254 234.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bb192cbb-f3e1-427a-8525-59637fdf7fe3")
 	)
 	(junction
 		(at 242.57 234.95)
@@ -1813,7 +1813,7 @@
 	)
 	(wire
 		(pts
-			(xy 274.32 232.41) (xy 265.43 232.41)
+			(xy 229.87 232.41) (xy 220.98 232.41)
 		)
 		(stroke
 			(width 0)
@@ -1933,7 +1933,7 @@
 	)
 	(wire
 		(pts
-			(xy 265.43 232.41) (xy 265.43 234.95)
+			(xy 220.98 232.41) (xy 220.98 234.95)
 		)
 		(stroke
 			(width 0)
@@ -2030,6 +2030,16 @@
 			(type default)
 		)
 		(uuid "62251384-d265-495d-ac87-ca1861382d09")
+	)
+	(wire
+		(pts
+			(xy 220.98 234.95) (xy 242.57 234.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65e5fd6a-fdaf-4652-8674-f42236534f98")
 	)
 	(wire
 		(pts
@@ -2163,16 +2173,6 @@
 	)
 	(wire
 		(pts
-			(xy 254 234.95) (xy 265.43 234.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "989be657-d0f0-4bfe-87db-1af5d91c0101")
-	)
-	(wire
-		(pts
 			(xy 210.82 123.19) (xy 210.82 133.35)
 		)
 		(stroke
@@ -2223,7 +2223,7 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 234.95) (xy 242.57 234.95)
+			(xy 217.17 234.95) (xy 220.98 234.95)
 		)
 		(stroke
 			(width 0)
@@ -2685,7 +2685,7 @@
 		(uuid "e86be34a-103b-4f95-a0a0-9398848ddb98")
 	)
 	(label "~{DISABLE}"
-		(at 274.32 232.41 180)
+		(at 229.87 232.41 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3152,6 +3152,42 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK InvenSense"
+			(at 67.31 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "ICS-40730"
+			(at 67.31 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "1428-1141-1-ND"
+			(at 67.31 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
+			(at 67.31 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "dcaf1e7d-07d7-4d31-8f4a-d054a3f32a6a")
 		)
@@ -3180,7 +3216,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3ab3e0d7-9157-41ba-bd6f-a99f1aa72860")
 		(property "Reference" "J4"
 			(at 340.36 125.222 90)
@@ -3304,7 +3340,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x04"
+		(property "Value" "Conn_01x05"
 			(at 358.14 146.0501 0)
 			(effects
 				(font
@@ -3322,7 +3358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.molex.com/pdm_docs/sd/530470510_sd.pdf"
 			(at 355.6 147.32 0)
 			(effects
 				(font
@@ -3340,7 +3376,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Molex"
 			(at 355.6 147.32 0)
 			(effects
 				(font
@@ -3349,7 +3385,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "0530470510"
 			(at 355.6 147.32 0)
 			(effects
 				(font
@@ -3358,7 +3394,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 355.6 147.32 0)
 			(effects
 				(font
@@ -3367,7 +3403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "WM1734-ND"
 			(at 355.6 147.32 0)
 			(effects
 				(font
@@ -3428,7 +3464,7 @@
 				)
 			)
 		)
-		(property "Value" "1.6k"
+		(property "Value" "1.58k"
 			(at 220.98 161.29 90)
 			(effects
 				(font
@@ -3455,6 +3491,42 @@
 			)
 		)
 		(property "Description" ""
+			(at 220.98 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 220.98 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-071K58L"
+			(at 220.98 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "311-1.58KHRCT-ND"
+			(at 220.98 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
 			(at 220.98 158.75 0)
 			(effects
 				(font
@@ -3495,7 +3567,7 @@
 				)
 			)
 		)
-		(property "Value" "1.6k"
+		(property "Value" "1.58k"
 			(at 220.98 130.81 90)
 			(effects
 				(font
@@ -3522,6 +3594,42 @@
 			)
 		)
 		(property "Description" ""
+			(at 220.98 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 220.98 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-071K58L"
+			(at 220.98 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "311-1.58KHRCT-ND"
+			(at 220.98 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
 			(at 220.98 133.35 0)
 			(effects
 				(font
@@ -3739,7 +3847,7 @@
 				)
 			)
 		)
-		(property "Value" "550R"
+		(property "Value" "549R"
 			(at 203.2 153.67 90)
 			(effects
 				(font
@@ -3766,6 +3874,42 @@
 			)
 		)
 		(property "Description" ""
+			(at 203.2 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 203.2 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-07549RL"
+			(at 203.2 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "311-549HRCT-ND"
+			(at 203.2 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
 			(at 203.2 151.13 0)
 			(effects
 				(font
@@ -3920,10 +4064,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6f14e254-2e3a-4ac3-a22e-98abdd64522c")
 		(property "Reference" "U2"
-			(at 233.68 157.48 0)
+			(at 236.474 151.638 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3931,7 +4074,7 @@
 			)
 		)
 		(property "Value" "THS4531AIRUNR"
-			(at 233.68 160.02 0)
+			(at 236.728 154.686 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4249,7 +4392,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7d9149d5-109e-49f2-abce-eb7bceff0efc")
 		(property "Reference" "J2"
 			(at 332.74 125.222 90)
@@ -4361,7 +4504,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7f3bf17a-2460-47e3-a804-43be43ab28ca")
 		(property "Reference" "J1"
 			(at 328.93 125.222 90)
@@ -4958,7 +5101,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c3c97758-aa45-4ccf-bcbf-b1bfa6368bba")
 		(property "Reference" "J5"
 			(at 344.17 125.222 90)
@@ -5253,7 +5396,7 @@
 				)
 			)
 		)
-		(property "Value" "550R"
+		(property "Value" "549R"
 			(at 203.2 143.51 90)
 			(effects
 				(font
@@ -5280,6 +5423,42 @@
 			)
 		)
 		(property "Description" ""
+			(at 203.2 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 203.2 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-07549RL"
+			(at 203.2 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "311-549HRCT-ND"
+			(at 203.2 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
 			(at 203.2 140.97 0)
 			(effects
 				(font
@@ -5576,7 +5755,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Würth Elektronik"
 			(at 220.98 168.91 0)
 			(effects
 				(font
@@ -5585,7 +5764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "885012006027"
 			(at 220.98 168.91 0)
 			(effects
 				(font
@@ -5594,7 +5773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 220.98 168.91 0)
 			(effects
 				(font
@@ -5603,7 +5782,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "732-7770-1-ND"
 			(at 220.98 168.91 0)
 			(effects
 				(font
@@ -5688,7 +5867,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Würth Elektronik"
 			(at 220.98 123.19 0)
 			(effects
 				(font
@@ -5697,7 +5876,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "885012006027"
 			(at 220.98 123.19 0)
 			(effects
 				(font
@@ -5706,7 +5885,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 220.98 123.19 0)
 			(effects
 				(font
@@ -5715,7 +5894,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "732-7770-1-ND"
 			(at 220.98 123.19 0)
 			(effects
 				(font
@@ -5755,7 +5934,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "f90a2b73-1ca7-4119-aea2-a2ffe989ffa1")
 		(property "Reference" "J3"
 			(at 336.55 125.222 90)

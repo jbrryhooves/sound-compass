@@ -958,7 +958,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e22e924c-2119-49d2-bc29-dd4ab517a1b0")
 		(property "Reference" "TP36"
 			(at 211.582 24.892 0)
@@ -1070,7 +1070,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "ec8b853f-32fa-4e89-9699-d0db1e71205a")
 		(property "Reference" "TP4"
 			(at 206.502 24.892 0)

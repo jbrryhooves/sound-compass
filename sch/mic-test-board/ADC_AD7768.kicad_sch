@@ -4766,7 +4766,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 127 256.54 0)
 			(effects
 				(font
@@ -4775,7 +4775,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 127 256.54 0)
 			(effects
 				(font
@@ -4784,7 +4784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 127 256.54 0)
 			(effects
 				(font
@@ -4793,7 +4793,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 127 256.54 0)
 			(effects
 				(font
@@ -4964,7 +4964,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 219.71 256.54 0)
 			(effects
 				(font
@@ -4973,7 +4973,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 219.71 256.54 0)
 			(effects
 				(font
@@ -4982,7 +4982,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 219.71 256.54 0)
 			(effects
 				(font
@@ -4991,7 +4991,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 219.71 256.54 0)
 			(effects
 				(font
@@ -5092,7 +5092,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 208.28 256.54 0)
 			(effects
 				(font
@@ -5101,7 +5101,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 208.28 256.54 0)
 			(effects
 				(font
@@ -5110,7 +5110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 208.28 256.54 0)
 			(effects
 				(font
@@ -5119,7 +5119,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 208.28 256.54 0)
 			(effects
 				(font
@@ -5405,7 +5405,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 137.16 256.54 0)
 			(effects
 				(font
@@ -5414,7 +5414,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 137.16 256.54 0)
 			(effects
 				(font
@@ -5423,7 +5423,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 137.16 256.54 0)
 			(effects
 				(font
@@ -5432,7 +5432,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 137.16 256.54 0)
 			(effects
 				(font
@@ -5533,7 +5533,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 198.12 256.54 0)
 			(effects
 				(font
@@ -5542,7 +5542,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 198.12 256.54 0)
 			(effects
 				(font
@@ -5551,7 +5551,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 198.12 256.54 0)
 			(effects
 				(font
@@ -5560,7 +5560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 198.12 256.54 0)
 			(effects
 				(font
@@ -5613,7 +5613,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "4d6420e2-2035-4d1b-bf04-57e6087686ef")
 		(property "Reference" "JP2"
@@ -5662,7 +5662,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 119.38 196.85 0)
 			(effects
 				(font
@@ -5671,7 +5671,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 119.38 196.85 0)
 			(effects
 				(font
@@ -5680,7 +5680,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 119.38 196.85 0)
 			(effects
 				(font
@@ -5689,7 +5689,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 119.38 196.85 0)
 			(effects
 				(font
@@ -5831,6 +5831,51 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Analog Devices Inc."
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "AD7768BSTZ"
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digi-Key"
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "505-AD7768BSTZ-ND"
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6094,7 +6139,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 185.42 256.54 0)
 			(effects
 				(font
@@ -6103,7 +6148,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 185.42 256.54 0)
 			(effects
 				(font
@@ -6112,7 +6157,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 185.42 256.54 0)
 			(effects
 				(font
@@ -6121,7 +6166,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 185.42 256.54 0)
 			(effects
 				(font
@@ -6292,7 +6337,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 81.28 256.54 0)
 			(effects
 				(font
@@ -6301,7 +6346,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 81.28 256.54 0)
 			(effects
 				(font
@@ -6310,7 +6355,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 81.28 256.54 0)
 			(effects
 				(font
@@ -6319,7 +6364,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 81.28 256.54 0)
 			(effects
 				(font
@@ -6488,7 +6533,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Stackpole Electronics Inc"
 			(at 165.1 109.22 0)
 			(effects
 				(font
@@ -6497,7 +6542,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "RMCF0603ZT0R00"
 			(at 165.1 109.22 0)
 			(effects
 				(font
@@ -6506,7 +6551,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 165.1 109.22 0)
 			(effects
 				(font
@@ -6515,7 +6560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "RMCF0603ZT0R00CT-ND"
 			(at 165.1 109.22 0)
 			(effects
 				(font
@@ -6571,7 +6616,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "10uF"
 			(at 177.8 256.5462 0)
 			(effects
 				(font
@@ -6580,7 +6625,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 175.26 256.54 0)
 			(effects
 				(font
@@ -6607,7 +6652,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 175.26 256.54 0)
 			(effects
 				(font
@@ -6616,7 +6661,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CL21B106KOQNNNE"
 			(at 175.26 256.54 0)
 			(effects
 				(font
@@ -6625,7 +6670,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 175.26 256.54 0)
 			(effects
 				(font
@@ -6634,7 +6679,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "1276-2872-1-ND"
 			(at 175.26 256.54 0)
 			(effects
 				(font
@@ -6735,7 +6780,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 229.87 256.54 0)
 			(effects
 				(font
@@ -6744,7 +6789,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 229.87 256.54 0)
 			(effects
 				(font
@@ -6753,7 +6798,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 229.87 256.54 0)
 			(effects
 				(font
@@ -6762,7 +6807,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 229.87 256.54 0)
 			(effects
 				(font
@@ -6863,7 +6908,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 274.32 255.27 0)
 			(effects
 				(font
@@ -6872,7 +6917,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 274.32 255.27 0)
 			(effects
 				(font
@@ -6881,7 +6926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 274.32 255.27 0)
 			(effects
 				(font
@@ -6890,7 +6935,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 274.32 255.27 0)
 			(effects
 				(font
@@ -7062,7 +7107,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 287.02 104.14 0)
 			(effects
 				(font
@@ -7071,7 +7116,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 287.02 104.14 0)
 			(effects
 				(font
@@ -7080,7 +7125,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 287.02 104.14 0)
 			(effects
 				(font
@@ -7089,7 +7134,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 287.02 104.14 0)
 			(effects
 				(font
@@ -7142,7 +7187,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "84e6609e-a0ae-4587-8e8d-20697eefd502")
 		(property "Reference" "TP6"
@@ -7307,7 +7352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 114.3 256.54 0)
 			(effects
 				(font
@@ -7316,7 +7361,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 114.3 256.54 0)
 			(effects
 				(font
@@ -7325,7 +7370,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 114.3 256.54 0)
 			(effects
 				(font
@@ -7334,7 +7379,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 114.3 256.54 0)
 			(effects
 				(font
@@ -7387,7 +7432,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "861e240e-eb7a-401d-a9b4-8e97e83b103b")
 		(property "Reference" "TP2"
@@ -7504,7 +7549,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "8ac41727-c530-4b64-8e5a-7c461dd0fd8e")
 		(property "Reference" "TP13"
@@ -7669,7 +7714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 262.89 255.27 0)
 			(effects
 				(font
@@ -7678,7 +7723,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 262.89 255.27 0)
 			(effects
 				(font
@@ -7687,7 +7732,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 262.89 255.27 0)
 			(effects
 				(font
@@ -7696,7 +7741,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 262.89 255.27 0)
 			(effects
 				(font
@@ -7797,7 +7842,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 91.44 256.54 0)
 			(effects
 				(font
@@ -7806,7 +7851,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 91.44 256.54 0)
 			(effects
 				(font
@@ -7815,7 +7860,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 91.44 256.54 0)
 			(effects
 				(font
@@ -7824,7 +7869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 91.44 256.54 0)
 			(effects
 				(font
@@ -8038,7 +8083,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Panasonic Electronic Components"
 			(at 279.4 99.06 0)
 			(effects
 				(font
@@ -8047,7 +8092,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "ERJ-3EKF49R9V"
 			(at 279.4 99.06 0)
 			(effects
 				(font
@@ -8056,7 +8101,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 279.4 99.06 0)
 			(effects
 				(font
@@ -8065,7 +8110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "P49.9HCT-ND"
 			(at 279.4 99.06 0)
 			(effects
 				(font
@@ -8342,7 +8387,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 105.41 256.54 0)
 			(effects
 				(font
@@ -8351,7 +8396,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 105.41 256.54 0)
 			(effects
 				(font
@@ -8360,7 +8405,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 105.41 256.54 0)
 			(effects
 				(font
@@ -8369,7 +8414,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 105.41 256.54 0)
 			(effects
 				(font
@@ -8470,7 +8515,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 68.58 256.54 0)
 			(effects
 				(font
@@ -8479,7 +8524,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 68.58 256.54 0)
 			(effects
 				(font
@@ -8488,7 +8533,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 68.58 256.54 0)
 			(effects
 				(font
@@ -8497,7 +8542,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 68.58 256.54 0)
 			(effects
 				(font
@@ -8620,7 +8665,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "b83608a2-5f5a-4cca-87a5-dcce3a067f1e")
 		(property "Reference" "TP18"
@@ -8856,7 +8901,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 58.42 256.54 0)
 			(effects
 				(font
@@ -8865,7 +8910,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 58.42 256.54 0)
 			(effects
 				(font
@@ -8874,7 +8919,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 58.42 256.54 0)
 			(effects
 				(font
@@ -8883,7 +8928,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 58.42 256.54 0)
 			(effects
 				(font
@@ -9121,7 +9166,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e0d0fb09-90ef-48eb-8590-6475c2c2006d")
 		(property "Reference" "TP5"
@@ -9357,7 +9402,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 35.56 256.54 0)
 			(effects
 				(font
@@ -9366,7 +9411,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB105"
 			(at 35.56 256.54 0)
 			(effects
 				(font
@@ -9375,7 +9420,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 35.56 256.54 0)
 			(effects
 				(font
@@ -9384,7 +9429,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1446-1-ND"
 			(at 35.56 256.54 0)
 			(effects
 				(font
@@ -9485,7 +9530,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 45.72 256.54 0)
 			(effects
 				(font
@@ -9494,7 +9539,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "CC0603KRX7R7BB104"
 			(at 45.72 256.54 0)
 			(effects
 				(font
@@ -9503,7 +9548,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 45.72 256.54 0)
 			(effects
 				(font
@@ -9512,7 +9557,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-1088-1-ND"
 			(at 45.72 256.54 0)
 			(effects
 				(font
@@ -9565,7 +9610,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ffbea748-cc77-4a56-b801-4cf8f5164523")
 		(property "Reference" "TP14"
