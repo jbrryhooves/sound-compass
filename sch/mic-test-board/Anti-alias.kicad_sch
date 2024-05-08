@@ -1331,7 +1331,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x04"
+		(property "Value" "Conn_01x05"
 			(at 97.79 142.2401 0)
 			(effects
 				(font
@@ -2141,9 +2141,9 @@
 		(at 116.84 127 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "77ca7839-e7bb-468b-a18e-45baf94c0e52")
 		(property "Reference" "TP102"
 			(at 116.84 122.174 90)
@@ -2218,7 +2218,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 116.84 127 0)
 			(effects
 				(font
@@ -2692,9 +2692,9 @@
 		(at 109.22 127 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "99465dcd-7fa9-4ada-9736-35e8bb42741b")
 		(property "Reference" "TP39"
 			(at 109.22 122.174 90)
@@ -2769,7 +2769,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 109.22 127 0)
 			(effects
 				(font
@@ -2864,9 +2864,9 @@
 		(at 106.68 127 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "b523c799-335d-4dab-b867-7aaca39fc75f")
 		(property "Reference" "TP38"
 			(at 106.68 122.174 90)
@@ -2941,7 +2941,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 106.68 127 0)
 			(effects
 				(font
@@ -3036,9 +3036,9 @@
 		(at 111.76 127 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "b9ff95c1-9f42-4958-821f-7d59356af16e")
 		(property "Reference" "TP70"
 			(at 111.76 122.174 90)
@@ -3113,7 +3113,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 111.76 127 0)
 			(effects
 				(font
@@ -3208,9 +3208,9 @@
 		(at 114.3 127 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "c5b74c26-b50d-44e5-9fc3-c79bc4444b17")
 		(property "Reference" "TP86"
 			(at 114.3 122.174 90)
@@ -3285,7 +3285,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 114.3 127 0)
 			(effects
 				(font

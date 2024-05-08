@@ -3896,6 +3896,44 @@
 				(hide yes)
 			)
 		)
+		(symbol "THS4531AIRUNR_1_0"
+			(pin no_connect line
+				(at 5.08 -19.05 90)
+				(length 2.54) hide
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin no_connect line
+				(at 2.54 -19.05 90)
+				(length 2.54) hide
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
 		(symbol "THS4531AIRUNR_1_1"
 			(polyline
 				(pts

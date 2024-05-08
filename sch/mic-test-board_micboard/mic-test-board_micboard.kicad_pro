@@ -58,7 +58,19 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "courtyards_overlap|133474816|89644001|8f8c6885-ccee-472b-8be9-23630c8569d7|ad9b403a-b8da-40c3-801c-2f28529d9b32",
+        "courtyards_overlap|135706093|92480001|6c2b39d0-eef0-4390-84aa-1b1148f99ee9|a85f42ba-1f6e-495d-84a7-b3740b5eba07",
+        "hole_clearance|131176220|94774448|a5f42527-70d5-4928-88bb-143a1aa186bc|ba7e71e8-f1b4-45b6-abde-c6e31a2031f4",
+        "silk_over_copper|133464815|91121366|7961d6f0-8096-404e-950c-bf39d75ba468|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|133868017|89639000|1664896f-98d4-4f1d-9e33-bd259d090efa|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|134060310|91171545|e6210974-1253-4217-bdde-cea16d97ddce|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|135533874|95224316|2da6d8a8-8145-4396-8eb7-9ad527fdfcb1|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|135613000|92967813|331c0a83-78cb-45d7-8bbd-411c1dbab49e|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|137183000|92470000|6f41bf2b-677d-4ae8-b77b-5a3c01ffa830|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|137183000|93011492|0cb496f2-9e8f-4495-89e6-0e6df1f93732|00000000-0000-0000-0000-000000000000",
+        "silk_overlap|135613000|93217933|331c0a83-78cb-45d7-8bbd-411c1dbab49e|ebeefc70-ad58-4e64-8b92-aaf381e80f83"
+      ],
       "meta": {
         "version": 2
       },
@@ -124,7 +136,7 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
+        "min_text_height": 0.7,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.0,
@@ -455,7 +467,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.1524,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -465,7 +477,7 @@
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.1524,
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
@@ -499,8 +511,8 @@
       "field_delimiter": ",",
       "keep_line_breaks": false,
       "keep_tabs": false,
-      "name": "CSV",
-      "ref_delimiter": ",",
+      "name": "---",
+      "ref_delimiter": " ",
       "ref_range_delimiter": "",
       "string_delimiter": "\""
     },
@@ -515,7 +527,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -527,7 +539,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Footprint",
           "name": "Footprint",
           "show": true
@@ -570,6 +582,12 @@
         },
         {
           "group_by": false,
+          "label": "${EXCLUDE_FROM_BOM}",
+          "name": "${EXCLUDE_FROM_BOM}",
+          "show": true
+        },
+        {
+          "group_by": false,
           "label": "Manufacturer",
           "name": "Manufacturer",
           "show": true
@@ -609,7 +627,7 @@
       "group_symbols": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Supplier Number"
+      "sort_field": "Supplier"
     },
     "connection_grid_size": 50.0,
     "drawing": {

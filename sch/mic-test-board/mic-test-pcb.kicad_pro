@@ -58,7 +58,12 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_edge_clearance|114878946|60000000|e65109f6-b948-4635-8f40-e4c5401cb48b|79673b32-2230-4e32-bf3e-247ecc5ce262",
+        "silk_edge_clearance|185078946|60000000|e65109f6-b948-4635-8f40-e4c5401cb48b|392c72c1-6467-4a5e-a943-efad110c8fc5",
+        "text_thickness|128016000|62484000|505c298d-aa5b-4013-868d-ece99c40f421|00000000-0000-0000-0000-000000000000",
+        "text_thickness|164846000|159258000|11c27d4e-083a-4d8b-b944-bd0a66b9e4b6|00000000-0000-0000-0000-000000000000"
+      ],
       "meta": {
         "version": 2
       },
@@ -526,14 +531,14 @@
       "field_delimiter": ",",
       "keep_line_breaks": false,
       "keep_tabs": false,
-      "name": "CSV",
-      "ref_delimiter": ",",
-      "ref_range_delimiter": "",
+      "name": "---",
+      "ref_delimiter": " ",
+      "ref_range_delimiter": "-",
       "string_delimiter": "\""
     },
     "bom_presets": [],
     "bom_settings": {
-      "exclude_dnp": true,
+      "exclude_dnp": false,
       "fields_ordered": [
         {
           "group_by": false,
@@ -542,7 +547,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -554,7 +559,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Footprint",
           "name": "Footprint",
           "show": true
@@ -609,6 +614,12 @@
         },
         {
           "group_by": false,
+          "label": "EXCLUDE_FROM_BOM",
+          "name": "${EXCLUDE_FROM_BOM}",
+          "show": true
+        },
+        {
+          "group_by": false,
           "label": "Manufacturer",
           "name": "Manufacturer",
           "show": true
@@ -644,7 +655,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Voltage",
           "name": "Voltage",
           "show": true
@@ -660,7 +671,7 @@
       "group_symbols": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Supplier Number"
+      "sort_field": "${EXCLUDE_FROM_BOM}"
     },
     "connection_grid_size": 50.0,
     "drawing": {

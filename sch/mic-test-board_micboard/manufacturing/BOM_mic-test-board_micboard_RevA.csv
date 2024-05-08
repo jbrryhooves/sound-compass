@@ -1,0 +1,18 @@
+Reference,Value,Datasheet,Footprint,Qty,Extended,Extra,Total,DNP,${EXCLUDE_FROM_BOM},Manufacturer,Part Number,Supplier,Supplier Number
+C1 C4,47uF,~,Capacitor_Tantalum_SMD:CP_EIA-1608-08_AVX-J,2,32,,32,DNP,,KYOCERA AVX,TCSOM0J476M8R-ZM1,Digi-Key,478-TCSOM0J476M8R-ZM1CT-ND
+C2 C3,0.1uF,~,Capacitor_SMD:C_1206_3216Metric,2,32,,32,,,Murata Electronics,GRM31C5C1H104JA01K,Digi-Key,490-8335-1-ND
+C5 C9 C10,0.1uF,~,Capacitor_SMD:C_0603_1608Metric,3,48,,48,,,KEMET,C0603C104K8RAC7867,Digi-Key,399-C0603C104K8RAC7867CT-ND
+C6 C7,470pF,~,Capacitor_SMD:C_0603_1608Metric,2,32,,32,,,Würth Elektronik,8.85012E+11,Digi-Key,732-7770-1-ND
+C8 C11,1uF,~,Capacitor_SMD:C_0603_1608Metric,2,32,,32,,,Samsung Electro-Mechanics,CL10B105KP8NNNC,Digi-Key,1276-1946-1-ND
+H1 H2,MountingHole,~,-- mixed values --,2,32,,32,,,Harwin Inc.,R30-1003002,Digi-Key,952-2610-ND
+J6,Conn_01x05,https://www.molex.com/pdm_docs/sd/530470510_sd.pdf,Connector_Molex:Molex_PicoBlade_53047-0510_1x05_P1.25mm_Vertical,1,16,,16,,,Molex,0530470510,Digi-Key,WM1734-ND
+R1 R2,549R,~,Resistor_SMD:R_0603_1608Metric,2,32,,32,,,YAGEO,RC0603FR-07549RL,Digi-Key,311-549HRCT-ND
+R3 R4,1.58k,~,Resistor_SMD:R_0603_1608Metric,2,32,,32,,,YAGEO,RC0603FR-071K58L,Digi-Key,311-1.58KHRCT-ND
+U1,ICS-40730,https://invensense.tdk.com/wp-content/uploads/2020/07/DS-000139-ICS-40730-v1.1.pdf,mic-test-board:MIC_ICS-40730,1,16,,16,,,TDK InvenSense,ICS-40730,Digi-Key,1428-1141-1-ND
+U2,THS4531AIRUNR,https://www.ti.com/lit/ds/symlink/ths4531a.pdf,Package_DFN_QFN:Texas_RUN0010A_WQFN-10_2x2mm_P0.5mm,1,16,,16,,,Texas Instruments,THS4531AIRUNR,Digi-Key,296-THS4531AIRUNRCT-ND
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Number of Boards,16,,,,,,,,,,,,

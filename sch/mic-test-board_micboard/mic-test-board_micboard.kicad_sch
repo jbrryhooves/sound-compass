@@ -846,6 +846,270 @@
 				)
 			)
 		)
+		(symbol "THS4531AIRUNR_1"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 5.08 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "THS4531AIRUNR"
+				(at 8.89 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_DFN_QFN:Texas_RUN0010A_WQFN-10_2x2mm_P0.5mm"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/ths4531a.pdf"
+				(at -43.18 30.48 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Ultralow Power, Low Distortion, Fully Differential ADC Drivers, Dual-Channel, "
+				(at 4.826 14.732 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "differential amplifier"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LFCSP*1EP*4x4mm*P0.5mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "THS4531AIRUNR_1_1_0"
+				(pin no_connect line
+					(at 5.08 -19.05 90)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 2.54 -19.05 90)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "THS4531AIRUNR_1_1_1"
+				(polyline
+					(pts
+						(xy -5.08 7.62) (xy -5.08 -7.62) (xy 10.16 0) (xy -5.08 7.62)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin output line
+					(at 10.16 -2.54 180)
+					(length 5.08)
+					(name "Out-"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "~{PD}"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -5.08 0)
+					(length 2.54)
+					(name "Vin+"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 5.08 0)
+					(length 2.54)
+					(name "VIn-"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "V_{OCM}"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 10.16 2.54 180)
+					(length 5.08)
+					(name "Out+"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+				)
+			)
+			(symbol "THS4531AIRUNR_1_2_1"
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 3.81)
+					(name "+VS"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 3.81)
+					(name "-VS"
+						(effects
+							(font
+								(size 0.508 0.508)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "mic-test-pcb:ICS-40730"
 			(pin_names
 				(offset 1.016)
@@ -3214,9 +3478,9 @@
 		(at 341.63 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "3ab3e0d7-9157-41ba-bd6f-a99f1aa72860")
 		(property "Reference" "J4"
 			(at 340.36 125.222 90)
@@ -4057,6 +4321,7 @@
 		)
 	)
 	(symbol
+		(lib_name "THS4531AIRUNR_1")
 		(lib_id "mic-test-pcb:THS4531AIRUNR")
 		(at 231.14 146.05 0)
 		(unit 1)
@@ -4099,7 +4364,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "IC OPAMP DIFF 1 CIRCUIT 10WQFN"
+		(property "Description" "Ultralow Power, Low Distortion, Fully Differential ADC Drivers, Dual-Channel, "
 			(at 235.966 131.318 0)
 			(effects
 				(font
@@ -4177,6 +4442,12 @@
 		(pin "1"
 			(uuid "026785fc-0d09-4e11-ad05-31a582d32fc7")
 		)
+		(pin "8"
+			(uuid "bc04365a-4df7-41f7-aee1-d38a0ecc49ad")
+		)
+		(pin "2"
+			(uuid "cf01a367-7916-40a0-b125-62f5ec155384")
+		)
 		(instances
 			(project "mic-test-board_micboard"
 				(path "/1b10abe6-f880-4bd1-b1b0-3d4fd0630b61"
@@ -4232,7 +4503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "IC OPAMP DIFF 1 CIRCUIT 10WQFN"
+		(property "Description" "Ultralow Power, Low Distortion, Fully Differential ADC Drivers, Dual-Channel, "
 			(at 221.996 227.838 0)
 			(effects
 				(font
@@ -4390,9 +4661,9 @@
 		(at 334.01 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "7d9149d5-109e-49f2-abce-eb7bceff0efc")
 		(property "Reference" "J2"
 			(at 332.74 125.222 90)
@@ -4502,9 +4773,9 @@
 		(at 330.2 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "7f3bf17a-2460-47e3-a804-43be43ab28ca")
 		(property "Reference" "J1"
 			(at 328.93 125.222 90)
@@ -5034,7 +5305,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "KEMET"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 254 243.84 0)
 			(effects
 				(font
@@ -5043,7 +5314,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "C0603C104K8RAC7867"
+		(property "Part Number" "CL10B105KP8NNNC"
 			(at 254 243.84 0)
 			(effects
 				(font
@@ -5061,7 +5332,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" "399-C0603C104K8RAC7867CT-ND"
+		(property "Supplier Number" "1276-1946-1-ND"
 			(at 254 243.84 0)
 			(effects
 				(font
@@ -5099,9 +5370,9 @@
 		(at 345.44 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "c3c97758-aa45-4ccf-bcbf-b1bfa6368bba")
 		(property "Reference" "J5"
 			(at 344.17 125.222 90)
@@ -5212,7 +5483,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp yes)
 		(fields_autoplaced yes)
@@ -5537,7 +5808,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "KEMET"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 194.31 242.57 0)
 			(effects
 				(font
@@ -5546,7 +5817,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "C0603C104K8RAC7867"
+		(property "Part Number" "CL10B105KP8NNNC"
 			(at 194.31 242.57 0)
 			(effects
 				(font
@@ -5564,7 +5835,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" "399-C0603C104K8RAC7867CT-ND"
+		(property "Supplier Number" "1276-1946-1-ND"
 			(at 194.31 242.57 0)
 			(effects
 				(font
@@ -5603,7 +5874,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp yes)
 		(fields_autoplaced yes)
@@ -5932,9 +6203,9 @@
 		(at 337.82 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "f90a2b73-1ca7-4119-aea2-a2ffe989ffa1")
 		(property "Reference" "J3"
 			(at 336.55 125.222 90)

@@ -5611,9 +5611,9 @@
 		(at 119.38 196.85 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d6420e2-2035-4d1b-bf04-57e6087686ef")
 		(property "Reference" "JP2"
@@ -7185,9 +7185,9 @@
 		(at 236.22 147.32 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "84e6609e-a0ae-4587-8e8d-20697eefd502")
 		(property "Reference" "TP6"
@@ -7236,7 +7236,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 236.22 147.32 0)
 			(effects
 				(font
@@ -7245,7 +7245,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 236.22 147.32 0)
 			(effects
 				(font
@@ -7254,7 +7254,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 236.22 147.32 0)
 			(effects
 				(font
@@ -7263,7 +7263,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 236.22 147.32 0)
 			(effects
 				(font
@@ -7430,9 +7430,9 @@
 		(at 176.53 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "861e240e-eb7a-401d-a9b4-8e97e83b103b")
 		(property "Reference" "TP2"
@@ -7481,7 +7481,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 176.53 104.14 0)
 			(effects
 				(font
@@ -7490,7 +7490,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 176.53 104.14 0)
 			(effects
 				(font
@@ -7499,7 +7499,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 176.53 104.14 0)
 			(effects
 				(font
@@ -7508,7 +7508,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 176.53 104.14 0)
 			(effects
 				(font
@@ -7547,9 +7547,9 @@
 		(at 236.22 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ac41727-c530-4b64-8e5a-7c461dd0fd8e")
 		(property "Reference" "TP13"
@@ -7598,7 +7598,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 236.22 149.86 0)
 			(effects
 				(font
@@ -7607,7 +7607,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 236.22 149.86 0)
 			(effects
 				(font
@@ -7616,7 +7616,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 236.22 149.86 0)
 			(effects
 				(font
@@ -7625,7 +7625,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 236.22 149.86 0)
 			(effects
 				(font
@@ -8663,9 +8663,9 @@
 		(at 236.22 142.24 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b83608a2-5f5a-4cca-87a5-dcce3a067f1e")
 		(property "Reference" "TP18"
@@ -8714,7 +8714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 236.22 142.24 0)
 			(effects
 				(font
@@ -8723,7 +8723,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 236.22 142.24 0)
 			(effects
 				(font
@@ -8732,7 +8732,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 236.22 142.24 0)
 			(effects
 				(font
@@ -8741,7 +8741,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 236.22 142.24 0)
 			(effects
 				(font
@@ -9164,9 +9164,9 @@
 		(at 236.22 144.78 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0d0fb09-90ef-48eb-8590-6475c2c2006d")
 		(property "Reference" "TP5"
@@ -9215,7 +9215,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 236.22 144.78 0)
 			(effects
 				(font
@@ -9224,7 +9224,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 236.22 144.78 0)
 			(effects
 				(font
@@ -9233,7 +9233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 236.22 144.78 0)
 			(effects
 				(font
@@ -9242,7 +9242,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 236.22 144.78 0)
 			(effects
 				(font
@@ -9608,9 +9608,9 @@
 		(at 236.22 152.4 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ffbea748-cc77-4a56-b801-4cf8f5164523")
 		(property "Reference" "TP14"
@@ -9659,7 +9659,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "~"
 			(at 236.22 152.4 0)
 			(effects
 				(font
@@ -9668,7 +9668,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "~"
 			(at 236.22 152.4 0)
 			(effects
 				(font
@@ -9677,7 +9677,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "~"
 			(at 236.22 152.4 0)
 			(effects
 				(font
@@ -9686,7 +9686,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "~"
 			(at 236.22 152.4 0)
 			(effects
 				(font

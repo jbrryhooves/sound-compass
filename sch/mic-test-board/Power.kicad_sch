@@ -3493,9 +3493,9 @@
 		(at 204.47 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11584ae3-6ae2-45c6-90b9-3502284cec64")
 		(property "Reference" "TP7"
@@ -3535,6 +3535,42 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 204.47 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "~"
+			(at 204.47 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 204.47 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 204.47 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
 			(at 204.47 54.61 0)
 			(effects
 				(font
@@ -3727,7 +3763,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Stackpole Electronics Inc"
 			(at 168.91 144.78 0)
 			(effects
 				(font
@@ -3736,7 +3772,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "RMCF0603ZT0R00"
 			(at 168.91 144.78 0)
 			(effects
 				(font
@@ -3745,7 +3781,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 168.91 144.78 0)
 			(effects
 				(font
@@ -3754,7 +3790,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "RMCF0603ZT0R00CT-ND"
 			(at 168.91 144.78 0)
 			(effects
 				(font
@@ -3858,9 +3894,9 @@
 		(at 208.28 97.79 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "26062f7f-14c6-4a9d-b2a6-f0e5d6f122bf")
 		(property "Reference" "TP10"
@@ -3900,6 +3936,42 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 208.28 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "~"
+			(at 208.28 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 208.28 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 208.28 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
 			(at 208.28 97.79 0)
 			(effects
 				(font
@@ -4478,7 +4550,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e4f4c25-ba83-4a0e-80b2-e1cd18238646")
 		(property "Reference" "JP19"
@@ -4832,9 +4904,9 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "5d560270-cc28-4a17-9b99-7cf85c255525")
 		(property "Reference" "TP8"
 			(at 159.258 102.87 90)
@@ -4879,6 +4951,42 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "~"
+			(at 162.56 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 162.56 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 162.56 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
+			(at 162.56 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "13bf0ed9-cb7e-4239-90fe-21525879fb3b")
 		)
@@ -4897,7 +5005,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp yes)
 		(uuid "5d9bd71a-e765-4137-9cd7-dfa6df20aa0e")
@@ -4936,6 +5044,42 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 163.83 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "~"
+			(at 163.83 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 163.83 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 163.83 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
 			(at 163.83 144.78 0)
 			(effects
 				(font
@@ -5010,7 +5154,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "YAGEO"
 			(at 198.12 142.24 0)
 			(effects
 				(font
@@ -5019,7 +5163,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "RC0603FR-07100KL"
 			(at 198.12 142.24 0)
 			(effects
 				(font
@@ -5028,7 +5172,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 198.12 142.24 0)
 			(effects
 				(font
@@ -5037,7 +5181,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "311-100KHRCT-ND"
 			(at 198.12 142.24 0)
 			(effects
 				(font
@@ -5076,9 +5220,9 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "791463fd-a726-43b5-bb2c-7c284b17c93e")
 		(property "Reference" "TP9"
 			(at 159.258 59.69 90)
@@ -5115,6 +5259,42 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "~"
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
 			(at 162.56 54.61 0)
 			(effects
 				(font
@@ -5800,7 +5980,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Texas Instruments "
 			(at 184.15 142.24 0)
 			(effects
 				(font
@@ -5809,7 +5989,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
+		(property "Part Number" "LP5912-3.3DRVR"
 			(at 184.15 142.24 0)
 			(effects
 				(font
@@ -5818,7 +5998,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier" ""
+		(property "Supplier" "Digi-Key"
 			(at 184.15 142.24 0)
 			(effects
 				(font
@@ -5827,7 +6007,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Number" ""
+		(property "Supplier Number" "296-47214-1-ND"
 			(at 184.15 142.24 0)
 			(effects
 				(font
@@ -5883,7 +6063,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board no)
-		(dnp yes)
+		(dnp no)
 		(uuid "c7d6f417-9b83-4d8b-897a-1322cbafefb9")
 		(property "Reference" "J2"
 			(at 156.21 250.1899 0)
@@ -5895,7 +6075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "Conn_01x03"
+		(property "Value" "Conn_01x02"
 			(at 156.21 251.4599 0)
 			(effects
 				(font
@@ -6177,7 +6357,7 @@
 		(at 208.28 144.78 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp yes)
 		(fields_autoplaced yes)
@@ -6227,6 +6407,42 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "~"
+			(at 208.28 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "~"
+			(at 208.28 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "~"
+			(at 208.28 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Number" "~"
+			(at 208.28 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8a03e242-a676-468d-a1e9-decd96e3c5b1")
 		)
@@ -6244,9 +6460,9 @@
 		(at 241.3 114.3 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ff79fb76-7ac6-4d5d-a58d-5f55d767b7f8")
 		(property "Reference" "JP18"
