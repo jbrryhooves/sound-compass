@@ -1,41 +1,53 @@
 /*
- * constants.hpp
+ * ISPI.hpp
  *
- *  Created on: Feb 12, 2024
+ *  Created on: Sep 21, 2023
  *      Author: Josh
  */
 
-#ifndef INC_EXECUTIVE_CONSTANTS_HPP_
-#define INC_EXECUTIVE_CONSTANTS_HPP_
+#ifndef INC_PLATFORM_INTERFACES_ISAI_HPP_
+#define INC_PLATFORM_INTERFACES_ISAI_HPP_
 //-------------------------------------------------------------------
-// Module       : constants.hpp
-// Description  : 
+// Module       : IQSPI.hpp
+// Description  :
 //-------------------------------------------------------------------
 
 //-------------------------------------------------------------------
 // System Includes
 //-------------------------------------------------------------------
-
+#include <stdint.h>
 
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
-const uint16_t NUMBER_OF_MICS = 16;
-const uint16_t SAMPLE_RATE_Hz = 48000;
-const uint16_t BUFFER_LENGTH_ms = 10;
 
 //-------------------------------------------------------------------
 // Public
 //-------------------------------------------------------------------
 
+namespace platform
+{
+    class ISAI
+    {
+    public:
+        /// @brief callback method signature
+        /// @param channel
+        using bytesReceivedCallback_t = void(uint8_t);
 
+        /**
+         * @brief
+         *
+         * @param
+         * @param
+         */
+        virtual bool receiveDMA(uint8_t *pRxData_A, uint8_t *pRxData_B, uint16_t size) = 0;
+        virtual void registerCallback(bytesReceivedCallback_t *callback) = 0;
+    };
 
+}
 
-
-#endif /* INC_EXECUTIVE_CONSTANTS_HPP_ */
-
+#endif /* INC_PLATFORM_INTERFACES_IQSPI_HPP_ */

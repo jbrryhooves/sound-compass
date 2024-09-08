@@ -133,6 +133,7 @@ bool executive::executiveMain::run()
     _debugTimer->start(1000);
     _tcpServer.start();
     _micInterface.start();
+
     uint32_t _micBufferErrorCount = 0;
 
     while (1)
@@ -151,6 +152,9 @@ bool executive::executiveMain::run()
 //        DIAG_LINE_VERBOSE(_hardware->diag, TAG,  "Toggle %d\n", _count++);
                     _secondsUpTime++;
                     _hardware->diag->info(TAG, "UpTime: %u s, Mic Error count: %d, \n", _secondsUpTime, _micBufferErrorCount);
+
+
+                    // _micInterface.start();
 
                     break;
                 case messages::InternalMessageType::RUNTIME_METRICS:

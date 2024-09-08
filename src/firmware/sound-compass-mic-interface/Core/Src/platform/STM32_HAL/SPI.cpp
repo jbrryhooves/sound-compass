@@ -11,6 +11,7 @@
 // Local Includes
 //-------------------------------------------------------------------
 #include <platform/STM32_HAL/SPI.hpp>
+#include <platform/STM32_HAL/GPIO.hpp>
 #include "util/assert.hpp"
 //-------------------------------------------------------------------
 // Definitions
@@ -69,6 +70,19 @@ bool platform::stm32hal::SPI::transmitReceiveDMA(const uint8_t *pTxData, uint8_t
 
     return HAL_SPI_TransmitReceive_DMA(_spiHandle, pTxData, pRxData, size) == HAL_OK;
 //    return HAL_SPI_TransmitReceive(_spiHandle, pTxData, pRxData, size, 1000) == HAL_OK;
+}
+
+bool platform::stm32hal::SPI::transmitReceive(const uint8_t *pTxData, uint8_t *pRxData, uint16_t size, IGPIO *chipSelectPin)
+{
+    ASSERT(chipSelectPin != nullptr);
+    ASSERT(pTxData != nullptr);
+    ASSERT(pRxData != nullptr);
+
+    chipSelectPin->set(platform::IGPIO::GPIOState::Low);
+    HAL_StatusTypeDef ret = HAL_SPI_TransmitReceive(_spiHandle, pTxData, pRxData, size, 1000);
+    chipSelectPin->set(platform::IGPIO::GPIOState::High);
+
+    return ret == HAL_OK;
 }
 
 //void HAL_SPI_IRQHandler(SPI_HandleTypeDef *hspi);

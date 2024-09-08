@@ -63,7 +63,7 @@ namespace executive
             ExternalMessageHeader header;
             uint64_t timeStamp;
             uint32_t sequenceNumber;
-            uint32_t micData[BUFFER_LENGTH_SAMPLES][NUMBER_OF_MICS];
+            float micData[BUFFER_LENGTH_SAMPLES][NUMBER_OF_MICS];
 
         } MicArrayRawDataMessage;
 

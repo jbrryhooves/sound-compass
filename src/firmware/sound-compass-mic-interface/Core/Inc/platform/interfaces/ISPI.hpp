@@ -19,7 +19,7 @@
 //-------------------------------------------------------------------
 // Local Includes
 //-------------------------------------------------------------------
-
+#include "platform/interfaces/IGPIO.hpp"
 //-------------------------------------------------------------------
 // Definitions
 //-------------------------------------------------------------------
@@ -43,12 +43,27 @@ namespace platform
         };
 
         /**
-         * @brief
+         * @brief transmitReceiveDMA
          *
          * @param
          * @param
          */
         virtual bool transmitReceiveDMA(const uint8_t *pTxData, uint8_t *pRxData, uint16_t size) = 0;
+
+        /**
+         * @brief
+         *
+         * @param
+         * @param
+         */
+        virtual bool transmitReceive(const uint8_t *pTxData, uint8_t *pRxData, uint16_t size, IGPIO *chipSelectPin) = 0;
+
+        /**
+         * @brief
+         *
+         * @param
+         * @param
+         */
         virtual void registerListener(ISPIListener *listener) = 0;
 
 

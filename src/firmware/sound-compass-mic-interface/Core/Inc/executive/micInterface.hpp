@@ -25,6 +25,7 @@
 #include "platform/interfaces/ISPI.hpp"
 
 #include "executive/messages.hpp"
+#include "executive/ADC_AD7768.hpp"
 
 //-------------------------------------------------------------------
 // Definitions
@@ -37,7 +38,7 @@
 namespace executive
 {
 
-    class micInterface: public platform::ISPI::ISPIListener
+    class micInterface: ADC_AD7768::IADCListener
     {
     public:
 
@@ -58,11 +59,9 @@ namespace executive
 
         bool popMicDataMessage(messages::MicArrayRawDataMessage **message);
 
-        // ISPIListener
-        void onBytesReceived(uint8_t *buff, uint32_t len);
-        void onDMARxTxHalfComplete(void);
-        void onDMARxTxComplete(void);
-
+        // ADC_AD7768::IADCListener
+        void onSample(ADC_AD7768::ADCSimultaneousSample sample);
+        void onError(ADC_AD7768::ADCError error);
 
         static const uint8_t MIC_BUFFER_MESSAGE_QUEUE_SIZE = 2;
 
@@ -74,13 +73,15 @@ namespace executive
         IMicInterfaceListener *_micInterfaceListener;
         platform::IMessageQueue *_execMessageQueue;
 
-        platform::ISPI *_spiPort;
 
         uint32_t _bufferSequenceNumber;
         // store the actual raw data here
         messages::MicArrayRawDataMessage _micDataQueueBuffer[MIC_BUFFER_MESSAGE_QUEUE_SIZE];
         uint8_t _currentBufferIndex = 0;
         platform::IMessageQueue *_rawMicDataMessageQueue;
+
+        executive::ADC_AD7768 _ad7768;
+
 
     };
 

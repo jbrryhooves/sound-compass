@@ -57,16 +57,19 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define GPIO_OUT_LED4_Pin GPIO_PIN_6
-#define GPIO_OUT_LED4_GPIO_Port GPIOE
+#define AUDIO_SAMPLE_RATE_HZ 48
+#define TIM3_PRESCALER (SYSTEM_CLOCK_HZ / (2 * 24000000) - 1)
+#define TIM3_RELOAD (24000000 / AUDIO_SAMPLE_RATE_HZ) - 1
+#define SYSTEM_CLOCK_HZ 480000000
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define GPIO_EXTI0_DRDY_Pin GPIO_PIN_0
 #define GPIO_EXTI0_DRDY_GPIO_Port GPIOC
+#define GPIO_EXTI0_DRDY_EXTI_IRQn EXTI0_IRQn
+#define GPIO_OUT_SPI1_nCS1_Pin GPIO_PIN_4
+#define GPIO_OUT_SPI1_nCS1_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
-#define GPIO_OUT_nSTART_Pin GPIO_PIN_2
-#define GPIO_OUT_nSTART_GPIO_Port GPIOB
 #define GPIO_OUT_LED5_Pin GPIO_PIN_0
 #define GPIO_OUT_LED5_GPIO_Port GPIOG
 #define GPIO_OUT_LED6_Pin GPIO_PIN_1
@@ -83,16 +86,21 @@ void Error_Handler(void);
 #define GPIO_OUT_SPI1_nCS2_GPIO_Port GPIOD
 #define USB_OTG_FS_OVCR_Pin GPIO_PIN_7
 #define USB_OTG_FS_OVCR_GPIO_Port GPIOG
+#define USB_OTG_FS_OVCR_EXTI_IRQn EXTI9_5_IRQn
 #define GPIO_EXTI1_PushButton1_Pin GPIO_PIN_10
 #define GPIO_EXTI1_PushButton1_GPIO_Port GPIOC
+#define GPIO_EXTI1_PushButton1_EXTI_IRQn EXTI15_10_IRQn
 #define GPIO_EXTI1_PushButton2_Pin GPIO_PIN_11
 #define GPIO_EXTI1_PushButton2_GPIO_Port GPIOC
+#define GPIO_EXTI1_PushButton2_EXTI_IRQn EXTI15_10_IRQn
 #define GPIO_OUT_LED7_Pin GPIO_PIN_0
 #define GPIO_OUT_LED7_GPIO_Port GPIOD
 #define GPIO_OUT_LED8_Pin GPIO_PIN_1
 #define GPIO_OUT_LED8_GPIO_Port GPIOD
 #define GPIO_OUT_LED3_Pin GPIO_PIN_9
 #define GPIO_OUT_LED3_GPIO_Port GPIOG
+#define GPIO_OUT_LED4_Pin GPIO_PIN_10
+#define GPIO_OUT_LED4_GPIO_Port GPIOG
 #define GPIO_OUT_LED1_Pin GPIO_PIN_12
 #define GPIO_OUT_LED1_GPIO_Port GPIOG
 #define GPIO_OUT_LED2_Pin GPIO_PIN_15
