@@ -57,10 +57,11 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define AUDIO_SAMPLE_RATE_HZ 48
-#define TIM3_PRESCALER (SYSTEM_CLOCK_HZ / (2 * 24000000) - 1)
-#define TIM3_RELOAD (24000000 / AUDIO_SAMPLE_RATE_HZ) - 1
+#define AUDIO_SAMPLE_RATE_HZ 48000
 #define SYSTEM_CLOCK_HZ 480000000
+#define SAI_DMA_BUFFER_SIZE (NUM_MICS * BYTES_PER_SAMPLE)
+#define NUM_MICS 16
+#define BYTES_PER_SAMPLE 4
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define GPIO_EXTI0_DRDY_Pin GPIO_PIN_0

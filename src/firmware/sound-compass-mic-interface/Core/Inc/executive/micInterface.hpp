@@ -60,7 +60,7 @@ namespace executive
         bool popMicDataMessage(messages::MicArrayRawDataMessage **message);
 
         // ADC_AD7768::IADCListener
-        void onSample(ADC_AD7768::ADCSimultaneousSample sample);
+        void onSample(ADC_AD7768::ADCSimultaneousSample &sample);
         void onError(ADC_AD7768::ADCError error);
 
         static const uint8_t MIC_BUFFER_MESSAGE_QUEUE_SIZE = 2;

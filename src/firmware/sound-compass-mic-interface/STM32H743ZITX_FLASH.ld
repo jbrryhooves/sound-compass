@@ -176,6 +176,13 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
   
+  .mic_interface_sec :
+  {
+    . = ABSOLUTE(0x30000000);
+    *(.sai_dma_buffer_section) 
+    
+      
+  } >RAM_D2  
   
     /* ETH_CODE: add placement of DMA descriptors and RX buffers */
   .lwip_sec (NOLOAD) :
@@ -191,15 +198,7 @@ SECTIONS
   } >RAM_D2
 
   
-  .mic_interface_sec :
-  {
-    /* . = ABSOLUTE(0x38000000); */
-    *(.RxMicDataSection) 
-    
-    /* . = ABSOLUTE(0x38000000 + _MicRxDataSize);*/
-    /* *(.TxMicDataSection) */
-      
-  } >RAM_D2
+
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

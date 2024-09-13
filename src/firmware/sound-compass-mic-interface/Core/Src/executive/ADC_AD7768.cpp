@@ -40,23 +40,22 @@ static const char *TAG = "ADC_AD7768";
 // Private
 //-------------------------------------------------------------------
 #define DMA_BUFFER __attribute__((section(".RxMicDataSection")))
+#define BUFFER_ALIGNED_SIZE (((BUFF_LENGTH + 31) / 32) * 32)
 
-#define BUFF_LENGTH 48 //0x7800
+//#define BUFF_LENGTH 48 //0x7800
 // 0x7800 = data for 10ms of data for 16 mics at 48kHz sample rate
 // 16 (mics) x 4 (bytes/mic/sample) * 48000 * 0.01
 
-#define BUFFER_ALIGNED_SIZE (((BUFF_LENGTH + 31) / 32) * 32)
-//DMA_BUFFER ALIGN_32BYTES(uint8_t pRxData[BUFFER_ALIGNED_SIZE]);
-//DMA_BUFFER ALIGN_32BYTES(uint8_t pRxData2[BUFFER_ALIGNED_SIZE]);
-//__attribute__((section(".RxMicDataSection")))
-static uint32_t __attribute__((aligned(32))) pRxData[BUFFER_ALIGNED_SIZE];
-
-//#define SAI_DMA_BUFFER_SIZE (320 * 8 * 2)
-//static uint16_t __attribute__((section(".sai_dma_buffer_section"))) __attribute__((aligned(32))) sai_receive_buffer[SAI_DMA_BUFFER_SIZE] = {0};
-//static uint16_t __attribute__((section(".sai_dma_buffer_section"))) __attribute__((aligned(32))) sai_transmit_buffer[320 * 8] = {0};
+// Receive one sample per mic.
+// = NUMBER_OF_MICS / SAI_OUTPUT_CHANNELS
+static constexpr uint16_t SAI_BLOCK_DMA_BUFF_LENGTH_samples = (NUMBER_OF_MICS / 2) / 2; // extra divide by 2 for dev board temporarily only having one ADC
 
 
-executive::ADC_AD7768::ADCChannelSample convertADCSample(uint32_t rawSample);
+
+static __attribute__((section(".sai_dma_buffer_section")))   __attribute__((aligned(32)))     std::array<uint32_t, SAI_BLOCK_DMA_BUFF_LENGTH_samples> _saiChanARxBuff;
+static __attribute__((section(".sai_dma_buffer_section")))   __attribute__((aligned(32)))     std::array<uint32_t, SAI_BLOCK_DMA_BUFF_LENGTH_samples> _saiChanBRxBuff;
+
+float convertADCSample(uint32_t rawSample, executive::ADC_AD7768::ADCHeaderByte &headerByte);
 extern "C"
 {
 void _SAIBytesReceivedCallback_wrapper(uint8_t saiChannel);
@@ -95,8 +94,6 @@ bool executive::ADC_AD7768::initialise(board::IBoardHardware *hardware, AD7768Co
 
     // register GPIO interrupts
 //    _config.DRDYPin->registerCallback((platform::IGPIO::interruptCallback_t*) (&executive::ADC_AD7768::_DRDYCallback));
-
-    // register hardware timer
 
     _hardware->diag->info(TAG, "AD7768 init complete\n");
     _instance = this;
@@ -240,7 +237,7 @@ bool executive::ADC_AD7768::start()
     }
     
     // DMA channels are set up in circular mode, so start the receiving here
-    if (!_config.sai->receiveDMA((uint8_t*) _saiChanARxBuff.data(), (uint8_t*) _saiChanBRxBuff.data(), SAI_RECEIVE_SAMPLE_COUNT))
+    if (!_config.sai->receiveDMA((uint8_t*) _saiChanARxBuff.data(), (uint8_t*) _saiChanBRxBuff.data(), SAI_BLOCK_DMA_BUFF_LENGTH_samples))
     {
         _hardware->diag->error(TAG, "Error while starting the SAI DMA receiving");
         success = false;
@@ -258,7 +255,7 @@ bool executive::ADC_AD7768::start()
 bool executive::ADC_AD7768::readRegister(executive::ADC_AD7768::registerSet &reg)
 {
 
-    uint8_t txData[2] = { reg.reg | reg.ReadWrite, reg.value };
+    uint8_t txData[2] = { (uint8_t) (reg.reg | reg.ReadWrite), reg.value };
     uint8_t rxData[2] = {0};
 
     if (!_config.spiPort->transmitReceive(txData, rxData, 2, _config.chipSelectPinMaster))
@@ -281,7 +278,7 @@ bool executive::ADC_AD7768::readRegister(executive::ADC_AD7768::registerSet &reg
 bool executive::ADC_AD7768::readWriteRegister(executive::ADC_AD7768::registerSet &reg)
 {
 
-    uint8_t txData[2] = { reg.reg | reg.ReadWrite, reg.value };
+    uint8_t txData[2] = { (uint8_t) (reg.reg | reg.ReadWrite), reg.value };
     uint8_t rxData[2] = {0};
 
     if (!_config.spiPort->transmitReceive(txData, rxData, 2, _config.chipSelectPinMaster))
@@ -315,78 +312,65 @@ bool executive::ADC_AD7768::readWriteRegister(executive::ADC_AD7768::registerSet
 // =======================================
 
 // ===========================
-// public ISPIListener
 
-void executive::ADC_AD7768::onBytesReceived(uint8_t *buff, uint32_t len)
-{
 
-}
 
-void executive::ADC_AD7768::onDMARxTxHalfComplete(void)
-{
-    // copy data into a buffer.
-    //_hardware->diag->info(TAG, "Half transfer complete\n");
-
-    // copy out the first half of the DMA buffer while the second half is being filled
-    //    memcpy(_micDataQueueBuffer[_currentBufferIndex].micData, pRxData, BUFF_LENGTH / 2);
-}
-
-void executive::ADC_AD7768::onDMARxTxComplete(void)
-{
-    //    static bool _localBufferOverrun = false;
-    //
-    //    _micDataQueueBuffer[_currentBufferIndex].header.messageLength = sizeof(messages::MicArrayRawDataMessage);
-    //    _micDataQueueBuffer[_currentBufferIndex].header.type = messages::ExternalMessageType::AUDIO_FRAME_RAW;
-    //    _micDataQueueBuffer[_currentBufferIndex].timeStamp = _bufferSequenceNumber;
-    //    _micDataQueueBuffer[_currentBufferIndex].sequenceNumber = _bufferSequenceNumber++;
-    //
-    //    // copy out the second half of the DMA buffer while the first half is being filled
-    //    memcpy((uint8_t*) (_micDataQueueBuffer[_currentBufferIndex].micData) + BUFF_LENGTH / 2, pRxData + BUFF_LENGTH / 2, BUFF_LENGTH / 2);
-    //
-    //    // post a message to the local queue, which is size-bound
-    //    messages::MicArrayRawDataMessage *_micBuffMessage;
-    //    _micBuffMessage = &_micDataQueueBuffer[_currentBufferIndex];
-    //    _currentBufferIndex = (_currentBufferIndex + 1) % MIC_BUFFER_MESSAGE_QUEUE_SIZE;
-    //
-    //    if (!_rawMicDataMessageQueue->sendFromISR(&_micBuffMessage))
-    //    {
-    ////        _hardware->diag->error(TAG, "failed to put local mic data queue\n");
-    //        // failed to post to the local queue. This means the main exec loop is held up and not popping them quick enough
-    //
-    //        // Increment the buffer drop in the local metrics
-    //
-    //
-    //        if (!_localBufferOverrun)
-    //        {
-    //            _localBufferOverrun = true;
-    //            messages::Message m;
-    //            m.type = messages::InternalMessageType::AUDIO_FRAME_RAW_BUFFER_OVERRUN;
-    //
-    //            unsigned int _msgCount = 0;
-    //            _execMessageQueue->getNumberOfQueuedItems(&_msgCount);
-    //            // if this fails there's nothing we can do about it anyway..
-    //            _execMessageQueue->sendFromISR(&m);
-    //        }
-    //
-    //    }
-    //    else
-    //    {
-    //        _localBufferOverrun = false;
-    //        messages::Message m;
-    //        m.type = messages::InternalMessageType::AUDIO_FRAME_RAW;
-    //        m.data.micRawData = NULL;
-    //
-    //        if (!_execMessageQueue->sendFromISR(&m))
-    //        {
-    //            _hardware->diag->error(TAG, "failed to post main queue\n");
-    //        }
-    //    }
-}
+//void executive::ADC_AD7768::onDMARxTxComplete(void)
+//{
+//    static bool _localBufferOverrun = false;
+//
+//    _micDataQueueBuffer[_currentBufferIndex].header.messageLength = sizeof(messages::MicArrayRawDataMessage);
+//    _micDataQueueBuffer[_currentBufferIndex].header.type = messages::ExternalMessageType::AUDIO_FRAME_RAW;
+//    _micDataQueueBuffer[_currentBufferIndex].timeStamp = _bufferSequenceNumber;
+//    _micDataQueueBuffer[_currentBufferIndex].sequenceNumber = _bufferSequenceNumber++;
+//
+//    // copy out the second half of the DMA buffer while the first half is being filled
+//    memcpy((uint8_t*) (_micDataQueueBuffer[_currentBufferIndex].micData) + BUFF_LENGTH / 2, pRxData + BUFF_LENGTH / 2, BUFF_LENGTH / 2);
+//
+//    // post a message to the local queue, which is size-bound
+//    messages::MicArrayRawDataMessage *_micBuffMessage;
+//    _micBuffMessage = &_micDataQueueBuffer[_currentBufferIndex];
+//    _currentBufferIndex = (_currentBufferIndex + 1) % MIC_BUFFER_MESSAGE_QUEUE_SIZE;
+//
+//    if (!_rawMicDataMessageQueue->sendFromISR(&_micBuffMessage))
+//    {
+////        _hardware->diag->error(TAG, "failed to put local mic data queue\n");
+//        // failed to post to the local queue. This means the main exec loop is held up and not popping them quick enough
+//
+//        // Increment the buffer drop in the local metrics
+//
+//
+//        if (!_localBufferOverrun)
+//        {
+//            _localBufferOverrun = true;
+//            messages::Message m;
+//            m.type = messages::InternalMessageType::AUDIO_FRAME_RAW_BUFFER_OVERRUN;
+//
+//            unsigned int _msgCount = 0;
+//            _execMessageQueue->getNumberOfQueuedItems(&_msgCount);
+//            // if this fails there's nothing we can do about it anyway..
+//            _execMessageQueue->sendFromISR(&m);
+//        }
+//
+//    }
+//    else
+//    {
+//        _localBufferOverrun = false;
+//        messages::Message m;
+//        m.type = messages::InternalMessageType::AUDIO_FRAME_RAW;
+//        m.data.micRawData = NULL;
+//
+//        if (!_execMessageQueue->sendFromISR(&m))
+//        {
+//            _hardware->diag->error(TAG, "failed to post main queue\n");
+//        }
+//    }
+//}
 
 
 // ================ Private ===========
 
-executive::ADC_AD7768::ADCChannelSample convertADCSample(uint32_t rawSample)
+float convertADCSample(uint32_t rawSample, executive::ADC_AD7768::ADCHeaderByte &header)
 {
     int32_t signedRawSample = rawSample & 0xFFFFFF;
 
@@ -395,30 +379,28 @@ executive::ADC_AD7768::ADCChannelSample convertADCSample(uint32_t rawSample)
         signedRawSample -= 0xFFFFFF;
     }
 
-    executive::ADC_AD7768::ADCChannelSample sample = { .value = (signedRawSample) / (float) 0x7FFFFF };
+    float sample = (signedRawSample) / (float) 0x7FFFFF;
 
-    uint8_t header = (uint8_t) (rawSample >> 24);
+    uint8_t headerByte = (uint8_t) (rawSample >> 24);
+
     // @formatter:off
-    sample.header.Error             = ((header >> 0x7) & 0x1)     == 0x1;
-    sample.header.FilterNotSettled  = ((header >> 0x6) & 0x1)     == 0x1;
-    sample.header.RepeatedData      = ((header >> 0x5) & 0x1)     == 0x1;
-    sample.header.FilterType        = ((header >> 0x4) & 0x1)     == 0x1;
-    sample.header.FilterSaturated   = ((header >> 0x3) & 0x1)     == 0x1;
-    sample.header.ChannelID         = ((header       ) & 0b111);
+    header.Error             = ((headerByte >> 0x7) & 0x1)     == 0x1;
+    header.FilterNotSettled  = ((headerByte >> 0x6) & 0x1)     == 0x1;
+    header.RepeatedData      = ((headerByte >> 0x5) & 0x1)     == 0x1;
+    header.FilterType        = ((headerByte >> 0x4) & 0x1)     == 0x1;
+    header.FilterSaturated   = ((headerByte >> 0x3) & 0x1)     == 0x1;
+    header.ChannelID         = ((headerByte       ) & 0b111);
         // @formatter:on
 
     return sample;
 }
 
-extern "C"
-{
-void _SAIBytesReceivedCallback_wrapper(uint8_t saiChannel)
+extern "C" void _SAIBytesReceivedCallback_wrapper(uint8_t saiChannel)
 {
     if (_instance != nullptr)
     {
         _instance->_SAIBytesReceivedCallback(saiChannel);
     }
-}
 }
 
 void executive::ADC_AD7768::_SAIBytesReceivedCallback(uint8_t saiChannel)
@@ -428,6 +410,8 @@ void executive::ADC_AD7768::_SAIBytesReceivedCallback(uint8_t saiChannel)
     static bool channelAReceived = false;
     static bool channelBReceived = false;
     
+
+    ADCHeaderByte header;
     if (_instance != nullptr)
     {
 
@@ -439,17 +423,24 @@ void executive::ADC_AD7768::_SAIBytesReceivedCallback(uint8_t saiChannel)
 
         if (saiChannel == 0)
         {
+            SCB_InvalidateDCache_by_Addr((uint32_t*) (_saiChanARxBuff.data()), sizeof(_saiChanARxBuff));
+
             for (uint16_t i = 0; i < _saiChanARxBuff.size(); i++)
             {
-                arraySampleSet.samples[i] = convertADCSample(_saiChanARxBuff[i]);
+                arraySampleSet.samples[i] = convertADCSample(_saiChanARxBuff[i], header);
+                arraySampleSet.sampleHeaders[i] = header;
+
             }
             channelAReceived = true;
         }
         else
         {
-            for (uint16_t i = 0; i < _instance->_saiChanBRxBuff.size(); i++)
+            SCB_InvalidateDCache_by_Addr((uint32_t*) (_saiChanBRxBuff.data()), sizeof(_saiChanBRxBuff));
+
+            for (uint16_t i = 0; i < _saiChanBRxBuff.size(); i++)
             {
-                arraySampleSet.samples[i + _saiChanBRxBuff.size()] = convertADCSample(_saiChanBRxBuff[i]);
+                arraySampleSet.samples[i + _saiChanBRxBuff.size()] = convertADCSample(_saiChanBRxBuff[i], header);
+                arraySampleSet.sampleHeaders[i + _saiChanBRxBuff.size()] = header;
             }
             channelBReceived = true;
         }

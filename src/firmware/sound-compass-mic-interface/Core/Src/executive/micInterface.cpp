@@ -129,9 +129,65 @@ bool executive::micInterface::popMicDataMessage(messages::MicArrayRawDataMessage
 }
 
 
-void executive::micInterface::onSample(ADC_AD7768::ADCSimultaneousSample sample)
+void executive::micInterface::onSample(ADC_AD7768::ADCSimultaneousSample &sample)
 {
-    static messages::MicArrayRawDataMessage message;
+    _micDataQueueBuffer[_currentBufferIndex].header.messageLength = sizeof(messages::MicArrayRawDataMessage);
+    _micDataQueueBuffer[_currentBufferIndex].header.type = messages::ExternalMessageType::AUDIO_FRAME_RAW;
+
+    static uint16_t sampleIndex = 0;
+    static bool _localBufferOverrun = false;
+
+    if (sampleIndex == 0)
+    {
+        _micDataQueueBuffer[_currentBufferIndex].timeStamp = _bufferSequenceNumber;
+        _micDataQueueBuffer[_currentBufferIndex].sequenceNumber = _bufferSequenceNumber++;
+    }
+
+    for (auto i = 0; i < NUMBER_OF_MICS; i++)
+    {
+        _micDataQueueBuffer[_currentBufferIndex].micData[i][sampleIndex] = sample.samples[i];
+    }
+    sampleIndex = (sampleIndex + 1) % executive::messages::BUFFER_LENGTH_SAMPLES;
+
+    if (sampleIndex == 0)
+    {
+        // post a message to the local queue, which is size-bound
+        messages::MicArrayRawDataMessage *_micBuffMessage;
+        _micBuffMessage = &_micDataQueueBuffer[_currentBufferIndex];
+        _currentBufferIndex = (_currentBufferIndex + 1) % MIC_BUFFER_MESSAGE_QUEUE_SIZE;
+
+        if (!_rawMicDataMessageQueue->sendFromISR(&_micBuffMessage))
+        {
+            // _hardware->diag->error(TAG, "failed to put local mic data queue\n");
+            // failed to post to the local queue. This means the main exec loop is held up and not popping them quick enough
+
+            // Increment the buffer drop in the local metrics
+
+            if (!_localBufferOverrun)
+            {
+                _localBufferOverrun = true;
+                messages::Message m;
+                m.type = messages::InternalMessageType::AUDIO_FRAME_RAW_BUFFER_OVERRUN;
+
+                unsigned int _msgCount = 0;
+                _execMessageQueue->getNumberOfQueuedItems(&_msgCount);
+                // if this fails there's nothing we can do about it anyway..
+                _execMessageQueue->sendFromISR(&m);
+            }
+        }
+        else
+        {
+            _localBufferOverrun = false;
+            messages::Message m;
+            m.type = messages::InternalMessageType::AUDIO_FRAME_RAW;
+            m.data.micRawData = NULL;
+
+            if (!_execMessageQueue->sendFromISR(&m))
+            {
+                _hardware->diag->error(TAG, "failed to post main queue\n");
+            }
+        }
+    }
 
 }
 
@@ -176,7 +232,6 @@ void executive::micInterface::onError(ADC_AD7768::ADCError error)
 //        // failed to post to the local queue. This means the main exec loop is held up and not popping them quick enough
 //
 //        // Increment the buffer drop in the local metrics
-//
 //
 //        if (!_localBufferOverrun)
 //        {
