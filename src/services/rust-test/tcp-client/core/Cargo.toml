@@ -1,0 +1,12 @@
+[package]
+name = "core"
+version = "0.0.1"
+authors = ["Josh Berry <joshua.berry88@gmail.com>"]
+description = "The application core code"
+edition = "2021"
+
+[dependencies]
+utils = { path = "../utils" }
+
+rand = "0.8.5"
+log = "0.4.20"

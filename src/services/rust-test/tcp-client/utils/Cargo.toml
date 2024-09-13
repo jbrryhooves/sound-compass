@@ -1,0 +1,25 @@
+[package]
+name = "utils"
+version = "0.0.1"
+authors = ["Josh Berry <joshua.berry88@gmail.com>"]
+description = "Various utilities and functionalities"
+edition = "2021"
+
+[features]
+nightly = []
+termlog = []
+
+[dependencies]
+thiserror = "1.0.50"
+backtrace = "0.3.69"
+color-backtrace = "0.6.1"
+config = "0.13.3"
+lazy_static = "1.4.0"
+slog = "2.7.0"
+slog-term = "2.9.0"
+slog-scope = "4.4.0"
+slog-async = "2.8.0"
+slog-stdlog = "4.1.1"
+clap = "4.4.7"
+log = "0.4.20"
+serde = { version = "1.0.192", features = ["derive"] }

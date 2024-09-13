@@ -6,3 +6,10 @@ src/firmware/sound-compass-dev-kit/Debug
 src/firmware/sound-compass-dev-kit/Release
 calc/~$*.xlsx
 src/firmware/sound-compass-mic-interface/Debug
+
+**/target/
+Cargo.lock
+**/*.rs.bk
+.cache
+custom_config.toml
+.DS_Store
