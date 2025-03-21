@@ -2078,6 +2078,16 @@
 		)
 		(uuid "35d45bd8-993e-4e31-a6c5-ae99fe705d27")
 	)
+	(text "24.576MHz drop in:\n478-KC3225Z24.5760C1KX00CT-ND"
+		(exclude_from_sim no)
+		(at 171.958 164.084 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "375db693-f820-4625-93f5-17b6ab7dcd19")
+	)
 	(text "U1"
 		(exclude_from_sim no)
 		(at 184.404 253.492 0)

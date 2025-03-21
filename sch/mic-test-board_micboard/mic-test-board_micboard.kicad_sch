@@ -2848,6 +2848,17 @@
 		)
 		(uuid "0e192045-d39f-48a4-acdb-01f484a95d98")
 	)
+	(text "THS4531 Opamp has differential input limit of 1V! Where we need 1.12V (0.79Vrms) \nto measure up to the 123dB SPL overlaod point, which is defined as the point of \n10% distortion. \n\nA brief survey of fully differential opamps turned this up, \nbut the search should be widened:\nhttps://www.analog.com/en/products/ltc1992.html"
+		(exclude_from_sim no)
+		(at 173.736 73.152 0)
+		(effects
+			(font
+				(size 2.032 2.032)
+			)
+			(justify left)
+		)
+		(uuid "0e7eaaa7-a1f0-404e-8fb6-c3883a81a11e")
+	)
 	(text "THS4531AIRUNR: \n differential input resistance: 200kOhm"
 		(exclude_from_sim no)
 		(at 128.778 180.086 0)
@@ -2858,6 +2869,17 @@
 			(justify left bottom)
 		)
 		(uuid "480ec7e7-9a8f-4b2e-ba86-22ddc0200a71")
+	)
+	(text "0.45 to 0.845V"
+		(exclude_from_sim no)
+		(at 72.898 189.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4ec3040b-3be9-4d00-b034-44942b5e45e1")
 	)
 	(text "Notes: for audio capacitor selection:\n - If choosing ceramic type, make sure to use class 1 types (NP0, P100, N33, N75, etc)"
 		(exclude_from_sim no)
@@ -2880,6 +2902,17 @@
 			(justify left bottom)
 		)
 		(uuid "5b75969b-da80-4bbc-9a9b-c0df564c9810")
+	)
+	(text "1.2 to 2V\n"
+		(exclude_from_sim no)
+		(at 290.322 189.992 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "70386764-029a-4f00-9fd6-c904045887fd")
 	)
 	(text "Signal outputat at max SPL (123dB):\n	Differential: ~4.04Vmax\n	Out+/- range : 0.47V - 4.52V\n\nADC reference: 4.096V"
 		(exclude_from_sim no)

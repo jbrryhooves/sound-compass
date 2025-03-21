@@ -5229,7 +5229,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lumex.com/spec/SML-LX0805SRC-TR.pdf"
 			(at 336.55 218.44 90)
 			(effects
 				(font
@@ -5275,6 +5275,15 @@
 			)
 		)
 		(property "Supplier Number" "67-2191-1-ND"
+			(at 336.55 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Fit" ""
 			(at 336.55 218.44 0)
 			(effects
 				(font
