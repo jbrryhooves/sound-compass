@@ -395,6 +395,7 @@ float convertADCSample(uint32_t rawSample, executive::ADC_AD7768::ADCHeaderByte 
     return sample;
 }
 
+// called in ISR context by the SAI DMA interrupt
 extern "C" void _SAIBytesReceivedCallback_wrapper(uint8_t saiChannel)
 {
     if (_instance != nullptr)

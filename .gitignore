@@ -15,3 +15,5 @@ custom_config.toml
 .DS_Store
 **/out
 **/__pycache__
+sim/*.raw
+sim/*.log

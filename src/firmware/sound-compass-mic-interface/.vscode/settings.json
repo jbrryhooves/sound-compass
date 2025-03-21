@@ -1,0 +1,10 @@
+{
+    "C_Cpp.default.includePath": [
+
+    ],
+    "files.associations": {
+        "stm32h7xx_hal.h": "c",
+        "array": "cpp",
+        "type_traits": "cpp"
+    }
+}

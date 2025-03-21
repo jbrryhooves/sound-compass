@@ -25,6 +25,7 @@ core = { path = "core" }
 human-panic = "1.2.2"
 better-panic = "0.3.0"
 log = "0.4.20"
+crossbeam = { version = "0.8.4", features = ["crossbeam-channel", "crossbeam-queue"] }
 
 [dev-dependencies]
 assert_cmd = "2.0.12"

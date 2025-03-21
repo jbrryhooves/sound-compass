@@ -5,14 +5,12 @@ use std::{
     thread, time,
 };
 
-use rand::seq::index;
+
 use utils::error::Result;
+use crate::stages::messages::{AudioFrame, MessageTypes, RawMessageTypes};
 
-use super::array_interface::AudioFrame;
-
-use super::array_interface;
-
-const MAGIC_BYTES: &[u8] = &[0xBE, 0xAB, 0xEA, 0xBE, 0xAB, 0xEA, 0xBE, 0xAB];
+// const MAGIC_BYTES: &[u8] = &[0xBE, 0xAB, 0xEA, 0xBE, 0xAB, 0xEA, 0xBE, 0xAB];
+const MAGIC_BYTES: &[u8] = &[0xAB, 0xBE, 0xEA, 0xAB, 0xBE, 0xEA, 0xAB, 0xBE];
 
 enum MessageParsingState {
     FindingHeader,
@@ -20,11 +18,7 @@ enum MessageParsingState {
     ParsingMessage,
 }
 
-#[derive(Debug, PartialEq, Copy, Clone)]
-enum RawMessageTypes {
-    AudioFrame = 0,
-    RuntimeMetrics = 1,
-}
+
 
 impl TryFrom<u8> for RawMessageTypes {
     type Error = ();
@@ -62,7 +56,7 @@ impl MessageParser {
         }
     }
 
-    pub fn parse_bytes(&mut self, bytes: &Vec<u8>) -> Option<array_interface::MessageTypes> {
+    pub fn parse_bytes(&mut self, bytes: &Vec<u8>) -> Option<MessageTypes> {
         match self._state {
             MessageParsingState::FindingHeader => {
                 match find_magic_packet_index(bytes) {
@@ -83,21 +77,25 @@ impl MessageParser {
             MessageParsingState::ReceivingFullMessage => {
                 self.raw_data.append(&mut bytes.clone());
 
-                return None;
             }
             MessageParsingState::ParsingMessage => todo!(),
-        }
+        };
 
         // println!("parsing {} bytes..", self.raw_data.len());
-        return match parse_message(&mut self.raw_data) {
+        match parse_message(&mut self.raw_data) {
             Ok((message, message_length)) => {
-                self.raw_data = bytes[usize::try_from(message_length).unwrap()..].to_vec();
+                
+                // remove the parsed bytes from the buffer if required
+                if(usize::try_from(message_length-1).unwrap() < self.raw_data.len())
+                {
+                    self.raw_data = self.raw_data[usize::try_from(message_length - 1).unwrap()..].to_vec();
+                }
                 self._state = MessageParsingState::FindingHeader;
                 
                 // println!("message_length parsed = {}", message_length);
                 // println!("self.raw_data after parse = {}", self.raw_data.len());
                 
-                Some(message)
+                return Some(message)
             },
             Err(_e) => {
                 // we can't keep appending bytes forever, so at some point we need to reset the machine
@@ -145,7 +143,7 @@ fn find_magic_packet_index(bytes: &Vec<u8>) -> Option<usize> {
 
 // Parse a vector of bytes and return a message.
 // This will return an error if the byte vector does not start with the magic header,
-fn parse_message(bytes: &mut Vec<u8>) -> Result<(array_interface::MessageTypes, u32)> {
+fn parse_message(bytes: &mut Vec<u8>) -> Result<(MessageTypes, u32)> {
     let header = match parse_message_header(bytes) {
         Ok(header) => header,
         Err(e) => {
@@ -164,7 +162,7 @@ fn parse_message(bytes: &mut Vec<u8>) -> Result<(array_interface::MessageTypes, 
             match parse_audio_frame(bytes){
                 Ok(frame) => {
                     
-                    return Ok((array_interface::MessageTypes::AudioFrame(frame), header.message_length));
+                    return Ok((MessageTypes::AudioFrame(frame), header.message_length));
                 },
                 Err(e) => return Err(e),
             };
@@ -248,7 +246,7 @@ fn parse_audio_frame(bytes: &Vec<u8>) -> Result<AudioFrame> {
         mic_data.push(mic_buff);
     }
 
-    let m = array_interface::AudioFrame {
+    let m = AudioFrame {
         time_stamp,
         sequence_number,
         mic_data,
@@ -392,19 +390,19 @@ mod tests {
         }
         
         // println!("length = {}", bytes.len());
-        let res: Option<array_interface::MessageTypes> = parser.parse_bytes(&bytes);
+        let res: Option<MessageTypes> = parser.parse_bytes(&bytes);
         
         assert!(res.is_some());
         
         // println!("length after parse = {}", bytes.len());
-        let res2: Option<array_interface::MessageTypes> = parser.parse_bytes(&bytes);
+        let res2: Option<MessageTypes> = parser.parse_bytes(&bytes);
         
         assert!(res2.is_some());
     
         match res {
             Some(message) => {
                 match message {
-                    array_interface::MessageTypes::AudioFrame(frame) => {
+                    MessageTypes::AudioFrame(frame) => {
                         assert_eq!(frame.buffer_length_samples, 480);
                         assert_eq!(frame.mic_data[0][0], 0.0);
                         assert_eq!(frame.mic_data[0][1], 1.0);
@@ -412,7 +410,7 @@ mod tests {
                         assert_eq!(frame.mic_data[1][1], 2.0);
                         assert_eq!(frame.mic_data[1][2], 1.0+2.0);
                     },
-                    array_interface::MessageTypes::RuntimeMetrics(_) => todo!(),
+                    MessageTypes::RuntimeMetrics(_) => todo!(),
                 }
             },
             None => todo!(),

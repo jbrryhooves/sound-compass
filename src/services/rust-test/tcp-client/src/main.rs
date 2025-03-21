@@ -1,3 +1,5 @@
+use core::traits::producer::IProducerStage;
+use core::traits::impmc_queue_bounded::{self, IMPMCQueueBounded};
 use std::f32::consts::E;
 use std::sync::mpsc::{Receiver, Sender};
 use std::time;
@@ -14,6 +16,7 @@ extern crate better_panic;
 use utils::app_config::AppConfig;
 use utils::error::Result;
 
+use core::stages::{self, MessageTypes};
 
 /// The main entry point of the application.
 fn main() -> Result<()> {
@@ -37,10 +40,47 @@ fn main() -> Result<()> {
 
     // Initialize Configuration
     let config_contents = include_str!("resources/default_config.toml");
-    let app_config = match AppConfig::init(Some(config_contents)) {
-        Err(e) => println!("Failed to parse config: {e} "),
+    match AppConfig::init(Some(config_contents)) {
+        Err(e) => panic!("Failed to parse config: {e} "),
         Ok(conf) => conf,
     };
+    
+    let app_config = AppConfig::fetch().unwrap();
+
+
+
+    
+    
+    
+    
+    let ret = stages::AudioFrameProducer::new("mic_array", &app_config);
+    
+    let mut audio_producer = match ret {
+        Ok(producer) => producer,
+        Err(_) => todo!(),
+    };
+
+    let mut frame_count = 0;
+    audio_producer.start();
+    loop {
+        match audio_producer.pop_message(){
+            Some(message) => {
+                match message {
+                    MessageTypes::AudioFrame(frame) => {
+                        frame_count += 1;
+                        if frame_count % 100 == 0 {
+                            println!("frame: {}", frame.sequence_number);
+
+                        }
+                    },
+                    MessageTypes::RuntimeMetrics(_) => todo!(),
+                }
+            },
+            None => {
+                
+            },
+        }
+    }
 
     // Match Commands
     // cli::cli_match()?;

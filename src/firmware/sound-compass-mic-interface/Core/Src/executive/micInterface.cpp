@@ -140,7 +140,9 @@ void executive::micInterface::onSample(ADC_AD7768::ADCSimultaneousSample &sample
     if (sampleIndex == 0)
     {
         _micDataQueueBuffer[_currentBufferIndex].timeStamp = _bufferSequenceNumber;
-        _micDataQueueBuffer[_currentBufferIndex].sequenceNumber = _bufferSequenceNumber++;
+        _micDataQueueBuffer[_currentBufferIndex].sequenceNumber = _bufferSequenceNumber;
+
+        _bufferSequenceNumber++;
     }
 
     for (auto i = 0; i < NUMBER_OF_MICS; i++)
